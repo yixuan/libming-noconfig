@@ -193,7 +193,7 @@ SWFDisplayList_add(SWFDisplayList list, SWFBlockList blocklist, SWFCharacter cha
 	
 	item->prev = list->tail;
 	list->tail = item;
-	// back pointer for endmask
+	/* back pointer for endmask */
 	item->list = list;
 	return item;
 }
@@ -303,8 +303,8 @@ SWFDisplayItem_moveTo(SWFDisplayItem item,  double x, double y)
 void
 SWFDisplayItem_getPosition(SWFDisplayItem item, double *x, double *y)
 {
-	// returns the current position of this display item into the provided
-	// pointers, respects NULL values
+	/* returns the current position of this display item into the provided
+	   pointers, respects NULL values */
 
 	checkBlock(item);
 	SWFPosition_getXY(item->position, x, y);
@@ -332,8 +332,8 @@ SWFDisplayItem_rotateTo(SWFDisplayItem item, double degrees)
 void
 SWFDisplayItem_getRotation(SWFDisplayItem item, double *degrees)
 {
-	// returns the current rotation of this display item into the given
-	// pointer, respects NULL value
+	/* returns the current rotation of this display item into the given
+	   pointer, respects NULL value */
 
 	checkBlock(item);
 
@@ -363,8 +363,8 @@ SWFDisplayItem_scaleTo(SWFDisplayItem item, double xScale, double yScale)
 void
 SWFDisplayItem_getScale(SWFDisplayItem item, double *xScale, double *yScale)
 {
-	// returns the current x- and y-scale of this display item into the given
-	// pointers, respects NULL values
+	/* returns the current x- and y-scale of this display item into the given
+	   pointers, respects NULL values */
 
 	checkBlock(item);
 	SWFPosition_getXYScale(item->position, xScale, yScale);
@@ -410,8 +410,8 @@ SWFDisplayItem_skewYTo(SWFDisplayItem item, double y)
 void
 SWFDisplayItem_getSkew(SWFDisplayItem item, double *xSkew, double *ySkew)
 {
-	// returns the current x- and y-skew of this display item into the given
-	// pointers, respects NULL values
+	/* returns the current x- and y-skew of this display item into the given
+	   pointers, respects NULL values */
 
 	checkBlock(item);
 	SWFPosition_getXYSkew(item->position, xSkew, ySkew);
@@ -609,7 +609,7 @@ SWFDisplayList_setSoundStream(SWFDisplayList list, SWFSoundStream stream)
 void
 SWFDisplayList_rewindSoundStream(SWFDisplayList list)
 {
-	// XXX - this is a hack, should be replaced..
+	/* XXX - this is a hack, should be replaced.. */
 
 	if ( list->soundStream )
 		SWFSoundStream_rewind(list->soundStream);
@@ -633,8 +633,8 @@ SWFDisplayList_writeBlocks(SWFDisplayList list, SWFBlockList blocklist)
 	{
 		character = item->character;
 
-		//		if ( character != NULL )
-		//			SWFBlockList_resolveCharacterDependencies(blocklist, character);
+		/*		if ( character != NULL )
+					SWFBlockList_resolveCharacterDependencies(blocklist, character); */
 
 		if ( item->flags & ITEM_REMOVED )
 		{
