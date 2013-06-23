@@ -84,7 +84,7 @@
 
 #define YYERROR_VERBOSE 1
 #define YYPARSE_PARAM buffer
-//#define DEBUG 1
+/* #define DEBUG 1 */
 
 #ifdef _MSC_VER 
 #define strcasecmp stricmp 
@@ -4857,7 +4857,7 @@ yyreduce:
 		  bufferWriteOp(b2, SWFACTION_EQUALS2);
 		  bufferWriteOp(b2, SWFACTION_IF);
 		  bufferWriteS16(b2, 2);
-		  // add size later
+		  /* add size later */
 
 		  b3 = newBuffer();
 		  bufferWriteString(b3, (yyvsp[(4) - (8)].str), strlen((yyvsp[(4) - (8)].str))+1);
@@ -4966,7 +4966,7 @@ yyreduce:
 #endif
 		  (yyval.action) = (yyvsp[(3) - (4)].action);
 		  bufferWriteOp((yyval.action), SWFACTION_PUSH);
-		  bufferWriteS16((yyval.action), 2); bufferWriteS16((yyval.action), 0); // two 0 bytes	
+		  bufferWriteS16((yyval.action), 2); bufferWriteS16((yyval.action), 0); /* two 0 bytes */
 		  bufferWriteOp((yyval.action), SWFACTION_GETURL2);
 		  bufferWriteS16((yyval.action), 1);
 		  bufferWriteU8((yyval.action), 0); }
@@ -5817,7 +5817,7 @@ yyreduce:
 
     { if((yyvsp[(2) - (2)].lval).obj)
 		  {
-		    if((yyvsp[(2) - (2)].lval).ident)	// expr . identifier
+		    if((yyvsp[(2) - (2)].lval).ident)	/* expr . identifier */
 		    {
 		      (yyval.action) = (yyvsp[(2) - (2)].lval).obj;
 		      bufferWriteOp((yyval.action), SWFACTION_PUSHDUP);	      /* a, a */
@@ -5830,7 +5830,7 @@ yyreduce:
 		      bufferWriteOp((yyval.action), SWFACTION_SETMEMBER); /* a.i = a.i+1 */
 		      bufferWriteRegister((yyval.action), 0);	      /* a.i+1 */
 		    }
-		    else	// expr [ expr ]
+		    else	/* expr [ expr ] */
 		    {
 		      (yyval.action) = (yyvsp[(2) - (2)].lval).memexpr;			      /* i */
 		      bufferConcat((yyval.action), (yyvsp[(2) - (2)].lval).obj);		      /* i, a */
@@ -5846,7 +5846,7 @@ yyreduce:
 		      bufferWriteRegister((yyval.action), 0);	      /* a[i]+1 */
 		    }
 		  }
-		  else	// identifier
+		  else	/* identifier */
 		  {
 		    (yyval.action) = newBuffer();
 		    bufferWriteBuffer((yyval.action), (yyvsp[(2) - (2)].lval).ident);

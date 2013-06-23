@@ -34,7 +34,7 @@
 /* Define this to have some debugging output when outputting DEFINEFUNCTION2 */
 #undef MING_DEBUG_FUNCTION2
 
-// XXX: set by swf[4|5]Init()
+/* XXX: set by swf[4|5]Init() */
 int swfVersion = 0;
 
 static int nConstants = {0}, maxConstants = {0}, sizeConstants = {0};
@@ -717,7 +717,7 @@ void bufferResolveJumpsFull(Buffer out, byte *break_ptr, byte *continue_ptr)
 	}
 }
 
-// handle SWITCH statement
+/* handle SWITCH statement */
 
 void bufferResolveSwitch(Buffer buffer, struct switchcases *slp)
 {	struct switchcase *scp;
@@ -798,7 +798,7 @@ int bufferWriteProperty(Buffer out, char *string)
 	return bufferWriteFloat(out, property);
 }
 
-// XXX: ???
+/* XXX: ??? */
 int bufferWriteWTHITProperty(Buffer out)
 {
 	bufferWriteU8(out, SWFACTION_PUSH);
@@ -830,10 +830,10 @@ static int bufferWriteDefineFunction2(Buffer out, char *func_name,
 	size_t taglen;	
 	strcpy(buf, "");
 		
-	// REGISTERPARAM records
+	/* REGISTERPARAM records */
 	c = newBuffer();
-	// TODO: rewrite this function, all these calls to strncat
-	//       seem overkill to me
+	/* TODO: rewrite this function, all these calls to strncat
+	         seem overkill to me */
 	for(i = 0; i < bufferLength(args); i++)
 	{
 		if(p[i] == '\0')
@@ -897,7 +897,7 @@ static int bufferWriteDefineFunction2(Buffer out, char *func_name,
 	bufferWriteS16(out, num_args); /* number of params */
  	bufferWriteU8(out, num_regs); /* register count */
  	bufferWriteS16(out, flags);    /* flags */
- 	//bufferWriteS16(out, 0);    /* flags */
+ 	/* bufferWriteS16(out, 0); */    /* flags */
  	bufferConcat(out, c);
 	bufferWriteS16(out, bufferLength(code)); /* code size */
 	bufferConcat(out, code);
@@ -992,7 +992,7 @@ ASFunction ASClass_getConstructor(ASClass clazz)
 		_this->element.function = NULL;
 		return func;
 	}
-	return newASFunction(); // default empty constructor
+	return newASFunction(); /* default empty constructor */
 }
 
 static int bufferWriteClassConstructor(Buffer out, ASClass clazz)
@@ -1075,7 +1075,7 @@ static int bufferWriteClassVariable(Buffer out, ASVariable var)
 		len += bufferWriteOp(out, SWFACTION_SETMEMBER); 
 	}
 	free(var->name);
-	free(var); // aka destroyASVariable
+	free(var); /* aka destroyASVariable */
 	return len;
 }
 

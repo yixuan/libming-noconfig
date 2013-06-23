@@ -545,15 +545,15 @@ int printActionRecord(Buffer f)
       println("enum2");
       break;
     case SWFACTION_TRY:
-    { //int flag = readUInt8(f);
+    { /*int flag = readUInt8(f); */
 	int Try, Catch, finally;
 	char *name;
     	  readUInt8(f);
 	  Try = readUInt16(f);
 	  Catch = readUInt16(f);
 	  finally = readUInt16(f);
-      name = readString(f);  // if ((flag&4) == 0)
-	// catch var or reg here
+      name = readString(f);  /* if ((flag&4) == 0) */
+	/* catch var or reg here */
       println("try");
       ++gIndent;
 	  if(Try)
@@ -593,7 +593,7 @@ int printActionRecord(Buffer f)
 	default:
 		println("Unknown Action: %02X", type);
 		dumpBytes(f, length);
-  } // of switch
+  } /* of switch */
 
   return 1;
 }

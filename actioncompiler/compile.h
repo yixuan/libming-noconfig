@@ -17,7 +17,7 @@ extern int swfVersion;
 typedef struct _buffer *Buffer;
 
 /* shut up bison.simple */
-void yyerror(char *msg);
+void yyerror(const char *msg);
 int yylex();
 
 #ifndef max
@@ -106,7 +106,7 @@ struct _buffer
   int buffersize;
   int free;
   byte *pushloc;
-  int hasObject;  // simplify grammar (e.g. DELETE rule);
+  int hasObject;  /* simplify grammar (e.g. DELETE rule); */
 };
 
 #define BUFFER_SIZE sizeof(struct _buffer)

@@ -1157,8 +1157,8 @@ static void unescape(char *buf)
 {
   char *r, *w;
 
-  r=buf; // read
-  w=buf; // write
+  r=buf; /* read */
+  w=buf; /* write */
   while (*r)
   {
 	if ( *r == '\\' )
@@ -1218,7 +1218,7 @@ int read_int (const char *text, YYSTYPE *num)
 
 
 
- // forward declaration needed by the following function
+/* forward declaration needed by the following function */
 #ifndef YY_PROTO
 #ifdef YY_USE_PROTOS
 #define YY_PROTO(proto) proto
@@ -2438,14 +2438,14 @@ YY_RULE_SETUP
 { count();	
 			  if(yy_new_state)
 			  {
-				// if yy_new_state state was already pushed
-				// and will be poped by closing '}'
+				/* if yy_new_state state was already pushed
+				   and will be poped by closing '}' */
 				yy_new_state = 0;
 			  }
 			  else
 			  {
-				// push current state on top of stack
-				// preserves state when closing '}' pops stack
+				/* push current state on top of stack
+				   preserves state when closing '}' pops stack */
 			  	yy_push_state(YY_START); 
 			  }
 			  return '{'; 
@@ -3573,13 +3573,13 @@ static char *LineText(void)
 
 static void comment()
 {
-   // Handle block comments
+   /* Handle block comments */
 
    int c, c1;
 
 loop:
-   // We have the start of a comment so look skip everything up to the
-   // end of the comment character
+   /* We have the start of a comment so look skip everything up to the
+      end of the comment character */
    while ((c = getinput()) != '*' && c != EOF)
    {
       if(column < 1023)
@@ -3587,40 +3587,40 @@ loop:
 
       ++column;
 
-      // keep the line number in synch
+      /* keep the line number in synch */
       if (c == '\n')
       {
-         // start the output (matches the algorithim in the lexx above)
+         /* start the output (matches the algorithim in the lexx above) */
 	 countline();
       }
 
       if (swf5debug) putchar(c);
    }
 
-   // is this the end of comment character
+   /* is this the end of comment character */
    if ((c1 = getinput()) != '/' && c != EOF)
    {
-      // false start as this was no end of comment
+      /* false start as this was no end of comment */
       do_unput5(c1);
       goto loop;
    }
 
-   // write out the start of the end of comment
+   /* write out the start of the end of comment */
    if (c != EOF)
       if (swf5debug) putchar(c);
 
-   // write out the end of the end of comment
+   /* write out the end of the end of comment */
    if (c1 != EOF) 
       if (swf5debug) putchar(c1);
 }
 
 static void comment1()
 {
-   // Handle comment of type 1 (ie '//')
+   /* Handle comment of type 1 (ie '/*') */
 
    int c;
 
-   // this is a line comment
+   /* this is a line comment */
    while ((c = getinput()) != '\n' && c != EOF)
    {
       if (swf5debug) putchar(c);
@@ -3631,7 +3631,7 @@ static void comment1()
       ++column;
    };
 
-   // keep the line number in synch
+   /* keep the line number in synch */
    if (c == '\n')
    {
       if (swf5debug) putchar(c);
@@ -3679,15 +3679,15 @@ static void printprog()
 
 static void warning(char *msg)
 {
-   // print a warning message
+   /* print a warning message */
    printprog();
    SWF_warn("\n%*s", ColumnNumber(), "^");
    SWF_warn("\nLine %4.4d:  Reason: '%s' \n", LineNumber(), msg);
 }
 
-void swf5error(char *msg)
+void swf5error(const char *msg)
 {
-  // report a error
+  /* report a error */
   if(strlen(swf5text))
   {
     SWF_error("\n%s\n%*s\nLine %i:  Reason: '%s'\n",

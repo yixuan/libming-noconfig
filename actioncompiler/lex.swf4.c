@@ -1015,8 +1015,8 @@ static void unescape(char *buf)
 {
   char *r, *w;
 
-  r=buf; // read
-  w=buf; // write
+  r=buf; /* read */
+  w=buf; /* write */
   while (*r)
   {
 	if ( *r == '\\' )
@@ -1058,7 +1058,7 @@ void swf4ParseInit(const char *script, int debug, int version)
 }
 
 
- // forward declaration needed by the following function
+/* forward declaration needed by the following function */
 #ifndef YY_PROTO
 #ifdef YY_USE_PROTOS
 #define YY_PROTO(proto) proto
@@ -2950,13 +2950,13 @@ static char *LineText(void)
 
 static void comment(void)
 {
-   // Handle block comments
+   /* Handle block comments */
 
    int c, c1;
 
 loop:
-   // We have the start of a comment so look skip everything up to the
-   // end of the comment character
+   /* We have the start of a comment so look skip everything up to the
+      end of the comment character */
    while ((c = getinput()) != '*' && c != EOF)
    {
       if(column < 1023)
@@ -2964,40 +2964,40 @@ loop:
 
       ++column;
 
-      // keep the line number in synch
+      /* keep the line number in synch */
       if (c == '\n')
       {
-         // start the output (matches the algorithim in the lexx above)
+         /* start the output (matches the algorithim in the lexx above) */
 	 countline();
       }
 
       if (swf4debug) putchar(c);
    }
 
-   // is this the end of comment character
+   /* is this the end of comment character */
    if ((c1 = getinput()) != '/' && c != EOF)
    {
-      // false start as this was no end of comment
+      /* false start as this was no end of comment */
       do_unput4(c1);
       goto loop;
    }
 
-   // write out the start of the end of comment
+   /* write out the start of the end of comment */
    if (c != EOF)
       if (swf4debug) putchar(c);
 
-   // write out the end of the end of comment
+   /* write out the end of the end of comment */
    if (c1 != EOF) 
       if (swf4debug) putchar(c1);
 }
 
 static void comment1(void)
 {
-   // Handle comment of type 1 (ie '//')
+   /* Handle comment of type 1 (ie '//') */
 
    int c;
 
-   // this is a line comment
+   /* this is a line comment */
    while ((c = getinput()) != '\n' && c != EOF)
    {
       if (swf4debug) putchar(c);
@@ -3008,7 +3008,7 @@ static void comment1(void)
       ++column;
    };
 
-   // keep the line number in synch
+   /* keep the line number in synch */
    if (c == '\n')
    {
       if (swf4debug) putchar(c);
@@ -3021,7 +3021,7 @@ static void count(void)
 {
    int n;
 
-   // Count the characters to maintain the current column position
+   /* Count the characters to maintain the current column position */
    if (swf4text[0] == '\n')
    {
       if (swf4debug) printf("\n");
@@ -3036,8 +3036,8 @@ static void count(void)
 	  msgline[column] = swf4text[n];
       }
 
-      //-- keep writing the stuff to standard output
-      //column += swf4leng;
+      /* -- keep writing the stuff to standard output
+         column += swf4leng; */
    }
 }
 
@@ -3054,7 +3054,7 @@ static void printprog()
 
 static void warning(char *msg)
 {
-   // print a warning message
+   /* print a warning message */
    printprog();
    SWF_warn("\n%*s", ColumnNumber(), "^");
    SWF_warn("\nLine %4.4d:  Reason: '%s' \n", LineNumber(), msg);
@@ -3062,7 +3062,7 @@ static void warning(char *msg)
 
 void swf4error(char *msg)
 {
-  // report a error
+  /* report a error */
   if(strlen(swf4text))
   {
     SWF_error("\n%s\n%*s\nLine %i:  Reason: '%s'\n",
