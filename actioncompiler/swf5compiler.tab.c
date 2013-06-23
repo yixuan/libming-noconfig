@@ -73,15 +73,13 @@
 
 /* Copy the first part of user declarations.  */
 
-/* Line 268 of yacc.c  */
-#line 5 "./swf5compiler.y"
 
 
 #include <time.h>
 #include <string.h>
 #include <stdlib.h>
 #include "compile.h"
-#include "actiontypes.h"
+#include <actiontypes.h>
 #include "assembler.h"
 
 #define YYERROR_VERBOSE 1
@@ -98,8 +96,6 @@ static int classContext = 0;
 
 
 
-/* Line 268 of yacc.c  */
-#line 103 "swf5compiler.tab.c"
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
@@ -496,10 +492,6 @@ static int classContext = 0;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
 {
-
-/* Line 293 of yacc.c  */
-#line 29 "./swf5compiler.y"
-
   Buffer action;
   char *str;
   SWFGetUrl2Method getURLMethod;
@@ -517,11 +509,6 @@ typedef union YYSTYPE
   {
 	Buffer obj, ident, memexpr;
   } lval;
-
-
-
-/* Line 293 of yacc.c  */
-#line 525 "swf5compiler.tab.c"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
@@ -532,8 +519,6 @@ typedef union YYSTYPE
 /* Copy the second part of user declarations.  */
 
 
-/* Line 343 of yacc.c  */
-#line 537 "swf5compiler.tab.c"
 
 #ifdef short
 # undef short
@@ -3727,8 +3712,6 @@ yyreduce:
     {
         case 2:
 
-/* Line 1806 of yacc.c  */
-#line 184 "./swf5compiler.y"
     { bf = newBuffer();
 		bc = newBuffer();
 	}
@@ -3736,8 +3719,6 @@ yyreduce:
 
   case 3:
 
-/* Line 1806 of yacc.c  */
-#line 187 "./swf5compiler.y"
     { Buffer b = newBuffer();
 		  bufferWriteConstants(b);
 		  bufferConcat(b, bf);
@@ -3747,22 +3728,16 @@ yyreduce:
 
   case 4:
 
-/* Line 1806 of yacc.c  */
-#line 192 "./swf5compiler.y"
     { Buffer b = newBuffer(); *((Buffer *)buffer) = b; }
     break;
 
   case 7:
 
-/* Line 1806 of yacc.c  */
-#line 202 "./swf5compiler.y"
     { bufferConcat(bc, (yyvsp[(1) - (1)].action)); }
     break;
 
   case 8:
 
-/* Line 1806 of yacc.c  */
-#line 204 "./swf5compiler.y"
     { 
 		  if(swfVersion > 6)
 			bufferWriteFunction(bf, (yyvsp[(1) - (1)].function), 2); 
@@ -3773,65 +3748,47 @@ yyreduce:
 
   case 9:
 
-/* Line 1806 of yacc.c  */
-#line 212 "./swf5compiler.y"
     { bufferWriteClass(bf, (yyvsp[(1) - (1)].clazz)); }
     break;
 
   case 10:
 
-/* Line 1806 of yacc.c  */
-#line 217 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(1) - (1)].action); }
     break;
 
   case 11:
 
-/* Line 1806 of yacc.c  */
-#line 220 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(1) - (2)].action);
 		  bufferConcat((yyval.action), (yyvsp[(2) - (2)].action)); }
     break;
 
   case 12:
 
-/* Line 1806 of yacc.c  */
-#line 225 "./swf5compiler.y"
     { }
     break;
 
   case 13:
 
-/* Line 1806 of yacc.c  */
-#line 229 "./swf5compiler.y"
     { (yyval.action) = NULL; }
     break;
 
   case 14:
 
-/* Line 1806 of yacc.c  */
-#line 230 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(2) - (3)].action); }
     break;
 
   case 15:
 
-/* Line 1806 of yacc.c  */
-#line 231 "./swf5compiler.y"
     { (yyval.action) = NULL; }
     break;
 
   case 16:
 
-/* Line 1806 of yacc.c  */
-#line 232 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(1) - (2)].action); }
     break;
 
   case 27:
 
-/* Line 1806 of yacc.c  */
-#line 248 "./swf5compiler.y"
     { 	
 		(yyval.classMember) = (yyvsp[(1) - (2)].classMember);
 		ASClassMember_append((yyvsp[(1) - (2)].classMember), (yyvsp[(2) - (2)].classMember));			
@@ -3840,22 +3797,16 @@ yyreduce:
 
   case 28:
 
-/* Line 1806 of yacc.c  */
-#line 255 "./swf5compiler.y"
     { (yyval.classMember) = newASClassMember_function((yyvsp[(2) - (2)].function)); }
     break;
 
   case 29:
 
-/* Line 1806 of yacc.c  */
-#line 256 "./swf5compiler.y"
     { (yyval.classMember) = (yyvsp[(3) - (4)].classMember); }
     break;
 
   case 30:
 
-/* Line 1806 of yacc.c  */
-#line 261 "./swf5compiler.y"
     {
 		if(classContext)
 		{
@@ -3868,22 +3819,16 @@ yyreduce:
 
   case 31:
 
-/* Line 1806 of yacc.c  */
-#line 272 "./swf5compiler.y"
     {(yyval.classMember) = NULL; }
     break;
 
   case 32:
 
-/* Line 1806 of yacc.c  */
-#line 273 "./swf5compiler.y"
     { (yyval.classMember) = (yyvsp[(2) - (3)].classMember); }
     break;
 
   case 33:
 
-/* Line 1806 of yacc.c  */
-#line 278 "./swf5compiler.y"
     { 
 		(yyval.clazz) = newASClass((yyvsp[(2) - (3)].str), NULL, (yyvsp[(3) - (3)].classMember));
 		classContext = 0;
@@ -3892,8 +3837,6 @@ yyreduce:
 
   case 34:
 
-/* Line 1806 of yacc.c  */
-#line 283 "./swf5compiler.y"
     { 
 		(yyval.clazz) = newASClass((yyvsp[(2) - (5)].str), (yyvsp[(4) - (5)].str), (yyvsp[(5) - (5)].classMember));
 		classContext = 0;
@@ -3902,8 +3845,6 @@ yyreduce:
 
   case 41:
 
-/* Line 1806 of yacc.c  */
-#line 303 "./swf5compiler.y"
     { (yyval.classMember) = (yyvsp[(1) - (3)].classMember);
 		  ASClassMember_append((yyvsp[(1) - (3)].classMember), (yyvsp[(3) - (3)].classMember)); 
 		}
@@ -3911,8 +3852,6 @@ yyreduce:
 
   case 42:
 
-/* Line 1806 of yacc.c  */
-#line 310 "./swf5compiler.y"
     { 
 		  ASVariable v = newASVariable((yyvsp[(1) - (4)].str), (yyvsp[(4) - (4)].action)); 
 		  (yyval.classMember) = newASClassMember_variable(v);
@@ -3921,8 +3860,6 @@ yyreduce:
 
   case 43:
 
-/* Line 1806 of yacc.c  */
-#line 315 "./swf5compiler.y"
     { 
 			ASVariable v = newASVariable((yyvsp[(1) - (2)].str), NULL);
 			(yyval.classMember) = newASClassMember_variable(v);
@@ -3931,15 +3868,11 @@ yyreduce:
 
   case 44:
 
-/* Line 1806 of yacc.c  */
-#line 322 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(2) - (3)].action); bufferWriteOp((yyval.action), SWFACTION_THROW); }
     break;
 
   case 45:
 
-/* Line 1806 of yacc.c  */
-#line 326 "./swf5compiler.y"
     { 	(yyval.action) = newBuffer();
 									bufferWriteOp((yyval.action), SWFACTION_TRY);
 									bufferWriteS16((yyval.action), 8);                /* TRY tag length */
@@ -3954,8 +3887,6 @@ yyreduce:
 
   case 46:
 
-/* Line 1806 of yacc.c  */
-#line 336 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 									bufferWriteOp((yyval.action), SWFACTION_TRY);
 									bufferWriteS16((yyval.action), 8+strlen((yyvsp[(5) - (7)].str)));       /* TRY tag length */
@@ -3974,8 +3905,6 @@ yyreduce:
 
   case 47:
 
-/* Line 1806 of yacc.c  */
-#line 350 "./swf5compiler.y"
     {	(yyval.action) = newBuffer();
 									bufferWriteOp((yyval.action), SWFACTION_TRY);
 									bufferWriteS16((yyval.action), 8);                /* TRY tag length */
@@ -3991,8 +3920,6 @@ yyreduce:
 
   case 48:
 
-/* Line 1806 of yacc.c  */
-#line 361 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 									bufferWriteOp((yyval.action), SWFACTION_TRY);
 									bufferWriteS16((yyval.action), 8+strlen((yyvsp[(5) - (9)].str)));        /* TRY tag length */
@@ -4012,8 +3939,6 @@ yyreduce:
 
   case 49:
 
-/* Line 1806 of yacc.c  */
-#line 380 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (7)].action);
 		  bufferWriteOp((yyval.action), SWFACTION_WITH);
 		  bufferWriteS16((yyval.action), 2);
@@ -4023,8 +3948,6 @@ yyreduce:
 
   case 50:
 
-/* Line 1806 of yacc.c  */
-#line 391 "./swf5compiler.y"
     { int tmp = chkctx(CTX_FUNCTION);
 		  if(tmp < 0) 
 		  {
@@ -4040,8 +3963,6 @@ yyreduce:
 
   case 51:
 
-/* Line 1806 of yacc.c  */
-#line 404 "./swf5compiler.y"
     { int tmp = chkctx(CTX_FUNCTION);
 		  if(tmp < 0)
 		  {
@@ -4057,15 +3978,11 @@ yyreduce:
 
   case 53:
 
-/* Line 1806 of yacc.c  */
-#line 419 "./swf5compiler.y"
     { bufferConcat((yyvsp[(1) - (3)].action), (yyvsp[(3) - (3)].action)); }
     break;
 
   case 54:
 
-/* Line 1806 of yacc.c  */
-#line 424 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (7)].action);
 		  bufferWriteOp((yyval.action), SWFACTION_IF);
 		  bufferWriteS16((yyval.action), 2);
@@ -4079,8 +3996,6 @@ yyreduce:
 
   case 55:
 
-/* Line 1806 of yacc.c  */
-#line 435 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (5)].action);
 		  bufferWriteOp((yyval.action), SWFACTION_LOGICALNOT);
 		  bufferWriteOp((yyval.action), SWFACTION_IF);
@@ -4091,29 +4006,21 @@ yyreduce:
 
   case 56:
 
-/* Line 1806 of yacc.c  */
-#line 444 "./swf5compiler.y"
     { (yyval.action) = NULL; }
     break;
 
   case 57:
 
-/* Line 1806 of yacc.c  */
-#line 445 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(1) - (1)].action); }
     break;
 
   case 58:
 
-/* Line 1806 of yacc.c  */
-#line 450 "./swf5compiler.y"
     { addctx(CTX_SWITCH); }
     break;
 
   case 59:
 
-/* Line 1806 of yacc.c  */
-#line 456 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (7)].action);
 		  bufferResolveSwitch((yyval.action), &(yyvsp[(6) - (7)].switchcases));
 		  bufferResolveJumps((yyval.action));
@@ -4125,16 +4032,12 @@ yyreduce:
 
   case 60:
 
-/* Line 1806 of yacc.c  */
-#line 468 "./swf5compiler.y"
     { (yyval.switchcases).count = 0;
 		  (yyval.switchcases).list = 0; }
     break;
 
   case 61:
 
-/* Line 1806 of yacc.c  */
-#line 472 "./swf5compiler.y"
     { (yyval.switchcases) = (yyvsp[(1) - (2)].switchcases);
 		  (yyval.switchcases).list = (struct switchcase*) realloc((yyval.switchcases).list, ((yyval.switchcases).count+1) * sizeof(struct switchcase));
 		  (yyval.switchcases).list[(yyval.switchcases).count] = (yyvsp[(2) - (2)].switchcase);
@@ -4143,8 +4046,6 @@ yyreduce:
 
   case 62:
 
-/* Line 1806 of yacc.c  */
-#line 480 "./swf5compiler.y"
     { (yyval.switchcase).cond = (yyvsp[(2) - (4)].action);
 		  (yyval.switchcase).action = (yyvsp[(4) - (4)].action);
 		  if(chkctx(CTX_BREAK) == CTX_BREAK)
@@ -4159,8 +4060,6 @@ yyreduce:
 
   case 63:
 
-/* Line 1806 of yacc.c  */
-#line 492 "./swf5compiler.y"
     { (yyval.switchcase).cond = NULL;
 		  (yyval.switchcase).action = (yyvsp[(3) - (3)].action);
 		  if(chkctx(CTX_BREAK) == CTX_BREAK)
@@ -4175,779 +4074,557 @@ yyreduce:
 
   case 65:
 
-/* Line 1806 of yacc.c  */
-#line 510 "./swf5compiler.y"
     { (yyval.str) = strdup("targetPath"); }
     break;
 
   case 66:
 
-/* Line 1806 of yacc.c  */
-#line 511 "./swf5compiler.y"
     { (yyval.str) = strdup("random"); }
     break;
 
   case 67:
 
-/* Line 1806 of yacc.c  */
-#line 512 "./swf5compiler.y"
     { (yyval.str) = strdup("getTimer"); }
     break;
 
   case 68:
 
-/* Line 1806 of yacc.c  */
-#line 513 "./swf5compiler.y"
     { (yyval.str) = strdup("length"); }
     break;
 
   case 69:
 
-/* Line 1806 of yacc.c  */
-#line 514 "./swf5compiler.y"
     { (yyval.str) = strdup("concat"); }
     break;
 
   case 70:
 
-/* Line 1806 of yacc.c  */
-#line 515 "./swf5compiler.y"
     { (yyval.str) = strdup("substr"); }
     break;
 
   case 71:
 
-/* Line 1806 of yacc.c  */
-#line 516 "./swf5compiler.y"
     { (yyval.str) = strdup("trace"); }
     break;
 
   case 72:
 
-/* Line 1806 of yacc.c  */
-#line 517 "./swf5compiler.y"
     { (yyval.str) = strdup("int"); }
     break;
 
   case 73:
 
-/* Line 1806 of yacc.c  */
-#line 518 "./swf5compiler.y"
     { (yyval.str) = strdup("ord"); }
     break;
 
   case 74:
 
-/* Line 1806 of yacc.c  */
-#line 519 "./swf5compiler.y"
     { (yyval.str) = strdup("chr"); }
     break;
 
   case 75:
 
-/* Line 1806 of yacc.c  */
-#line 520 "./swf5compiler.y"
     { (yyval.str) = strdup("getURL"); }
     break;
 
   case 76:
 
-/* Line 1806 of yacc.c  */
-#line 521 "./swf5compiler.y"
     { (yyval.str) = strdup("getURL1"); }
     break;
 
   case 77:
 
-/* Line 1806 of yacc.c  */
-#line 522 "./swf5compiler.y"
     { (yyval.str) = strdup("nextFrame"); }
     break;
 
   case 78:
 
-/* Line 1806 of yacc.c  */
-#line 523 "./swf5compiler.y"
     { (yyval.str) = strdup("prevFrame"); }
     break;
 
   case 79:
 
-/* Line 1806 of yacc.c  */
-#line 524 "./swf5compiler.y"
     { (yyval.str) = strdup("play"); }
     break;
 
   case 80:
 
-/* Line 1806 of yacc.c  */
-#line 525 "./swf5compiler.y"
     { (yyval.str) = strdup("stop"); }
     break;
 
   case 81:
 
-/* Line 1806 of yacc.c  */
-#line 526 "./swf5compiler.y"
     { (yyval.str) = strdup("toggleQuality"); }
     break;
 
   case 82:
 
-/* Line 1806 of yacc.c  */
-#line 527 "./swf5compiler.y"
     { (yyval.str) = strdup("stopSounds"); }
     break;
 
   case 83:
 
-/* Line 1806 of yacc.c  */
-#line 528 "./swf5compiler.y"
     { (yyval.str) = strdup("dup"); }
     break;
 
   case 84:
 
-/* Line 1806 of yacc.c  */
-#line 529 "./swf5compiler.y"
     { (yyval.str) = strdup("swap"); }
     break;
 
   case 85:
 
-/* Line 1806 of yacc.c  */
-#line 530 "./swf5compiler.y"
     { (yyval.str) = strdup("pop"); }
     break;
 
   case 86:
 
-/* Line 1806 of yacc.c  */
-#line 531 "./swf5compiler.y"
     { (yyval.str) = strdup("push"); }
     break;
 
   case 87:
 
-/* Line 1806 of yacc.c  */
-#line 532 "./swf5compiler.y"
     { (yyval.str) = strdup("setRegister"); }
     break;
 
   case 88:
 
-/* Line 1806 of yacc.c  */
-#line 533 "./swf5compiler.y"
     { (yyval.str) = strdup("callFunction"); }
     break;
 
   case 89:
 
-/* Line 1806 of yacc.c  */
-#line 534 "./swf5compiler.y"
     { (yyval.str) = strdup("callMethod"); }
     break;
 
   case 90:
 
-/* Line 1806 of yacc.c  */
-#line 535 "./swf5compiler.y"
     { (yyval.str) = strdup("and"); }
     break;
 
   case 91:
 
-/* Line 1806 of yacc.c  */
-#line 536 "./swf5compiler.y"
     { (yyval.str) = strdup("or"); }
     break;
 
   case 92:
 
-/* Line 1806 of yacc.c  */
-#line 537 "./swf5compiler.y"
     { (yyval.str) = strdup("xor"); }
     break;
 
   case 93:
 
-/* Line 1806 of yacc.c  */
-#line 538 "./swf5compiler.y"
     { (yyval.str) = strdup("modulo"); }
     break;
 
   case 94:
 
-/* Line 1806 of yacc.c  */
-#line 539 "./swf5compiler.y"
     { (yyval.str) = strdup("add"); }
     break;
 
   case 95:
 
-/* Line 1806 of yacc.c  */
-#line 540 "./swf5compiler.y"
     { (yyval.str) = strdup("lessThan"); }
     break;
 
   case 96:
 
-/* Line 1806 of yacc.c  */
-#line 541 "./swf5compiler.y"
     { (yyval.str) = strdup("equals"); }
     break;
 
   case 97:
 
-/* Line 1806 of yacc.c  */
-#line 542 "./swf5compiler.y"
     { (yyval.str) = strdup("inc"); }
     break;
 
   case 98:
 
-/* Line 1806 of yacc.c  */
-#line 543 "./swf5compiler.y"
     { (yyval.str) = strdup("dec"); }
     break;
 
   case 99:
 
-/* Line 1806 of yacc.c  */
-#line 544 "./swf5compiler.y"
     { (yyval.str) = strdup("typeof"); }
     break;
 
   case 100:
 
-/* Line 1806 of yacc.c  */
-#line 545 "./swf5compiler.y"
     { (yyval.str) = strdup("enumerate2"); }
     break;
 
   case 101:
 
-/* Line 1806 of yacc.c  */
-#line 546 "./swf5compiler.y"
     { (yyval.str) = strdup("enumerate"); }
     break;
 
   case 102:
 
-/* Line 1806 of yacc.c  */
-#line 547 "./swf5compiler.y"
     { (yyval.str) = strdup("initobject"); }
     break;
 
   case 103:
 
-/* Line 1806 of yacc.c  */
-#line 548 "./swf5compiler.y"
     { (yyval.str) = strdup("initarray"); }
     break;
 
   case 104:
 
-/* Line 1806 of yacc.c  */
-#line 549 "./swf5compiler.y"
     { (yyval.str) = strdup("getmember"); }
     break;
 
   case 105:
 
-/* Line 1806 of yacc.c  */
-#line 550 "./swf5compiler.y"
     { (yyval.str) = strdup("setmember"); }
     break;
 
   case 106:
 
-/* Line 1806 of yacc.c  */
-#line 551 "./swf5compiler.y"
     { (yyval.str) = strdup("shiftleft"); }
     break;
 
   case 107:
 
-/* Line 1806 of yacc.c  */
-#line 552 "./swf5compiler.y"
     { (yyval.str) = strdup("shiftright"); }
     break;
 
   case 108:
 
-/* Line 1806 of yacc.c  */
-#line 553 "./swf5compiler.y"
     { (yyval.str) = strdup("shiftright2"); }
     break;
 
   case 109:
 
-/* Line 1806 of yacc.c  */
-#line 554 "./swf5compiler.y"
     { (yyval.str) = strdup("varequals"); }
     break;
 
   case 110:
 
-/* Line 1806 of yacc.c  */
-#line 555 "./swf5compiler.y"
     { (yyval.str) = strdup("oldAdd"); }
     break;
 
   case 111:
 
-/* Line 1806 of yacc.c  */
-#line 556 "./swf5compiler.y"
     { (yyval.str) = strdup("subtract"); }
     break;
 
   case 112:
 
-/* Line 1806 of yacc.c  */
-#line 557 "./swf5compiler.y"
     { (yyval.str) = strdup("multiply"); }
     break;
 
   case 113:
 
-/* Line 1806 of yacc.c  */
-#line 558 "./swf5compiler.y"
     { (yyval.str) = strdup("divide"); }
     break;
 
   case 114:
 
-/* Line 1806 of yacc.c  */
-#line 559 "./swf5compiler.y"
     { (yyval.str) = strdup("oldequals"); }
     break;
 
   case 115:
 
-/* Line 1806 of yacc.c  */
-#line 560 "./swf5compiler.y"
     { (yyval.str) = strdup("oldlessthan"); }
     break;
 
   case 116:
 
-/* Line 1806 of yacc.c  */
-#line 561 "./swf5compiler.y"
     { (yyval.str) = strdup("logicaland"); }
     break;
 
   case 117:
 
-/* Line 1806 of yacc.c  */
-#line 562 "./swf5compiler.y"
     { (yyval.str) = strdup("logicalor"); }
     break;
 
   case 118:
 
-/* Line 1806 of yacc.c  */
-#line 563 "./swf5compiler.y"
     { (yyval.str) = strdup("not"); }
     break;
 
   case 119:
 
-/* Line 1806 of yacc.c  */
-#line 564 "./swf5compiler.y"
     { (yyval.str) = strdup("stringeq"); }
     break;
 
   case 120:
 
-/* Line 1806 of yacc.c  */
-#line 565 "./swf5compiler.y"
     { (yyval.str) = strdup("stringlength"); }
     break;
 
   case 121:
 
-/* Line 1806 of yacc.c  */
-#line 566 "./swf5compiler.y"
     { (yyval.str) = strdup("substring"); }
     break;
 
   case 122:
 
-/* Line 1806 of yacc.c  */
-#line 567 "./swf5compiler.y"
     { (yyval.str) = strdup("getvariable"); }
     break;
 
   case 123:
 
-/* Line 1806 of yacc.c  */
-#line 568 "./swf5compiler.y"
     { (yyval.str) = strdup("setvariable"); }
     break;
 
   case 124:
 
-/* Line 1806 of yacc.c  */
-#line 569 "./swf5compiler.y"
     { (yyval.str) = strdup("settargetexpression"); }
     break;
 
   case 125:
 
-/* Line 1806 of yacc.c  */
-#line 570 "./swf5compiler.y"
     { (yyval.str) = strdup("duplicateMovieClip"); }
     break;
 
   case 126:
 
-/* Line 1806 of yacc.c  */
-#line 571 "./swf5compiler.y"
     { (yyval.str) = strdup("removeMovieClip"); }
     break;
 
   case 127:
 
-/* Line 1806 of yacc.c  */
-#line 572 "./swf5compiler.y"
     { (yyval.str) = strdup("startDrag"); }
     break;
 
   case 128:
 
-/* Line 1806 of yacc.c  */
-#line 573 "./swf5compiler.y"
     { (yyval.str) = strdup("stopDrag"); }
     break;
 
   case 129:
 
-/* Line 1806 of yacc.c  */
-#line 574 "./swf5compiler.y"
     { (yyval.str) = strdup("stringlessthan"); }
     break;
 
   case 130:
 
-/* Line 1806 of yacc.c  */
-#line 575 "./swf5compiler.y"
     { (yyval.str) = strdup("mblength"); }
     break;
 
   case 131:
 
-/* Line 1806 of yacc.c  */
-#line 576 "./swf5compiler.y"
     { (yyval.str) = strdup("mbsubstring"); }
     break;
 
   case 132:
 
-/* Line 1806 of yacc.c  */
-#line 577 "./swf5compiler.y"
     { (yyval.str) = strdup("mbord"); }
     break;
 
   case 133:
 
-/* Line 1806 of yacc.c  */
-#line 578 "./swf5compiler.y"
     { (yyval.str) = strdup("mbchr"); }
     break;
 
   case 134:
 
-/* Line 1806 of yacc.c  */
-#line 579 "./swf5compiler.y"
     { (yyval.str) = strdup("branchalways"); }
     break;
 
   case 135:
 
-/* Line 1806 of yacc.c  */
-#line 580 "./swf5compiler.y"
     { (yyval.str) = strdup("branchiftrue"); }
     break;
 
   case 136:
 
-/* Line 1806 of yacc.c  */
-#line 581 "./swf5compiler.y"
     { (yyval.str) = strdup("getURL2"); }
     break;
 
   case 137:
 
-/* Line 1806 of yacc.c  */
-#line 582 "./swf5compiler.y"
     { (yyval.str) = strdup("post"); }
     break;
 
   case 138:
 
-/* Line 1806 of yacc.c  */
-#line 583 "./swf5compiler.y"
     { (yyval.str) = strdup("get"); }
     break;
 
   case 139:
 
-/* Line 1806 of yacc.c  */
-#line 584 "./swf5compiler.y"
     { (yyval.str) = strdup("loadVariables"); }
     break;
 
   case 140:
 
-/* Line 1806 of yacc.c  */
-#line 585 "./swf5compiler.y"
     { (yyval.str) = strdup("loadVariablesNum"); }
     break;
 
   case 141:
 
-/* Line 1806 of yacc.c  */
-#line 586 "./swf5compiler.y"
     { (yyval.str) = strdup("loadMovie"); }
     break;
 
   case 142:
 
-/* Line 1806 of yacc.c  */
-#line 587 "./swf5compiler.y"
     { (yyval.str) = strdup("loadMovieNum"); }
     break;
 
   case 143:
 
-/* Line 1806 of yacc.c  */
-#line 588 "./swf5compiler.y"
     { (yyval.str) = strdup("gotoAndStop"); }
     break;
 
   case 144:
 
-/* Line 1806 of yacc.c  */
-#line 589 "./swf5compiler.y"
     { (yyval.str) = strdup("gotoAndPlay"); }
     break;
 
   case 145:
 
-/* Line 1806 of yacc.c  */
-#line 590 "./swf5compiler.y"
     { (yyval.str) = strdup("setTarget"); }
     break;
 
   case 146:
 
-/* Line 1806 of yacc.c  */
-#line 591 "./swf5compiler.y"
     { (yyval.str) = strdup("call"); }
     break;
 
   case 147:
 
-/* Line 1806 of yacc.c  */
-#line 592 "./swf5compiler.y"
     { (yyval.str) = strdup("getProperty"); }
     break;
 
   case 148:
 
-/* Line 1806 of yacc.c  */
-#line 593 "./swf5compiler.y"
     { (yyval.str) = strdup("setProperty"); }
     break;
 
   case 149:
 
-/* Line 1806 of yacc.c  */
-#line 594 "./swf5compiler.y"
     { (yyval.str) = strdup("cast"); }
     break;
 
   case 150:
 
-/* Line 1806 of yacc.c  */
-#line 595 "./swf5compiler.y"
     { (yyval.str) = strdup("swfAction"); }
     break;
 
   case 151:
 
-/* Line 1806 of yacc.c  */
-#line 597 "./swf5compiler.y"
     { (yyval.str) = strdup("this"); }
     break;
 
   case 152:
 
-/* Line 1806 of yacc.c  */
-#line 600 "./swf5compiler.y"
     { (yyval.str) = strdup("_x"); }
     break;
 
   case 153:
 
-/* Line 1806 of yacc.c  */
-#line 601 "./swf5compiler.y"
     { (yyval.str) = strdup("_y"); }
     break;
 
   case 154:
 
-/* Line 1806 of yacc.c  */
-#line 602 "./swf5compiler.y"
     { (yyval.str) = strdup("_xscale"); }
     break;
 
   case 155:
 
-/* Line 1806 of yacc.c  */
-#line 603 "./swf5compiler.y"
     { (yyval.str) = strdup("_yscale"); }
     break;
 
   case 156:
 
-/* Line 1806 of yacc.c  */
-#line 604 "./swf5compiler.y"
     { (yyval.str) = strdup("_currentframe"); }
     break;
 
   case 157:
 
-/* Line 1806 of yacc.c  */
-#line 605 "./swf5compiler.y"
     { (yyval.str) = strdup("_totalframes"); }
     break;
 
   case 158:
 
-/* Line 1806 of yacc.c  */
-#line 606 "./swf5compiler.y"
     { (yyval.str) = strdup("_alpha"); }
     break;
 
   case 159:
 
-/* Line 1806 of yacc.c  */
-#line 607 "./swf5compiler.y"
     { (yyval.str) = strdup("_visible"); }
     break;
 
   case 160:
 
-/* Line 1806 of yacc.c  */
-#line 608 "./swf5compiler.y"
     { (yyval.str) = strdup("_width"); }
     break;
 
   case 161:
 
-/* Line 1806 of yacc.c  */
-#line 609 "./swf5compiler.y"
     { (yyval.str) = strdup("_height"); }
     break;
 
   case 162:
 
-/* Line 1806 of yacc.c  */
-#line 610 "./swf5compiler.y"
     { (yyval.str) = strdup("_rotation"); }
     break;
 
   case 163:
 
-/* Line 1806 of yacc.c  */
-#line 611 "./swf5compiler.y"
     { (yyval.str) = strdup("_target"); }
     break;
 
   case 164:
 
-/* Line 1806 of yacc.c  */
-#line 612 "./swf5compiler.y"
     { (yyval.str) = strdup("_framesloaded"); }
     break;
 
   case 165:
 
-/* Line 1806 of yacc.c  */
-#line 613 "./swf5compiler.y"
     { (yyval.str) = strdup("_name"); }
     break;
 
   case 166:
 
-/* Line 1806 of yacc.c  */
-#line 614 "./swf5compiler.y"
     { (yyval.str) = strdup("_droptarget"); }
     break;
 
   case 167:
 
-/* Line 1806 of yacc.c  */
-#line 615 "./swf5compiler.y"
     { (yyval.str) = strdup("_url"); }
     break;
 
   case 168:
 
-/* Line 1806 of yacc.c  */
-#line 616 "./swf5compiler.y"
     { (yyval.str) = strdup("_highquality"); }
     break;
 
   case 169:
 
-/* Line 1806 of yacc.c  */
-#line 617 "./swf5compiler.y"
     { (yyval.str) = strdup("_focusrect"); }
     break;
 
   case 170:
 
-/* Line 1806 of yacc.c  */
-#line 618 "./swf5compiler.y"
     { (yyval.str) = strdup("_soundbuftime"); }
     break;
 
   case 171:
 
-/* Line 1806 of yacc.c  */
-#line 619 "./swf5compiler.y"
     { (yyval.str) = strdup("_quality"); }
     break;
 
   case 172:
 
-/* Line 1806 of yacc.c  */
-#line 620 "./swf5compiler.y"
     { (yyval.str) = strdup("_xmouse"); }
     break;
 
   case 173:
 
-/* Line 1806 of yacc.c  */
-#line 621 "./swf5compiler.y"
     { (yyval.str) = strdup("_ymouse"); }
     break;
 
   case 174:
 
-/* Line 1806 of yacc.c  */
-#line 626 "./swf5compiler.y"
     { (yyval.exprlist).buffer = newBuffer();
 		  (yyval.exprlist).count = 0; }
     break;
 
   case 175:
 
-/* Line 1806 of yacc.c  */
-#line 630 "./swf5compiler.y"
     { (yyval.exprlist).buffer = newBuffer();
 		  bufferWriteHardString((yyval.exprlist).buffer, (yyvsp[(1) - (2)].str), strlen((yyvsp[(1) - (2)].str))+1);
 		  (yyval.exprlist).count = 1;
@@ -4956,8 +4633,6 @@ yyreduce:
 
   case 176:
 
-/* Line 1806 of yacc.c  */
-#line 636 "./swf5compiler.y"
     { (yyval.exprlist) = (yyvsp[(1) - (4)].exprlist);
 		  bufferWriteHardString((yyval.exprlist).buffer, (yyvsp[(3) - (4)].str), strlen((yyvsp[(3) - (4)].str))+1);
 		  ++(yyval.exprlist).count;
@@ -4966,22 +4641,16 @@ yyreduce:
 
   case 177:
 
-/* Line 1806 of yacc.c  */
-#line 643 "./swf5compiler.y"
     { addctx(CTX_FUNCTION); (yyval.str) = NULL; }
     break;
 
   case 178:
 
-/* Line 1806 of yacc.c  */
-#line 644 "./swf5compiler.y"
     { addctx(CTX_FUNCTION); (yyval.str) = (yyvsp[(1) - (1)].str); }
     break;
 
   case 179:
 
-/* Line 1806 of yacc.c  */
-#line 649 "./swf5compiler.y"
     {
 		(yyval.function) = newASFunction();
 		(yyval.function)->name = (yyvsp[(2) - (7)].str);
@@ -4993,15 +4662,11 @@ yyreduce:
 
   case 180:
 
-/* Line 1806 of yacc.c  */
-#line 660 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(2) - (2)].action); }
     break;
 
   case 181:
 
-/* Line 1806 of yacc.c  */
-#line 665 "./swf5compiler.y"
     { if((yyvsp[(1) - (1)].lval).obj)
 		  {
 		    (yyval.action) = (yyvsp[(1) - (1)].lval).obj;
@@ -5022,8 +4687,6 @@ yyreduce:
 
   case 184:
 
-/* Line 1806 of yacc.c  */
-#line 688 "./swf5compiler.y"
     { if((yyvsp[(1) - (1)].lval).obj)
 		  {
 		    (yyval.action) = (yyvsp[(1) - (1)].lval).obj;
@@ -5042,43 +4705,31 @@ yyreduce:
 
   case 188:
 
-/* Line 1806 of yacc.c  */
-#line 705 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(2) - (3)].action); }
     break;
 
   case 189:
 
-/* Line 1806 of yacc.c  */
-#line 710 "./swf5compiler.y"
     { addctx(CTX_LOOP); }
     break;
 
   case 190:
 
-/* Line 1806 of yacc.c  */
-#line 715 "./swf5compiler.y"
     { addctx(CTX_LOOP); }
     break;
 
   case 191:
 
-/* Line 1806 of yacc.c  */
-#line 720 "./swf5compiler.y"
     { addctx(CTX_LOOP); }
     break;
 
   case 192:
 
-/* Line 1806 of yacc.c  */
-#line 725 "./swf5compiler.y"
     { addctx(CTX_FOR_IN); }
     break;
 
   case 193:
 
-/* Line 1806 of yacc.c  */
-#line 730 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (5)].action);
 		  bufferWriteOp((yyval.action), SWFACTION_LOGICALNOT);
 		  bufferWriteOp((yyval.action), SWFACTION_IF);
@@ -5094,8 +4745,6 @@ yyreduce:
 
   case 194:
 
-/* Line 1806 of yacc.c  */
-#line 743 "./swf5compiler.y"
     { if((yyvsp[(2) - (6)].action))
 			{	(yyval.action) = (yyvsp[(2) - (6)].action);
 		  		bufferConcat((yyval.action), (yyvsp[(5) - (6)].action));
@@ -5111,8 +4760,6 @@ yyreduce:
 
   case 195:
 
-/* Line 1806 of yacc.c  */
-#line 756 "./swf5compiler.y"
     {
 		  int continue_len;
 		  if((yyvsp[(3) - (10)].action))
@@ -5154,8 +4801,6 @@ yyreduce:
 
   case 196:
 
-/* Line 1806 of yacc.c  */
-#line 795 "./swf5compiler.y"
     { Buffer b2, b3;
 		  int tmp;
 
@@ -5195,8 +4840,6 @@ yyreduce:
 
   case 197:
 
-/* Line 1806 of yacc.c  */
-#line 832 "./swf5compiler.y"
     { Buffer b2, b3;
 		  int tmp;
 
@@ -5235,15 +4878,11 @@ yyreduce:
 
   case 198:
 
-/* Line 1806 of yacc.c  */
-#line 869 "./swf5compiler.y"
     { (yyval.action) = NULL; }
     break;
 
   case 200:
 
-/* Line 1806 of yacc.c  */
-#line 877 "./swf5compiler.y"
     { 
 		  if(chkctx(CTX_CONTINUE) < 0)
 		  {
@@ -5258,8 +4897,6 @@ yyreduce:
 
   case 201:
 
-/* Line 1806 of yacc.c  */
-#line 892 "./swf5compiler.y"
     { int context = chkctx(CTX_BREAK);
 		  (yyval.action) = newBuffer();
 		  if(context == CTX_FOR_IN || context == CTX_LOOP)
@@ -5284,29 +4921,21 @@ yyreduce:
 
   case 202:
 
-/* Line 1806 of yacc.c  */
-#line 916 "./swf5compiler.y"
     { (yyval.getURLMethod) = GETURL_METHOD_NOSEND; }
     break;
 
   case 203:
 
-/* Line 1806 of yacc.c  */
-#line 918 "./swf5compiler.y"
     { (yyval.getURLMethod) = GETURL_METHOD_GET; }
     break;
 
   case 204:
 
-/* Line 1806 of yacc.c  */
-#line 920 "./swf5compiler.y"
     { (yyval.getURLMethod) = GETURL_METHOD_POST; }
     break;
 
   case 205:
 
-/* Line 1806 of yacc.c  */
-#line 922 "./swf5compiler.y"
     { if(strcasecmp((yyvsp[(2) - (2)].str), "GET") == 0)
 				    (yyval.getURLMethod) = GETURL_METHOD_GET;
 				  else if(strcasecmp((yyvsp[(2) - (2)].str), "POST") == 0)
@@ -5317,8 +4946,6 @@ yyreduce:
 
   case 206:
 
-/* Line 1806 of yacc.c  */
-#line 932 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), "_level", 7);
 		  bufferConcat((yyval.action), (yyvsp[(1) - (1)].action));
@@ -5327,16 +4954,12 @@ yyreduce:
 
   case 207:
 
-/* Line 1806 of yacc.c  */
-#line 941 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (4)].action);
 		  bufferWriteOp((yyval.action), SWFACTION_TRACE); }
     break;
 
   case 208:
 
-/* Line 1806 of yacc.c  */
-#line 945 "./swf5compiler.y"
     {
 #ifdef DEBUG
 		  printf("void_function_call: GETURL '(' expr ')'\n");
@@ -5351,8 +4974,6 @@ yyreduce:
 
   case 209:
 
-/* Line 1806 of yacc.c  */
-#line 957 "./swf5compiler.y"
     {
 #ifdef DEBUG
 		  printf("void_function_call: GETURL '(' expr ',' expr urlmethod ')'\n");
@@ -5366,8 +4987,6 @@ yyreduce:
 
   case 210:
 
-/* Line 1806 of yacc.c  */
-#line 968 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (7)].action);
 		  bufferConcat((yyval.action), (yyvsp[(5) - (7)].action));
 		  bufferWriteOp((yyval.action), SWFACTION_GETURL2);
@@ -5377,8 +4996,6 @@ yyreduce:
 
   case 211:
 
-/* Line 1806 of yacc.c  */
-#line 975 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (7)].action);
 		  bufferConcat((yyval.action), (yyvsp[(5) - (7)].action));
 		  bufferWriteOp((yyval.action), SWFACTION_GETURL2);
@@ -5388,8 +5005,6 @@ yyreduce:
 
   case 212:
 
-/* Line 1806 of yacc.c  */
-#line 982 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (7)].action);
 		  bufferConcat((yyval.action), (yyvsp[(5) - (7)].action));
 		  bufferWriteOp((yyval.action), SWFACTION_GETURL2);
@@ -5399,8 +5014,6 @@ yyreduce:
 
   case 213:
 
-/* Line 1806 of yacc.c  */
-#line 989 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (7)].action);
 		  bufferConcat((yyval.action), (yyvsp[(5) - (7)].action));
 		  bufferWriteOp((yyval.action), SWFACTION_GETURL2);
@@ -5410,8 +5023,6 @@ yyreduce:
 
   case 214:
 
-/* Line 1806 of yacc.c  */
-#line 996 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (4)].action);
 		  bufferWriteOp((yyval.action), SWFACTION_CALLFRAME);
 		  bufferWriteS16((yyval.action), 0); }
@@ -5419,8 +5030,6 @@ yyreduce:
 
   case 215:
 
-/* Line 1806 of yacc.c  */
-#line 1002 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), "0", 2); /* no constraint */
 		  bufferConcat((yyval.action), (yyvsp[(5) - (6)].action));
@@ -5430,8 +5039,6 @@ yyreduce:
 
   case 216:
 
-/* Line 1806 of yacc.c  */
-#line 1009 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferConcat((yyval.action), (yyvsp[(7) - (14)].action));
 		  bufferConcat((yyval.action), (yyvsp[(11) - (14)].action));
@@ -5445,16 +5052,12 @@ yyreduce:
 
   case 217:
 
-/* Line 1806 of yacc.c  */
-#line 1020 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteOp((yyval.action), SWFACTION_ENDDRAG); }
     break;
 
   case 218:
 
-/* Line 1806 of yacc.c  */
-#line 1025 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (8)].action);
 		  bufferConcat((yyval.action), (yyvsp[(5) - (8)].action));
 		  bufferConcat((yyval.action), (yyvsp[(7) - (8)].action));
@@ -5465,16 +5068,12 @@ yyreduce:
 
   case 219:
 
-/* Line 1806 of yacc.c  */
-#line 1033 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (4)].action);
 		  bufferWriteOp((yyval.action), SWFACTION_REMOVECLIP); }
     break;
 
   case 220:
 
-/* Line 1806 of yacc.c  */
-#line 1037 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteOp((yyval.action), SWFACTION_GETURL);
 		  bufferWriteS16((yyval.action), strlen((yyvsp[(3) - (6)].str)) + strlen((yyvsp[(5) - (6)].str)) + 2);
@@ -5486,56 +5085,42 @@ yyreduce:
 
   case 221:
 
-/* Line 1806 of yacc.c  */
-#line 1047 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteOp((yyval.action), SWFACTION_NEXTFRAME); }
     break;
 
   case 222:
 
-/* Line 1806 of yacc.c  */
-#line 1051 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteOp((yyval.action), SWFACTION_PREVFRAME); }
     break;
 
   case 223:
 
-/* Line 1806 of yacc.c  */
-#line 1055 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteOp((yyval.action), SWFACTION_PLAY); }
     break;
 
   case 224:
 
-/* Line 1806 of yacc.c  */
-#line 1059 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteOp((yyval.action), SWFACTION_STOP); }
     break;
 
   case 225:
 
-/* Line 1806 of yacc.c  */
-#line 1063 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteOp((yyval.action), SWFACTION_STOPSOUNDS); }
     break;
 
   case 226:
 
-/* Line 1806 of yacc.c  */
-#line 1067 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteOp((yyval.action), SWFACTION_TOGGLEQUALITY); }
     break;
 
   case 227:
 
-/* Line 1806 of yacc.c  */
-#line 1071 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteOp((yyval.action), SWFACTION_GOTOFRAME);
 		  bufferWriteS16((yyval.action), 2);
@@ -5545,8 +5130,6 @@ yyreduce:
 
   case 228:
 
-/* Line 1806 of yacc.c  */
-#line 1078 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteOp((yyval.action), SWFACTION_GOTOFRAME);
 		  bufferWriteS16((yyval.action), 2);
@@ -5556,8 +5139,6 @@ yyreduce:
 
   case 229:
 
-/* Line 1806 of yacc.c  */
-#line 1085 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteOp((yyval.action), SWFACTION_GOTOLABEL);
 		  bufferWriteS16((yyval.action), strlen((yyvsp[(3) - (4)].str))+1);
@@ -5568,8 +5149,6 @@ yyreduce:
 
   case 230:
 
-/* Line 1806 of yacc.c  */
-#line 1093 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteOp((yyval.action), SWFACTION_GOTOLABEL);
 		  bufferWriteS16((yyval.action), strlen((yyvsp[(3) - (4)].str))+1);
@@ -5580,8 +5159,6 @@ yyreduce:
 
   case 231:
 
-/* Line 1806 of yacc.c  */
-#line 1101 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (4)].action);
 		  bufferWriteOp((yyval.action), SWFACTION_GOTOFRAME2);
 		  bufferWriteS16((yyval.action), 1);
@@ -5590,8 +5167,6 @@ yyreduce:
 
   case 232:
 
-/* Line 1806 of yacc.c  */
-#line 1107 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (4)].action);
 		  bufferWriteOp((yyval.action), SWFACTION_GOTOFRAME2);
 		  bufferWriteS16((yyval.action), 1);
@@ -5600,8 +5175,6 @@ yyreduce:
 
   case 233:
 
-/* Line 1806 of yacc.c  */
-#line 1113 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteOp((yyval.action), SWFACTION_SETTARGET);
 		  bufferWriteS16((yyval.action), strlen((yyvsp[(3) - (4)].str))+1);
@@ -5611,16 +5184,12 @@ yyreduce:
 
   case 234:
 
-/* Line 1806 of yacc.c  */
-#line 1120 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (4)].action);
 		  bufferWriteOp((yyval.action), SWFACTION_SETTARGET2); }
     break;
 
   case 235:
 
-/* Line 1806 of yacc.c  */
-#line 1124 "./swf5compiler.y"
     {
 			(yyval.action) = (yyvsp[(3) - (8)].action);
 			bufferWriteFloat((yyval.action), (yyvsp[(5) - (8)].intVal));
@@ -5631,8 +5200,6 @@ yyreduce:
 
   case 236:
 
-/* Line 1806 of yacc.c  */
-#line 1135 "./swf5compiler.y"
     {
 #ifdef DEBUG
 		  printf("function_call: %s '(' expr_list ')'\n", (yyvsp[(1) - (4)].str));
@@ -5646,8 +5213,6 @@ yyreduce:
 
   case 237:
 
-/* Line 1806 of yacc.c  */
-#line 1146 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), (yyvsp[(3) - (4)].str), strlen((yyvsp[(3) - (4)].str))+1);
 		  free((yyvsp[(3) - (4)].str));
@@ -5657,64 +5222,48 @@ yyreduce:
 
   case 238:
 
-/* Line 1806 of yacc.c  */
-#line 1153 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (4)].action);
 		  bufferWriteOp((yyval.action), SWFACTION_GETVARIABLE); }
     break;
 
   case 239:
 
-/* Line 1806 of yacc.c  */
-#line 1157 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteOp((yyval.action), SWFACTION_GETTIME); }
     break;
 
   case 240:
 
-/* Line 1806 of yacc.c  */
-#line 1161 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (4)].action);
 		  bufferWriteOp((yyval.action), SWFACTION_RANDOMNUMBER); }
     break;
 
   case 241:
 
-/* Line 1806 of yacc.c  */
-#line 1165 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (4)].action);
 		  bufferWriteOp((yyval.action), SWFACTION_STRINGLENGTH); }
     break;
 
   case 242:
 
-/* Line 1806 of yacc.c  */
-#line 1169 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (4)].action);
 		  bufferWriteOp((yyval.action), SWFACTION_INT); }
     break;
 
   case 243:
 
-/* Line 1806 of yacc.c  */
-#line 1173 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (4)].action);
 		  bufferWriteOp((yyval.action), SWFACTION_ORD); }
     break;
 
   case 244:
 
-/* Line 1806 of yacc.c  */
-#line 1177 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (4)].action);
 		  bufferWriteOp((yyval.action), SWFACTION_CHR); }
     break;
 
   case 245:
 
-/* Line 1806 of yacc.c  */
-#line 1181 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (6)].action);
 		  bufferConcat((yyval.action), (yyvsp[(5) - (6)].action));
 		  bufferWriteOp((yyval.action), SWFACTION_STRINGCONCAT); }
@@ -5722,8 +5271,6 @@ yyreduce:
 
   case 246:
 
-/* Line 1806 of yacc.c  */
-#line 1186 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (8)].action);
 		  bufferConcat((yyval.action), (yyvsp[(5) - (8)].action));
 		  bufferConcat((yyval.action), (yyvsp[(7) - (8)].action));
@@ -5732,8 +5279,6 @@ yyreduce:
 
   case 247:
 
-/* Line 1806 of yacc.c  */
-#line 1192 "./swf5compiler.y"
     {
 #ifdef DEBUG
 		  printf("function_call: TYPEOF '(' expr_or_obj ')'\n");
@@ -5744,8 +5289,6 @@ yyreduce:
 
   case 248:
 
-/* Line 1806 of yacc.c  */
-#line 1200 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferConcat((yyval.action), (yyvsp[(3) - (6)].action));
 		  bufferWriteFloat((yyval.action), (yyvsp[(5) - (6)].intVal));
@@ -5755,8 +5298,6 @@ yyreduce:
 
   case 249:
 
-/* Line 1806 of yacc.c  */
-#line 1210 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(2) - (2)].action);
 		  if((yyvsp[(2) - (2)].action)->hasObject)
 		    bufferWriteOp((yyval.action), SWFACTION_DELETE);
@@ -5767,24 +5308,18 @@ yyreduce:
 
   case 250:
 
-/* Line 1806 of yacc.c  */
-#line 1221 "./swf5compiler.y"
     { (yyval.exprlist).buffer = newBuffer();
 		  (yyval.exprlist).count = 0; }
     break;
 
   case 251:
 
-/* Line 1806 of yacc.c  */
-#line 1225 "./swf5compiler.y"
     { (yyval.exprlist).buffer = (yyvsp[(1) - (1)].action);
 		  (yyval.exprlist).count = 1; }
     break;
 
   case 252:
 
-/* Line 1806 of yacc.c  */
-#line 1230 "./swf5compiler.y"
     { Buffer tmp = newBuffer();
 		  bufferConcat(tmp, (yyvsp[(3) - (3)].action));
 		  bufferConcat(tmp, (yyval.exprlist).buffer);
@@ -5794,8 +5329,6 @@ yyreduce:
 
   case 253:
 
-/* Line 1806 of yacc.c  */
-#line 1239 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(5) - (6)].exprlist).buffer;
 		  bufferWriteInt((yyval.action), (yyvsp[(5) - (6)].exprlist).count);
 		  bufferConcat((yyval.action), (yyvsp[(1) - (6)].action));
@@ -5806,8 +5339,6 @@ yyreduce:
 
   case 254:
 
-/* Line 1806 of yacc.c  */
-#line 1247 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(6) - (7)].exprlist).buffer;
 		  bufferWriteInt((yyval.action), (yyvsp[(6) - (7)].exprlist).count);
 		  bufferConcat((yyval.action), (yyvsp[(1) - (7)].action));
@@ -5817,8 +5348,6 @@ yyreduce:
 
   case 255:
 
-/* Line 1806 of yacc.c  */
-#line 1256 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), (yyvsp[(1) - (3)].str), strlen((yyvsp[(1) - (3)].str))+1);
 		  bufferConcat((yyval.action), (yyvsp[(3) - (3)].action));
@@ -5827,115 +5356,83 @@ yyreduce:
 
   case 256:
 
-/* Line 1806 of yacc.c  */
-#line 1264 "./swf5compiler.y"
     { (yyval.exprlist).buffer = (yyvsp[(1) - (1)].action);
 		  (yyval.exprlist).count = 1; }
     break;
 
   case 257:
 
-/* Line 1806 of yacc.c  */
-#line 1268 "./swf5compiler.y"
     { bufferConcat((yyval.exprlist).buffer, (yyvsp[(3) - (3)].action));
 		  ++(yyval.exprlist).count;  }
     break;
 
   case 258:
 
-/* Line 1806 of yacc.c  */
-#line 1273 "./swf5compiler.y"
     { (yyval.op) = SWFACTION_ADD2; }
     break;
 
   case 259:
 
-/* Line 1806 of yacc.c  */
-#line 1274 "./swf5compiler.y"
     { (yyval.op) = SWFACTION_SUBTRACT; }
     break;
 
   case 260:
 
-/* Line 1806 of yacc.c  */
-#line 1275 "./swf5compiler.y"
     { (yyval.op) = SWFACTION_MULTIPLY; }
     break;
 
   case 261:
 
-/* Line 1806 of yacc.c  */
-#line 1276 "./swf5compiler.y"
     { (yyval.op) = SWFACTION_DIVIDE; }
     break;
 
   case 262:
 
-/* Line 1806 of yacc.c  */
-#line 1277 "./swf5compiler.y"
     { (yyval.op) = SWFACTION_MODULO; }
     break;
 
   case 263:
 
-/* Line 1806 of yacc.c  */
-#line 1278 "./swf5compiler.y"
     { (yyval.op) = SWFACTION_BITWISEAND; }
     break;
 
   case 264:
 
-/* Line 1806 of yacc.c  */
-#line 1279 "./swf5compiler.y"
     { (yyval.op) = SWFACTION_BITWISEOR; }
     break;
 
   case 265:
 
-/* Line 1806 of yacc.c  */
-#line 1280 "./swf5compiler.y"
     { (yyval.op) = SWFACTION_BITWISEXOR; }
     break;
 
   case 266:
 
-/* Line 1806 of yacc.c  */
-#line 1281 "./swf5compiler.y"
     { (yyval.op) = SWFACTION_SHIFTLEFT; }
     break;
 
   case 267:
 
-/* Line 1806 of yacc.c  */
-#line 1282 "./swf5compiler.y"
     { (yyval.op) = SWFACTION_SHIFTRIGHT; }
     break;
 
   case 268:
 
-/* Line 1806 of yacc.c  */
-#line 1283 "./swf5compiler.y"
     { (yyval.op) = SWFACTION_SHIFTRIGHT2; }
     break;
 
   case 269:
 
-/* Line 1806 of yacc.c  */
-#line 1287 "./swf5compiler.y"
     { (yyval.op) = SWFACTION_INCREMENT; }
     break;
 
   case 270:
 
-/* Line 1806 of yacc.c  */
-#line 1288 "./swf5compiler.y"
     { (yyval.op) = SWFACTION_DECREMENT; }
     break;
 
   case 271:
 
-/* Line 1806 of yacc.c  */
-#line 1295 "./swf5compiler.y"
     { if((yyvsp[(1) - (1)].lval).obj)
 		  {
 		    (yyval.action) = (yyvsp[(1) - (1)].lval).obj;
@@ -5956,8 +5453,6 @@ yyreduce:
 
   case 274:
 
-/* Line 1806 of yacc.c  */
-#line 1318 "./swf5compiler.y"
     { (yyval.lval).ident = newBuffer();
 		  bufferWriteString((yyval.lval).ident, (yyvsp[(1) - (1)].str), strlen((yyvsp[(1) - (1)].str))+1);
 		  free((yyvsp[(1) - (1)].str));
@@ -5967,8 +5462,6 @@ yyreduce:
 
   case 275:
 
-/* Line 1806 of yacc.c  */
-#line 1325 "./swf5compiler.y"
     { (yyval.lval).obj = (yyvsp[(1) - (3)].action);
 		  (yyval.lval).ident = newBuffer();
 		  bufferWriteString((yyval.lval).ident, (yyvsp[(3) - (3)].str), strlen((yyvsp[(3) - (3)].str))+1);
@@ -5978,8 +5471,6 @@ yyreduce:
 
   case 276:
 
-/* Line 1806 of yacc.c  */
-#line 1332 "./swf5compiler.y"
     { (yyval.lval).obj = (yyvsp[(1) - (4)].action);
 		  (yyval.lval).memexpr = (yyvsp[(3) - (4)].action);
 		  (yyval.lval).ident = 0; }
@@ -5987,8 +5478,6 @@ yyreduce:
 
   case 279:
 
-/* Line 1806 of yacc.c  */
-#line 1345 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(2) - (2)].action);
 		  bufferWriteInt((yyvsp[(2) - (2)].action), -1);
 		  bufferWriteOp((yyvsp[(2) - (2)].action), SWFACTION_MULTIPLY); }
@@ -5996,8 +5485,6 @@ yyreduce:
 
   case 280:
 
-/* Line 1806 of yacc.c  */
-#line 1350 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(2) - (2)].action);
 		  bufferWriteInt((yyvsp[(2) - (2)].action), 0xffffffff);
 		  bufferWriteOp((yyvsp[(2) - (2)].action), SWFACTION_BITWISEXOR); }
@@ -6005,16 +5492,12 @@ yyreduce:
 
   case 281:
 
-/* Line 1806 of yacc.c  */
-#line 1355 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(2) - (2)].action);
 		  bufferWriteOp((yyvsp[(2) - (2)].action), SWFACTION_LOGICALNOT); }
     break;
 
   case 282:
 
-/* Line 1806 of yacc.c  */
-#line 1359 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(1) - (3)].action);
 		  bufferWriteOp((yyval.action), SWFACTION_PUSHDUP);
 		  bufferWriteOp((yyval.action), SWFACTION_LOGICALNOT);
@@ -6027,8 +5510,6 @@ yyreduce:
 
   case 283:
 
-/* Line 1806 of yacc.c  */
-#line 1369 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(1) - (3)].action);
 		  bufferWriteOp((yyval.action), SWFACTION_PUSHDUP);
 		  bufferWriteOp((yyval.action), SWFACTION_IF);
@@ -6040,8 +5521,6 @@ yyreduce:
 
   case 284:
 
-/* Line 1806 of yacc.c  */
-#line 1378 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(1) - (3)].action);
 		  bufferConcat((yyval.action), (yyvsp[(3) - (3)].action));
 		  bufferWriteOp((yyval.action), SWFACTION_MULTIPLY); }
@@ -6049,8 +5528,6 @@ yyreduce:
 
   case 285:
 
-/* Line 1806 of yacc.c  */
-#line 1383 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(1) - (3)].action);
 		  bufferConcat((yyval.action), (yyvsp[(3) - (3)].action));
 		  bufferWriteOp((yyval.action), SWFACTION_DIVIDE); }
@@ -6058,8 +5535,6 @@ yyreduce:
 
   case 286:
 
-/* Line 1806 of yacc.c  */
-#line 1388 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(1) - (3)].action);
 		  bufferConcat((yyval.action), (yyvsp[(3) - (3)].action));
 		  bufferWriteOp((yyval.action), SWFACTION_MODULO); }
@@ -6067,8 +5542,6 @@ yyreduce:
 
   case 287:
 
-/* Line 1806 of yacc.c  */
-#line 1393 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(1) - (3)].action);
 		  bufferConcat((yyval.action), (yyvsp[(3) - (3)].action));
 		  bufferWriteOp((yyval.action), SWFACTION_ADD2); }
@@ -6076,8 +5549,6 @@ yyreduce:
 
   case 288:
 
-/* Line 1806 of yacc.c  */
-#line 1398 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(1) - (3)].action);
 		  bufferConcat((yyval.action), (yyvsp[(3) - (3)].action));
 		  bufferWriteOp((yyval.action), SWFACTION_SUBTRACT); }
@@ -6085,8 +5556,6 @@ yyreduce:
 
   case 289:
 
-/* Line 1806 of yacc.c  */
-#line 1403 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(1) - (3)].action);
 		  bufferConcat((yyval.action), (yyvsp[(3) - (3)].action));
 		  bufferWriteOp((yyval.action), SWFACTION_BITWISEAND); }
@@ -6094,8 +5563,6 @@ yyreduce:
 
   case 290:
 
-/* Line 1806 of yacc.c  */
-#line 1408 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(1) - (3)].action);
 		  bufferConcat((yyval.action), (yyvsp[(3) - (3)].action));
 		  bufferWriteOp((yyval.action), SWFACTION_BITWISEOR); }
@@ -6103,8 +5570,6 @@ yyreduce:
 
   case 291:
 
-/* Line 1806 of yacc.c  */
-#line 1413 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(1) - (3)].action);
 		  bufferConcat((yyval.action), (yyvsp[(3) - (3)].action));
 		  bufferWriteOp((yyval.action), SWFACTION_BITWISEXOR); }
@@ -6112,8 +5577,6 @@ yyreduce:
 
   case 292:
 
-/* Line 1806 of yacc.c  */
-#line 1418 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(1) - (3)].action);
 		  bufferConcat((yyval.action), (yyvsp[(3) - (3)].action));
 		  bufferWriteOp((yyval.action), SWFACTION_LESS2); }
@@ -6121,8 +5584,6 @@ yyreduce:
 
   case 293:
 
-/* Line 1806 of yacc.c  */
-#line 1423 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (3)].action);
 		  bufferConcat((yyval.action), (yyvsp[(1) - (3)].action));
 		  bufferWriteOp((yyval.action), SWFACTION_LESS2); }
@@ -6130,8 +5591,6 @@ yyreduce:
 
   case 294:
 
-/* Line 1806 of yacc.c  */
-#line 1428 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(3) - (3)].action);
 		  bufferConcat((yyval.action), (yyvsp[(1) - (3)].action));
 		  bufferWriteOp((yyval.action), SWFACTION_LESS2);
@@ -6140,8 +5599,6 @@ yyreduce:
 
   case 295:
 
-/* Line 1806 of yacc.c  */
-#line 1434 "./swf5compiler.y"
     { bufferConcat((yyvsp[(1) - (3)].action), (yyvsp[(3) - (3)].action));
 		  bufferWriteOp((yyvsp[(1) - (3)].action), SWFACTION_LESS2);
 		  bufferWriteOp((yyvsp[(1) - (3)].action), SWFACTION_LOGICALNOT); }
@@ -6149,24 +5606,18 @@ yyreduce:
 
   case 296:
 
-/* Line 1806 of yacc.c  */
-#line 1439 "./swf5compiler.y"
     { bufferConcat((yyvsp[(1) - (3)].action), (yyvsp[(3) - (3)].action));
 		  bufferWriteOp((yyvsp[(1) - (3)].action), SWFACTION_EQUALS2); }
     break;
 
   case 297:
 
-/* Line 1806 of yacc.c  */
-#line 1443 "./swf5compiler.y"
     { bufferConcat((yyvsp[(1) - (3)].action), (yyvsp[(3) - (3)].action));
 		  bufferWriteOp((yyvsp[(1) - (3)].action), SWFACTION_STRICTEQUALS); }
     break;
 
   case 298:
 
-/* Line 1806 of yacc.c  */
-#line 1447 "./swf5compiler.y"
     { bufferConcat((yyvsp[(1) - (3)].action), (yyvsp[(3) - (3)].action));
 		  bufferWriteOp((yyvsp[(1) - (3)].action), SWFACTION_EQUALS2);
 		  bufferWriteOp((yyvsp[(1) - (3)].action), SWFACTION_LOGICALNOT); }
@@ -6174,8 +5625,6 @@ yyreduce:
 
   case 299:
 
-/* Line 1806 of yacc.c  */
-#line 1452 "./swf5compiler.y"
     { bufferConcat((yyvsp[(1) - (3)].action), (yyvsp[(3) - (3)].action));
 		  bufferWriteOp((yyvsp[(1) - (3)].action), SWFACTION_STRICTEQUALS); 
 		  bufferWriteOp((yyvsp[(1) - (3)].action), SWFACTION_LOGICALNOT); }
@@ -6183,32 +5632,24 @@ yyreduce:
 
   case 300:
 
-/* Line 1806 of yacc.c  */
-#line 1457 "./swf5compiler.y"
     { bufferConcat((yyvsp[(1) - (3)].action), (yyvsp[(3) - (3)].action));
 		  bufferWriteOp((yyvsp[(1) - (3)].action), SWFACTION_SHIFTLEFT); }
     break;
 
   case 301:
 
-/* Line 1806 of yacc.c  */
-#line 1461 "./swf5compiler.y"
     { bufferConcat((yyvsp[(1) - (3)].action), (yyvsp[(3) - (3)].action));
 		  bufferWriteOp((yyvsp[(1) - (3)].action), SWFACTION_SHIFTRIGHT); }
     break;
 
   case 302:
 
-/* Line 1806 of yacc.c  */
-#line 1465 "./swf5compiler.y"
     { bufferConcat((yyvsp[(1) - (3)].action), (yyvsp[(3) - (3)].action));
 		  bufferWriteOp((yyvsp[(1) - (3)].action), SWFACTION_SHIFTRIGHT2); }
     break;
 
   case 303:
 
-/* Line 1806 of yacc.c  */
-#line 1469 "./swf5compiler.y"
     { bufferWriteOp((yyvsp[(1) - (5)].action), SWFACTION_IF);
 		  bufferWriteS16((yyvsp[(1) - (5)].action), 2);
 		  bufferWriteS16((yyvsp[(1) - (5)].action), bufferLength((yyvsp[(5) - (5)].action))+5);
@@ -6221,8 +5662,6 @@ yyreduce:
 
   case 304:
 
-/* Line 1806 of yacc.c  */
-#line 1479 "./swf5compiler.y"
     { if((yyvsp[(1) - (3)].lval).obj) /* obj[memexpr] or obj.ident */
 		  {
 		    (yyval.action) = (yyvsp[(1) - (3)].lval).obj;
@@ -6252,8 +5691,6 @@ yyreduce:
 
   case 305:
 
-/* Line 1806 of yacc.c  */
-#line 1506 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(1) - (3)].action);
 		  bufferConcat((yyval.action), (yyvsp[(3) - (3)].action));
 		  bufferWriteOp((yyval.action), SWFACTION_INSTANCEOF); }
@@ -6261,8 +5698,6 @@ yyreduce:
 
   case 307:
 
-/* Line 1806 of yacc.c  */
-#line 1516 "./swf5compiler.y"
     {
 #ifdef DEBUG
 		  printf("NEW %s\n", (yyvsp[(2) - (2)].str));
@@ -6276,8 +5711,6 @@ yyreduce:
 
   case 308:
 
-/* Line 1806 of yacc.c  */
-#line 1527 "./swf5compiler.y"
     {
 #ifdef DEBUG
 		  printf("NEW %s '(' expr_list ')'\n", (yyvsp[(2) - (5)].str));
@@ -6291,8 +5724,6 @@ yyreduce:
 
   case 309:
 
-/* Line 1806 of yacc.c  */
-#line 1538 "./swf5compiler.y"
     {
 #ifdef DEBUG
 		  printf("NEW lvalue_expr '.' %s\n", (yyvsp[(4) - (4)].str));
@@ -6307,8 +5738,6 @@ yyreduce:
 
   case 310:
 
-/* Line 1806 of yacc.c  */
-#line 1550 "./swf5compiler.y"
     {
 #ifdef DEBUG
 		  printf("NEW lvalue_expr '[' expr ']'\n");
@@ -6322,8 +5751,6 @@ yyreduce:
 
   case 311:
 
-/* Line 1806 of yacc.c  */
-#line 1562 "./swf5compiler.y"
     {
 #ifdef DEBUG
 		  printf("NEW lvalue_expr '.' %s '(' expr_list ')'\n", (yyvsp[(4) - (7)].str));
@@ -6338,8 +5765,6 @@ yyreduce:
 
   case 312:
 
-/* Line 1806 of yacc.c  */
-#line 1574 "./swf5compiler.y"
     {
 #ifdef DEBUG
 		  printf("NEW lvalue_expr '[' expr ']' '(' expr_list ')'\n");
@@ -6353,8 +5778,6 @@ yyreduce:
 
   case 313:
 
-/* Line 1806 of yacc.c  */
-#line 1585 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(2) - (3)].exprlist).buffer;
 		  bufferWriteInt((yyval.action), (yyvsp[(2) - (3)].exprlist).count);
 		  bufferWriteOp((yyval.action), SWFACTION_INITARRAY); }
@@ -6362,8 +5785,6 @@ yyreduce:
 
   case 314:
 
-/* Line 1806 of yacc.c  */
-#line 1590 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteInt((yyval.action), 0);
 		  bufferWriteOp((yyval.action), SWFACTION_INITOBJECT); }
@@ -6371,8 +5792,6 @@ yyreduce:
 
   case 315:
 
-/* Line 1806 of yacc.c  */
-#line 1595 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(2) - (3)].exprlist).buffer;
 		  bufferWriteInt((yyval.action), (yyvsp[(2) - (3)].exprlist).count);
 		  bufferWriteOp((yyval.action), SWFACTION_INITOBJECT); }
@@ -6380,8 +5799,6 @@ yyreduce:
 
   case 316:
 
-/* Line 1806 of yacc.c  */
-#line 1603 "./swf5compiler.y"
     {
 			if((yyvsp[(1) - (1)].function)->name != NULL)
 			{
@@ -6398,8 +5815,6 @@ yyreduce:
 
   case 319:
 
-/* Line 1806 of yacc.c  */
-#line 1620 "./swf5compiler.y"
     { if((yyvsp[(2) - (2)].lval).obj)
 		  {
 		    if((yyvsp[(2) - (2)].lval).ident)	// expr . identifier
@@ -6447,8 +5862,6 @@ yyreduce:
 
   case 320:
 
-/* Line 1806 of yacc.c  */
-#line 1665 "./swf5compiler.y"
     { if((yyvsp[(1) - (2)].lval).obj)
 		  {
 		    if((yyvsp[(1) - (2)].lval).ident)
@@ -6496,15 +5909,11 @@ yyreduce:
 
   case 321:
 
-/* Line 1806 of yacc.c  */
-#line 1710 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(2) - (3)].action); }
     break;
 
   case 322:
 
-/* Line 1806 of yacc.c  */
-#line 1714 "./swf5compiler.y"
     { if((yyvsp[(1) - (3)].lval).obj)
 		  {
 		    if((yyvsp[(1) - (3)].lval).ident)
@@ -6554,32 +5963,24 @@ yyreduce:
 
   case 323:
 
-/* Line 1806 of yacc.c  */
-#line 1763 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteBoolean((yyval.action), (yyvsp[(1) - (1)].intVal)); }
     break;
 
   case 324:
 
-/* Line 1806 of yacc.c  */
-#line 1766 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteNull((yyval.action)); }
     break;
 
   case 325:
 
-/* Line 1806 of yacc.c  */
-#line 1770 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteUndef((yyval.action)); }
     break;
 
   case 326:
 
-/* Line 1806 of yacc.c  */
-#line 1774 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), (yyvsp[(1) - (1)].str), strlen((yyvsp[(1) - (1)].str))+1);
 		  free((yyvsp[(1) - (1)].str)); }
@@ -6587,32 +5988,24 @@ yyreduce:
 
   case 327:
 
-/* Line 1806 of yacc.c  */
-#line 1778 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteInt((yyval.action), (yyvsp[(1) - (1)].intVal)); }
     break;
 
   case 328:
 
-/* Line 1806 of yacc.c  */
-#line 1781 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteDouble((yyval.action), (yyvsp[(1) - (1)].doubleVal)); }
     break;
 
   case 330:
 
-/* Line 1806 of yacc.c  */
-#line 1789 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(1) - (3)].action);
 		  bufferConcat((yyval.action), (yyvsp[(3) - (3)].action)); }
     break;
 
   case 331:
 
-/* Line 1806 of yacc.c  */
-#line 1795 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), (yyvsp[(1) - (4)].str), strlen((yyvsp[(1) - (4)].str))+1);
 		  free((yyvsp[(1) - (4)].str));
@@ -6622,8 +6015,6 @@ yyreduce:
 
   case 332:
 
-/* Line 1806 of yacc.c  */
-#line 1802 "./swf5compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), (yyvsp[(1) - (2)].str), strlen((yyvsp[(1) - (2)].str))+1);
 		  free((yyvsp[(1) - (2)].str));
@@ -6632,53 +6023,39 @@ yyreduce:
 
   case 333:
 
-/* Line 1806 of yacc.c  */
-#line 1810 "./swf5compiler.y"
     { asmBuffer = newBuffer(); }
     break;
 
   case 334:
 
-/* Line 1806 of yacc.c  */
-#line 1812 "./swf5compiler.y"
     { (yyval.action) = asmBuffer; }
     break;
 
   case 335:
 
-/* Line 1806 of yacc.c  */
-#line 1815 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(2) - (2)].action); }
     break;
 
   case 337:
 
-/* Line 1806 of yacc.c  */
-#line 1820 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(1) - (1)].action);
 		  bufferWriteOp((yyval.action), SWFACTION_POP); }
     break;
 
   case 338:
 
-/* Line 1806 of yacc.c  */
-#line 1824 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(1) - (1)].action);
 		  bufferWriteOp((yyval.action), SWFACTION_POP); }
     break;
 
   case 339:
 
-/* Line 1806 of yacc.c  */
-#line 1828 "./swf5compiler.y"
     { (yyval.action) = (yyvsp[(1) - (1)].action);
 		  bufferWriteOp((yyval.action), SWFACTION_POP); }
     break;
 
   case 340:
 
-/* Line 1806 of yacc.c  */
-#line 1832 "./swf5compiler.y"
     { if((yyvsp[(2) - (2)].lval).obj)
 		  {
 		    if((yyvsp[(2) - (2)].lval).ident)
@@ -6720,8 +6097,6 @@ yyreduce:
 
   case 341:
 
-/* Line 1806 of yacc.c  */
-#line 1871 "./swf5compiler.y"
     { if((yyvsp[(1) - (2)].lval).obj)
 		  {
 		    if((yyvsp[(1) - (2)].lval).ident)
@@ -6763,8 +6138,6 @@ yyreduce:
 
   case 342:
 
-/* Line 1806 of yacc.c  */
-#line 1910 "./swf5compiler.y"
     { if((yyvsp[(1) - (3)].lval).obj)
 		  {
 		    (yyval.action) = (yyvsp[(1) - (3)].lval).obj;
@@ -6788,8 +6161,6 @@ yyreduce:
 
   case 343:
 
-/* Line 1806 of yacc.c  */
-#line 1931 "./swf5compiler.y"
     { if((yyvsp[(1) - (3)].lval).obj)
 		  {
 		    if((yyvsp[(1) - (3)].lval).ident)
@@ -6833,53 +6204,39 @@ yyreduce:
 
   case 345:
 
-/* Line 1806 of yacc.c  */
-#line 1976 "./swf5compiler.y"
     { (yyval.len) = (yyvsp[(1) - (2)].len) + (yyvsp[(2) - (2)].len); }
     break;
 
   case 346:
 
-/* Line 1806 of yacc.c  */
-#line 1981 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer,
 						     SWFACTION_WITH); }
     break;
 
   case 347:
 
-/* Line 1806 of yacc.c  */
-#line 1983 "./swf5compiler.y"
     { (yyval.len) = (yyvsp[(2) - (4)].len) + (yyvsp[(3) - (4)].len);
 				  bufferPatchLength(asmBuffer, (yyvsp[(3) - (4)].len)); }
     break;
 
   case 348:
 
-/* Line 1806 of yacc.c  */
-#line 1988 "./swf5compiler.y"
     { (yyval.len) = bufferWriteConstantString(asmBuffer, (yyvsp[(1) - (1)].str),
 								 strlen((yyvsp[(1) - (1)].str))+1); }
     break;
 
   case 349:
 
-/* Line 1806 of yacc.c  */
-#line 1991 "./swf5compiler.y"
     { (yyval.len) = bufferWriteInt(asmBuffer, (yyvsp[(1) - (1)].intVal)); }
     break;
 
   case 350:
 
-/* Line 1806 of yacc.c  */
-#line 1993 "./swf5compiler.y"
     { (yyval.len) = bufferWriteDouble(asmBuffer, (yyvsp[(1) - (1)].doubleVal)); }
     break;
 
   case 351:
 
-/* Line 1806 of yacc.c  */
-#line 1995 "./swf5compiler.y"
     { bufferWriteU8(asmBuffer, PUSH_BOOLEAN);
 				  (yyval.len) = bufferWriteU8(asmBuffer, (yyvsp[(1) - (1)].intVal))+1;
 				  bufferPatchPushLength(asmBuffer, 2); }
@@ -6887,24 +6244,18 @@ yyreduce:
 
   case 352:
 
-/* Line 1806 of yacc.c  */
-#line 1999 "./swf5compiler.y"
     { (yyval.len) = bufferWriteU8(asmBuffer, PUSH_NULL);
 				  bufferPatchPushLength(asmBuffer, 1); }
     break;
 
   case 353:
 
-/* Line 1806 of yacc.c  */
-#line 2002 "./swf5compiler.y"
     { (yyval.len) = bufferWriteU8(asmBuffer, PUSH_UNDEF);
 				  bufferPatchPushLength(asmBuffer, 1); }
     break;
 
   case 354:
 
-/* Line 1806 of yacc.c  */
-#line 2005 "./swf5compiler.y"
     { bufferWriteU8(asmBuffer, PUSH_REGISTER);
 				  (yyval.len) = bufferWriteU8(asmBuffer,
 						     (char)atoi((yyvsp[(1) - (1)].str)))+1;
@@ -6913,38 +6264,28 @@ yyreduce:
 
   case 355:
 
-/* Line 1806 of yacc.c  */
-#line 2013 "./swf5compiler.y"
     { (yyval.len) = (yyvsp[(1) - (1)].len); }
     break;
 
   case 356:
 
-/* Line 1806 of yacc.c  */
-#line 2014 "./swf5compiler.y"
     { (yyval.len) = (yyvsp[(1) - (3)].len) + (yyvsp[(3) - (3)].len); }
     break;
 
   case 357:
 
-/* Line 1806 of yacc.c  */
-#line 2018 "./swf5compiler.y"
     { (yyval.len) = bufferWritePushOp(asmBuffer);
 				  (yyval.len) += bufferWriteS16(asmBuffer, 0); }
     break;
 
   case 358:
 
-/* Line 1806 of yacc.c  */
-#line 2020 "./swf5compiler.y"
     { (yyval.len) = (yyvsp[(2) - (3)].len) + (yyvsp[(3) - (3)].len);
 				  bufferPatchLength(asmBuffer, (yyvsp[(3) - (3)].len)); }
     break;
 
   case 360:
 
-/* Line 1806 of yacc.c  */
-#line 2026 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_STOREREGISTER);
 				  (yyval.len) += bufferWriteS16(asmBuffer, 1);
@@ -6954,540 +6295,396 @@ yyreduce:
 
   case 361:
 
-/* Line 1806 of yacc.c  */
-#line 2032 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer,
 						     SWFACTION_CALLFUNCTION); }
     break;
 
   case 362:
 
-/* Line 1806 of yacc.c  */
-#line 2034 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer,
 						     SWFACTION_RETURN); }
     break;
 
   case 363:
 
-/* Line 1806 of yacc.c  */
-#line 2036 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_CALLMETHOD); }
     break;
 
   case 364:
 
-/* Line 1806 of yacc.c  */
-#line 2038 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_NEWOBJECT); }
     break;
 
   case 365:
 
-/* Line 1806 of yacc.c  */
-#line 2040 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_NEWMETHOD); }
     break;
 
   case 366:
 
-/* Line 1806 of yacc.c  */
-#line 2042 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_BITWISEAND); }
     break;
 
   case 367:
 
-/* Line 1806 of yacc.c  */
-#line 2044 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_BITWISEOR); }
     break;
 
   case 368:
 
-/* Line 1806 of yacc.c  */
-#line 2046 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_BITWISEXOR); }
     break;
 
   case 369:
 
-/* Line 1806 of yacc.c  */
-#line 2048 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_MODULO); }
     break;
 
   case 370:
 
-/* Line 1806 of yacc.c  */
-#line 2050 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_ADD2); }
     break;
 
   case 371:
 
-/* Line 1806 of yacc.c  */
-#line 2052 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_LESS2); }
     break;
 
   case 372:
 
-/* Line 1806 of yacc.c  */
-#line 2054 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_EQUALS2); }
     break;
 
   case 373:
 
-/* Line 1806 of yacc.c  */
-#line 2056 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_INCREMENT); }
     break;
 
   case 374:
 
-/* Line 1806 of yacc.c  */
-#line 2058 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_DECREMENT); }
     break;
 
   case 375:
 
-/* Line 1806 of yacc.c  */
-#line 2060 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_TYPEOF); }
     break;
 
   case 376:
 
-/* Line 1806 of yacc.c  */
-#line 2062 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_INSTANCEOF); }
     break;
 
   case 377:
 
-/* Line 1806 of yacc.c  */
-#line 2064 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_ENUMERATE); }
     break;
 
   case 378:
 
-/* Line 1806 of yacc.c  */
-#line 2066 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_ENUMERATE2); }
     break;
 
   case 379:
 
-/* Line 1806 of yacc.c  */
-#line 2068 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_DELETE); }
     break;
 
   case 380:
 
-/* Line 1806 of yacc.c  */
-#line 2070 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_DELETE2); }
     break;
 
   case 381:
 
-/* Line 1806 of yacc.c  */
-#line 2072 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_NEWOBJECT); }
     break;
 
   case 382:
 
-/* Line 1806 of yacc.c  */
-#line 2074 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_INITARRAY); }
     break;
 
   case 383:
 
-/* Line 1806 of yacc.c  */
-#line 2076 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_INITOBJECT); }
     break;
 
   case 384:
 
-/* Line 1806 of yacc.c  */
-#line 2078 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_GETMEMBER); }
     break;
 
   case 385:
 
-/* Line 1806 of yacc.c  */
-#line 2080 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_SETMEMBER); }
     break;
 
   case 386:
 
-/* Line 1806 of yacc.c  */
-#line 2082 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_SHIFTLEFT); }
     break;
 
   case 387:
 
-/* Line 1806 of yacc.c  */
-#line 2084 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_SHIFTRIGHT); }
     break;
 
   case 388:
 
-/* Line 1806 of yacc.c  */
-#line 2086 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_SHIFTRIGHT2); }
     break;
 
   case 389:
 
-/* Line 1806 of yacc.c  */
-#line 2088 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_DEFINELOCAL2); }
     break;
 
   case 390:
 
-/* Line 1806 of yacc.c  */
-#line 2090 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_EXTENDS); }
     break;
 
   case 391:
 
-/* Line 1806 of yacc.c  */
-#line 2092 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_TARGETPATH); }
     break;
 
   case 392:
 
-/* Line 1806 of yacc.c  */
-#line 2096 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer,
 						     (char)(yyvsp[(2) - (2)].intVal)); }
     break;
 
   case 393:
 
-/* Line 1806 of yacc.c  */
-#line 2099 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_IMPLEMENTSOP); }
     break;
 
   case 394:
 
-/* Line 1806 of yacc.c  */
-#line 2101 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, 
 						     SWFACTION_FSCOMMAND2); }
     break;
 
   case 395:
 
-/* Line 1806 of yacc.c  */
-#line 2103 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer,
 						     SWFACTION_CASTOP);	}
     break;
 
   case 396:
 
-/* Line 1806 of yacc.c  */
-#line 2107 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_ADD); }
     break;
 
   case 397:
 
-/* Line 1806 of yacc.c  */
-#line 2108 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_SUBTRACT); }
     break;
 
   case 398:
 
-/* Line 1806 of yacc.c  */
-#line 2109 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_MULTIPLY); }
     break;
 
   case 399:
 
-/* Line 1806 of yacc.c  */
-#line 2110 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_DIVIDE); }
     break;
 
   case 400:
 
-/* Line 1806 of yacc.c  */
-#line 2111 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_EQUAL); }
     break;
 
   case 401:
 
-/* Line 1806 of yacc.c  */
-#line 2112 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_LESSTHAN); }
     break;
 
   case 402:
 
-/* Line 1806 of yacc.c  */
-#line 2113 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_LOGICALAND); }
     break;
 
   case 403:
 
-/* Line 1806 of yacc.c  */
-#line 2114 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_LOGICALOR); }
     break;
 
   case 404:
 
-/* Line 1806 of yacc.c  */
-#line 2115 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_LOGICALNOT); }
     break;
 
   case 405:
 
-/* Line 1806 of yacc.c  */
-#line 2116 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_STRINGEQ); }
     break;
 
   case 406:
 
-/* Line 1806 of yacc.c  */
-#line 2117 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_STRINGLENGTH); }
     break;
 
   case 407:
 
-/* Line 1806 of yacc.c  */
-#line 2118 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_SUBSTRING); }
     break;
 
   case 408:
 
-/* Line 1806 of yacc.c  */
-#line 2119 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_INT); }
     break;
 
   case 409:
 
-/* Line 1806 of yacc.c  */
-#line 2120 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_PUSHDUP); }
     break;
 
   case 410:
 
-/* Line 1806 of yacc.c  */
-#line 2121 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_STACKSWAP); }
     break;
 
   case 411:
 
-/* Line 1806 of yacc.c  */
-#line 2122 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_POP); }
     break;
 
   case 412:
 
-/* Line 1806 of yacc.c  */
-#line 2123 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_GETVARIABLE); }
     break;
 
   case 413:
 
-/* Line 1806 of yacc.c  */
-#line 2124 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_SETVARIABLE); }
     break;
 
   case 414:
 
-/* Line 1806 of yacc.c  */
-#line 2125 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_GETPROPERTY); }
     break;
 
   case 415:
 
-/* Line 1806 of yacc.c  */
-#line 2126 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_SETPROPERTY); }
     break;
 
   case 416:
 
-/* Line 1806 of yacc.c  */
-#line 2127 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_TONUMBER); }
     break;
 
   case 417:
 
-/* Line 1806 of yacc.c  */
-#line 2128 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_TOSTRING); }
     break;
 
   case 418:
 
-/* Line 1806 of yacc.c  */
-#line 2129 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_SETTARGET2); }
     break;
 
   case 419:
 
-/* Line 1806 of yacc.c  */
-#line 2130 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_STRINGCONCAT); }
     break;
 
   case 420:
 
-/* Line 1806 of yacc.c  */
-#line 2131 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_DUPLICATECLIP); }
     break;
 
   case 421:
 
-/* Line 1806 of yacc.c  */
-#line 2132 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_REMOVECLIP); }
     break;
 
   case 422:
 
-/* Line 1806 of yacc.c  */
-#line 2133 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_TRACE); }
     break;
 
   case 423:
 
-/* Line 1806 of yacc.c  */
-#line 2134 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_STRINGCOMPARE); }
     break;
 
   case 424:
 
-/* Line 1806 of yacc.c  */
-#line 2135 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_RANDOMNUMBER); }
     break;
 
   case 425:
 
-/* Line 1806 of yacc.c  */
-#line 2136 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_MBLENGTH); }
     break;
 
   case 426:
 
-/* Line 1806 of yacc.c  */
-#line 2137 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_ORD); }
     break;
 
   case 427:
 
-/* Line 1806 of yacc.c  */
-#line 2138 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_CHR); }
     break;
 
   case 428:
 
-/* Line 1806 of yacc.c  */
-#line 2139 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_GETTIME); }
     break;
 
   case 429:
 
-/* Line 1806 of yacc.c  */
-#line 2140 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_MBSUBSTRING); }
     break;
 
   case 430:
 
-/* Line 1806 of yacc.c  */
-#line 2141 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_MBORD); }
     break;
 
   case 431:
 
-/* Line 1806 of yacc.c  */
-#line 2142 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_MBCHR); }
     break;
 
   case 432:
 
-/* Line 1806 of yacc.c  */
-#line 2145 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_JUMP);
 				  (yyval.len) += bufferWriteS16(asmBuffer, 2);
 				  (yyval.len) += bufferBranchTarget(asmBuffer, (yyvsp[(2) - (2)].str)); }
@@ -7495,8 +6692,6 @@ yyreduce:
 
   case 433:
 
-/* Line 1806 of yacc.c  */
-#line 2149 "./swf5compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_IF);
 				  (yyval.len) += bufferWriteS16(asmBuffer, 2);
 				  (yyval.len) += bufferBranchTarget(asmBuffer, (yyvsp[(2) - (2)].str)); }
@@ -7504,169 +6699,121 @@ yyreduce:
 
   case 434:
 
-/* Line 1806 of yacc.c  */
-#line 2156 "./swf5compiler.y"
     { (yyval.intVal) = lookupProperty((yyvsp[(1) - (1)].str)); }
     break;
 
   case 435:
 
-/* Line 1806 of yacc.c  */
-#line 2157 "./swf5compiler.y"
     { (yyval.intVal) = PROPERTY_X; }
     break;
 
   case 436:
 
-/* Line 1806 of yacc.c  */
-#line 2158 "./swf5compiler.y"
     { (yyval.intVal) = PROPERTY_Y; }
     break;
 
   case 437:
 
-/* Line 1806 of yacc.c  */
-#line 2159 "./swf5compiler.y"
     { (yyval.intVal) = PROPERTY_XSCALE; }
     break;
 
   case 438:
 
-/* Line 1806 of yacc.c  */
-#line 2160 "./swf5compiler.y"
     { (yyval.intVal) = PROPERTY_YSCALE; }
     break;
 
   case 439:
 
-/* Line 1806 of yacc.c  */
-#line 2161 "./swf5compiler.y"
     { (yyval.intVal) = PROPERTY_CURRENTFRAME; }
     break;
 
   case 440:
 
-/* Line 1806 of yacc.c  */
-#line 2162 "./swf5compiler.y"
     { (yyval.intVal) = PROPERTY_TOTALFRAMES; }
     break;
 
   case 441:
 
-/* Line 1806 of yacc.c  */
-#line 2163 "./swf5compiler.y"
     { (yyval.intVal) = PROPERTY_ALPHA; }
     break;
 
   case 442:
 
-/* Line 1806 of yacc.c  */
-#line 2164 "./swf5compiler.y"
     { (yyval.intVal) = PROPERTY_VISIBLE; }
     break;
 
   case 443:
 
-/* Line 1806 of yacc.c  */
-#line 2165 "./swf5compiler.y"
     { (yyval.intVal) = PROPERTY_WIDTH; }
     break;
 
   case 444:
 
-/* Line 1806 of yacc.c  */
-#line 2166 "./swf5compiler.y"
     { (yyval.intVal) = PROPERTY_HEIGHT; }
     break;
 
   case 445:
 
-/* Line 1806 of yacc.c  */
-#line 2167 "./swf5compiler.y"
     { (yyval.intVal) = PROPERTY_ROTATION; }
     break;
 
   case 446:
 
-/* Line 1806 of yacc.c  */
-#line 2168 "./swf5compiler.y"
     { (yyval.intVal) = PROPERTY_TARGET; }
     break;
 
   case 447:
 
-/* Line 1806 of yacc.c  */
-#line 2169 "./swf5compiler.y"
     { (yyval.intVal) = PROPERTY_FRAMESLOADED; }
     break;
 
   case 448:
 
-/* Line 1806 of yacc.c  */
-#line 2170 "./swf5compiler.y"
     { (yyval.intVal) = PROPERTY_NAME; }
     break;
 
   case 449:
 
-/* Line 1806 of yacc.c  */
-#line 2171 "./swf5compiler.y"
     { (yyval.intVal) = PROPERTY_DROPTARGET; }
     break;
 
   case 450:
 
-/* Line 1806 of yacc.c  */
-#line 2172 "./swf5compiler.y"
     { (yyval.intVal) = PROPERTY_URL; }
     break;
 
   case 451:
 
-/* Line 1806 of yacc.c  */
-#line 2173 "./swf5compiler.y"
     { (yyval.intVal) = PROPERTY_HIGHQUALITY; }
     break;
 
   case 452:
 
-/* Line 1806 of yacc.c  */
-#line 2174 "./swf5compiler.y"
     { (yyval.intVal) = PROPERTY_FOCUSRECT; }
     break;
 
   case 453:
 
-/* Line 1806 of yacc.c  */
-#line 2175 "./swf5compiler.y"
     { (yyval.intVal) = PROPERTY_SOUNDBUFTIME; }
     break;
 
   case 454:
 
-/* Line 1806 of yacc.c  */
-#line 2176 "./swf5compiler.y"
     { (yyval.intVal) = PROPERTY_QUALITY; }
     break;
 
   case 455:
 
-/* Line 1806 of yacc.c  */
-#line 2177 "./swf5compiler.y"
     { (yyval.intVal) = PROPERTY_XMOUSE; }
     break;
 
   case 456:
 
-/* Line 1806 of yacc.c  */
-#line 2178 "./swf5compiler.y"
     { (yyval.intVal) = PROPERTY_YMOUSE; }
     break;
 
 
 
-/* Line 1806 of yacc.c  */
-#line 7670 "swf5compiler.tab.c"
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -7893,11 +7040,4 @@ yyreturn:
   /* Make sure YYID is used.  */
   return YYID (yyresult);
 }
-
-
-
-/* Line 2067 of yacc.c  */
-#line 2180 "./swf5compiler.y"
-
-
 

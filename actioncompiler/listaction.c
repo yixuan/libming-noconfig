@@ -1,9 +1,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdarg.h>
-#include "actiontypes.h"
+#include <actiontypes.h>
 #include "compile.h"
-#include "libming.h"
+#include <libming.h>
 
 
 #define print(x)	{fputs(x,stdout);}

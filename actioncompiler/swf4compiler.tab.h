@@ -264,7 +264,6 @@
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 19 "./swf4compiler.y"
 {
   Buffer action;
   char *str;
@@ -272,8 +271,6 @@ typedef union YYSTYPE
   SWFGetUrl2Method getURLMethod;
   int len;
 }
-/* Line 1489 of yacc.c.  */
-#line 277 "swf4compiler.tab.h"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1

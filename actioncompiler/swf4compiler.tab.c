@@ -298,14 +298,11 @@
 
 
 /* Copy the first part of user declarations.  */
-#line 5 "./swf4compiler.y"
-
-
 #include <time.h>
 #include <string.h>
 #include <stdlib.h>
 #include "compile.h"
-#include "actiontypes.h"
+#include <actiontypes.h>
 #include "assembler.h"
 
 #define YYPARSE_PARAM buffer
@@ -333,7 +330,6 @@
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 19 "./swf4compiler.y"
 {
   Buffer action;
   char *str;
@@ -341,8 +337,6 @@ typedef union YYSTYPE
   SWFGetUrl2Method getURLMethod;
   int len;
 }
-/* Line 187 of yacc.c.  */
-#line 346 "swf4compiler.tab.c"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
@@ -352,10 +346,6 @@ typedef union YYSTYPE
 
 
 /* Copy the second part of user declarations.  */
-
-
-/* Line 216 of yacc.c.  */
-#line 359 "swf4compiler.tab.c"
 
 #ifdef short
 # undef short
@@ -2199,47 +2189,38 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 164 "./swf4compiler.y"
     { *((Buffer *)buffer) = (yyvsp[(1) - (1)].action); }
     break;
 
   case 4:
-#line 171 "./swf4compiler.y"
     { bufferConcat((yyvsp[(1) - (2)].action), (yyvsp[(2) - (2)].action)); }
     break;
 
   case 6:
-#line 179 "./swf4compiler.y"
     { (yyval.action) = NULL; }
     break;
 
   case 7:
-#line 180 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(2) - (3)].action); }
     break;
 
   case 8:
-#line 181 "./swf4compiler.y"
     { (yyval.action) = NULL; }
     break;
 
   case 15:
-#line 191 "./swf4compiler.y"
     { bufferConcat((yyvsp[(1) - (3)].action), (yyvsp[(3) - (3)].action)); }
     break;
 
   case 16:
-#line 195 "./swf4compiler.y"
     { (yyval.action) = NULL; }
     break;
 
   case 18:
-#line 198 "./swf4compiler.y"
     { bufferConcat((yyvsp[(1) - (2)].action), (yyvsp[(2) - (2)].action)); }
     break;
 
   case 19:
-#line 205 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteU8((yyval.action), SWFACTION_WAITFORFRAME);
 		  bufferWriteS16((yyval.action), 3);
@@ -2257,7 +2238,6 @@ yyreduce:
     break;
 
   case 20:
-#line 221 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteU8((yyval.action), SWFACTION_WAITFORFRAME);
 		  bufferWriteS16((yyval.action), 3);
@@ -2274,7 +2254,6 @@ yyreduce:
     break;
 
   case 21:
-#line 237 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteU8((yyval.action), SWFACTION_WAITFORFRAME);
 		  bufferWriteS16((yyval.action), 3);
@@ -2288,7 +2267,6 @@ yyreduce:
     break;
 
   case 22:
-#line 249 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(5) - (10)].action);
 		  bufferWriteU8((yyval.action), SWFACTION_WAITFORFRAME2);
 		  bufferWriteS16((yyval.action), 1);
@@ -2304,7 +2282,6 @@ yyreduce:
     break;
 
   case 23:
-#line 263 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(5) - (8)].action);
 		  bufferWriteU8((yyval.action), SWFACTION_WAITFORFRAME2);
 		  bufferWriteS16((yyval.action), 1);
@@ -2319,7 +2296,6 @@ yyreduce:
     break;
 
   case 24:
-#line 277 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(6) - (9)].action);
 		  bufferWriteU8((yyval.action), SWFACTION_WAITFORFRAME2);
 		  bufferWriteS16((yyval.action), 1);
@@ -2331,7 +2307,6 @@ yyreduce:
     break;
 
   case 25:
-#line 287 "./swf4compiler.y"
     { bufferWriteU8((yyvsp[(3) - (7)].action), SWFACTION_IF);
 		  bufferWriteS16((yyvsp[(3) - (7)].action), 2);
 		  bufferWriteS16((yyvsp[(3) - (7)].action), bufferLength((yyvsp[(7) - (7)].action))+5);
@@ -2344,7 +2319,6 @@ yyreduce:
     break;
 
   case 26:
-#line 298 "./swf4compiler.y"
     { bufferWriteU8((yyvsp[(3) - (5)].action), SWFACTION_LOGICALNOT);
 		  bufferWriteU8((yyvsp[(3) - (5)].action), SWFACTION_IF);
 		  bufferWriteS16((yyvsp[(3) - (5)].action), 2);
@@ -2354,17 +2328,14 @@ yyreduce:
     break;
 
   case 27:
-#line 307 "./swf4compiler.y"
     { (yyval.action) = NULL; }
     break;
 
   case 28:
-#line 308 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(1) - (1)].action); }
     break;
 
   case 29:
-#line 333 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteU8((yyval.action), SWFACTION_WAITFORFRAME);
 		  bufferWriteS16((yyval.action), 3);
@@ -2381,7 +2352,6 @@ yyreduce:
     break;
 
   case 30:
-#line 348 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(3) - (5)].action);
 		  bufferWriteU8((yyval.action), SWFACTION_LOGICALNOT);
 		  bufferWriteU8((yyval.action), SWFACTION_IF);
@@ -2395,7 +2365,6 @@ yyreduce:
     break;
 
   case 31:
-#line 360 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(2) - (6)].action);
 		  bufferConcat((yyval.action), (yyvsp[(5) - (6)].action));
 		  bufferWriteU8((yyval.action), SWFACTION_IF);
@@ -2405,7 +2374,6 @@ yyreduce:
     break;
 
   case 32:
-#line 368 "./swf4compiler.y"
     { if (!(yyvsp[(5) - (9)].action))
                     (yyvsp[(5) - (9)].action) = newBuffer();
                   else {
@@ -2427,12 +2395,10 @@ yyreduce:
     break;
 
   case 33:
-#line 389 "./swf4compiler.y"
     { (yyval.action) = NULL; }
     break;
 
   case 35:
-#line 395 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteU8((yyval.action), SWFACTION_JUMP);
 		  bufferWriteS16((yyval.action), 2);
@@ -2440,7 +2406,6 @@ yyreduce:
     break;
 
   case 36:
-#line 403 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteU8((yyval.action), SWFACTION_JUMP);
 		  bufferWriteS16((yyval.action), 2);
@@ -2448,12 +2413,10 @@ yyreduce:
     break;
 
   case 37:
-#line 411 "./swf4compiler.y"
     { (yyval.getURLMethod) = GETURL_METHOD_NOSEND; }
     break;
 
   case 38:
-#line 413 "./swf4compiler.y"
     { if(strcmp((yyvsp[(2) - (2)].str), "GET") == 0)
 				    (yyval.getURLMethod) = GETURL_METHOD_GET;
 				  else if(strcmp((yyvsp[(2) - (2)].str), "POST") == 0)
@@ -2461,7 +2424,6 @@ yyreduce:
     break;
 
   case 39:
-#line 421 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), "_level", 7);
 		  bufferConcat((yyval.action), (yyvsp[(1) - (1)].action));
@@ -2469,13 +2431,11 @@ yyreduce:
     break;
 
   case 40:
-#line 429 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteU8((yyval.action), SWFACTION_ENDDRAG); }
     break;
 
   case 41:
-#line 433 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), (yyvsp[(3) - (4)].str), strlen((yyvsp[(3) - (4)].str))+1);
 		  bufferWriteU8((yyval.action), SWFACTION_CALLFRAME);
@@ -2484,7 +2444,6 @@ yyreduce:
     break;
 
   case 42:
-#line 440 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), (yyvsp[(3) - (4)].str), strlen((yyvsp[(3) - (4)].str))+1);
 		  bufferWriteU8((yyval.action), SWFACTION_CALLFRAME);
@@ -2493,19 +2452,16 @@ yyreduce:
     break;
 
   case 43:
-#line 447 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(3) - (4)].action);
 		  bufferWriteU8((yyval.action), SWFACTION_REMOVECLIP); }
     break;
 
   case 44:
-#line 451 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(3) - (4)].action);
 		  bufferWriteU8((yyval.action), SWFACTION_TRACE); }
     break;
 
   case 45:
-#line 456 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(3) - (6)].action);
 		  bufferConcat((yyval.action), (yyvsp[(5) - (6)].action));
 		  bufferWriteU8((yyval.action), SWFACTION_GETURL2);
@@ -2514,7 +2470,6 @@ yyreduce:
     break;
 
   case 46:
-#line 463 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(3) - (7)].action);
 		  bufferConcat((yyval.action), (yyvsp[(5) - (7)].action));
 		  bufferWriteU8((yyval.action), SWFACTION_GETURL2);
@@ -2523,7 +2478,6 @@ yyreduce:
     break;
 
   case 47:
-#line 470 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteU8((yyval.action), SWFACTION_GETURL);
 		  bufferWriteS16((yyval.action), strlen((yyvsp[(3) - (6)].str)) + strlen((yyvsp[(5) - (6)].str)) + 2);
@@ -2534,7 +2488,6 @@ yyreduce:
     break;
 
   case 48:
-#line 479 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(3) - (7)].action);
 		  bufferConcat((yyval.action), (yyvsp[(5) - (7)].action));
 		  bufferWriteU8((yyval.action), SWFACTION_GETURL2);
@@ -2543,7 +2496,6 @@ yyreduce:
     break;
 
   case 49:
-#line 486 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(3) - (7)].action);
 		  bufferConcat((yyval.action), (yyvsp[(5) - (7)].action));
 		  bufferWriteOp((yyval.action), SWFACTION_GETURL2);
@@ -2552,7 +2504,6 @@ yyreduce:
     break;
 
   case 50:
-#line 493 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(3) - (7)].action);
 		  bufferConcat((yyval.action), (yyvsp[(5) - (7)].action));
 		  bufferWriteU8((yyval.action), SWFACTION_GETURL2);
@@ -2561,7 +2512,6 @@ yyreduce:
     break;
 
   case 51:
-#line 501 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), "0", 2); /* no constraint */
 		  bufferConcat((yyval.action), (yyvsp[(5) - (6)].action));
@@ -2570,7 +2520,6 @@ yyreduce:
     break;
 
   case 52:
-#line 508 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferConcat((yyval.action), (yyvsp[(7) - (14)].action));
 		  bufferConcat((yyval.action), (yyvsp[(11) - (14)].action));
@@ -2583,7 +2532,6 @@ yyreduce:
     break;
 
   case 53:
-#line 520 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(3) - (8)].action);
 		  bufferConcat((yyval.action), (yyvsp[(5) - (8)].action));
 		  bufferConcat((yyval.action), (yyvsp[(7) - (8)].action));
@@ -2593,43 +2541,36 @@ yyreduce:
     break;
 
   case 54:
-#line 529 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteU8((yyval.action), SWFACTION_NEXTFRAME); }
     break;
 
   case 55:
-#line 533 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteU8((yyval.action), SWFACTION_PREVFRAME); }
     break;
 
   case 56:
-#line 537 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteU8((yyval.action), SWFACTION_PLAY); }
     break;
 
   case 57:
-#line 541 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteU8((yyval.action), SWFACTION_STOP); }
     break;
 
   case 58:
-#line 545 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteU8((yyval.action), SWFACTION_TOGGLEQUALITY); }
     break;
 
   case 59:
-#line 549 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteU8((yyval.action), SWFACTION_STOPSOUNDS); }
     break;
 
   case 60:
-#line 553 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteU8((yyval.action), SWFACTION_GOTOFRAME);
 		  bufferWriteS16((yyval.action), 2);
@@ -2638,7 +2579,6 @@ yyreduce:
     break;
 
   case 61:
-#line 560 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteU8((yyval.action), SWFACTION_GOTOLABEL);
 		  bufferWriteS16((yyval.action), strlen((yyvsp[(3) - (4)].str))+1);
@@ -2647,7 +2587,6 @@ yyreduce:
     break;
 
   case 62:
-#line 567 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(3) - (4)].action);
 		  bufferWriteU8((yyval.action), SWFACTION_GOTOFRAME2);
 		  bufferWriteS16((yyval.action), 1);
@@ -2655,7 +2594,6 @@ yyreduce:
     break;
 
   case 63:
-#line 573 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(3) - (4)].action);
 		  bufferWriteU8((yyval.action), SWFACTION_GOTOFRAME2);
 		  bufferWriteS16((yyval.action), 1);
@@ -2663,7 +2601,6 @@ yyreduce:
     break;
 
   case 64:
-#line 579 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteU8((yyval.action), SWFACTION_SETTARGET);
 		  bufferWriteS16((yyval.action), strlen((yyvsp[(3) - (4)].str))+1);
@@ -2672,13 +2609,11 @@ yyreduce:
     break;
 
   case 65:
-#line 586 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(3) - (4)].action);
 		  bufferWriteU8((yyval.action), SWFACTION_SETTARGET2); }
     break;
 
   case 66:
-#line 590 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 			/* SetTarget(STRING) */
 		  bufferWriteU8((yyval.action), SWFACTION_SETTARGET);
@@ -2694,7 +2629,6 @@ yyreduce:
     break;
 
   case 67:
-#line 604 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(3) - (5)].action);
 			/* SetTarget(expr) */
 		  bufferWriteU8((yyval.action), SWFACTION_SETTARGET2); 
@@ -2707,56 +2641,47 @@ yyreduce:
     break;
 
   case 68:
-#line 617 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(3) - (4)].action);
 		  bufferWriteU8((yyval.action), SWFACTION_GETVARIABLE); }
     break;
 
   case 69:
-#line 621 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteU8((yyval.action), SWFACTION_GETTIME); }
     break;
 
   case 70:
-#line 625 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(3) - (4)].action);
 		  bufferWriteU8((yyval.action), SWFACTION_RANDOMNUMBER); }
     break;
 
   case 71:
-#line 629 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(3) - (4)].action);
 		  bufferWriteU8((yyval.action), SWFACTION_STRINGLENGTH); }
     break;
 
   case 72:
-#line 633 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(3) - (4)].action);
 		  bufferWriteU8((yyval.action), SWFACTION_INT); }
     break;
 
   case 73:
-#line 637 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(3) - (4)].action);
 		  bufferWriteU8((yyval.action), SWFACTION_ORD); }
     break;
 
   case 74:
-#line 641 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(3) - (4)].action);
 		  bufferWriteU8((yyval.action), SWFACTION_CHR); }
     break;
 
   case 75:
-#line 645 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(3) - (6)].action);
 		  bufferConcat((yyval.action), (yyvsp[(5) - (6)].action));
 		  bufferWriteU8((yyval.action), SWFACTION_STRINGCONCAT); }
     break;
 
   case 76:
-#line 650 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(3) - (8)].action);
 		  bufferConcat((yyval.action), (yyvsp[(5) - (8)].action));
 		  bufferConcat((yyval.action), (yyvsp[(7) - (8)].action));
@@ -2764,7 +2689,6 @@ yyreduce:
     break;
 
   case 77:
-#line 656 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferConcat((yyval.action), (yyvsp[(3) - (6)].action));
 		  bufferWriteProperty((yyval.action), (yyvsp[(5) - (6)].str));
@@ -2773,7 +2697,6 @@ yyreduce:
     break;
 
   case 78:
-#line 665 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteBuffer((yyval.action), (yyvsp[(1) - (2)].action));
 		  bufferWriteU8((yyval.action), SWFACTION_GETVARIABLE);
@@ -2786,7 +2709,6 @@ yyreduce:
     break;
 
   case 79:
-#line 676 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteBuffer((yyval.action), (yyvsp[(1) - (2)].action));
 		  bufferWriteU8((yyval.action), SWFACTION_GETVARIABLE);
@@ -2799,19 +2721,16 @@ yyreduce:
     break;
 
   case 81:
-#line 692 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(2) - (3)].action); }
     break;
 
   case 82:
-#line 695 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), (yyvsp[(1) - (1)].str), strlen((yyvsp[(1) - (1)].str))+1);
 		  free((yyvsp[(1) - (1)].str)); }
     break;
 
   case 83:
-#line 700 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), "-", 2);
 		  bufferWriteString((yyval.action), (yyvsp[(2) - (2)].str), strlen((yyvsp[(2) - (2)].str))+1);
@@ -2819,14 +2738,12 @@ yyreduce:
     break;
 
   case 84:
-#line 706 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), (yyvsp[(1) - (1)].str), strlen((yyvsp[(1) - (1)].str))+1);
 		  free((yyvsp[(1) - (1)].str)); }
     break;
 
   case 85:
-#line 711 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), (yyvsp[(1) - (1)].str), strlen((yyvsp[(1) - (1)].str))+1);
 		  bufferWriteU8((yyval.action), SWFACTION_GETVARIABLE);
@@ -2834,14 +2751,12 @@ yyreduce:
     break;
 
   case 86:
-#line 717 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), (yyvsp[(1) - (1)].str), strlen((yyvsp[(1) - (1)].str))+1);
 		  free((yyvsp[(1) - (1)].str)); }
     break;
 
   case 87:
-#line 722 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), (yyvsp[(1) - (3)].str), strlen((yyvsp[(1) - (3)].str))+1);
 		  bufferWriteProperty((yyval.action), (yyvsp[(3) - (3)].str));
@@ -2851,7 +2766,6 @@ yyreduce:
     break;
 
   case 88:
-#line 730 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), (yyvsp[(2) - (4)].str), strlen((yyvsp[(2) - (4)].str))+1);
 		  bufferWriteProperty((yyval.action), (yyvsp[(4) - (4)].str));
@@ -2868,7 +2782,6 @@ yyreduce:
     break;
 
   case 89:
-#line 745 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(2) - (2)].action);
 		  bufferWriteU8((yyval.action), SWFACTION_PUSHDUP);
 		  bufferWriteU8((yyval.action), SWFACTION_PUSHDUP);
@@ -2880,7 +2793,6 @@ yyreduce:
     break;
 
   case 90:
-#line 755 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), (yyvsp[(2) - (4)].str), strlen((yyvsp[(2) - (4)].str))+1);
 		  bufferWriteProperty((yyval.action), (yyvsp[(4) - (4)].str));
@@ -2897,7 +2809,6 @@ yyreduce:
     break;
 
   case 91:
-#line 770 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(2) - (2)].action);
 		  bufferWriteU8((yyval.action), SWFACTION_PUSHDUP);
 		  bufferWriteU8((yyval.action), SWFACTION_PUSHDUP);
@@ -2909,20 +2820,17 @@ yyreduce:
     break;
 
   case 92:
-#line 780 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(2) - (2)].action);
 		  bufferWriteString((yyvsp[(2) - (2)].action), "-1", 3);
 		  bufferWriteU8((yyvsp[(2) - (2)].action), SWFACTION_MULTIPLY); }
     break;
 
   case 93:
-#line 785 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(2) - (2)].action);
 		  bufferWriteU8((yyvsp[(2) - (2)].action), SWFACTION_LOGICALNOT); }
     break;
 
   case 94:
-#line 789 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(1) - (3)].action);
 		  bufferConcat((yyval.action), (yyvsp[(3) - (3)].action));
 		  bufferWriteU8((yyval.action), SWFACTION_PUSHDUP);
@@ -2930,56 +2838,48 @@ yyreduce:
     break;
 
   case 95:
-#line 795 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(1) - (3)].action);
 		  bufferConcat((yyval.action), (yyvsp[(3) - (3)].action));
 		  bufferWriteU8((yyval.action), SWFACTION_MULTIPLY); }
     break;
 
   case 96:
-#line 800 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(1) - (3)].action);
 		  bufferConcat((yyval.action), (yyvsp[(3) - (3)].action));
 		  bufferWriteU8((yyval.action), SWFACTION_DIVIDE); }
     break;
 
   case 97:
-#line 805 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(1) - (3)].action);
 		  bufferConcat((yyval.action), (yyvsp[(3) - (3)].action));
 		  bufferWriteU8((yyval.action), SWFACTION_ADD); }
     break;
 
   case 98:
-#line 810 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(1) - (3)].action);
 		  bufferConcat((yyval.action), (yyvsp[(3) - (3)].action));
 		  bufferWriteU8((yyval.action), SWFACTION_SUBTRACT); }
     break;
 
   case 99:
-#line 815 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(1) - (3)].action);
 		  bufferConcat((yyval.action), (yyvsp[(3) - (3)].action));
 		  bufferWriteU8((yyval.action), SWFACTION_STRINGCONCAT); }
     break;
 
   case 100:
-#line 820 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(1) - (3)].action);
 		  bufferConcat((yyval.action), (yyvsp[(3) - (3)].action));
 		  bufferWriteU8((yyval.action), SWFACTION_LESSTHAN); }
     break;
 
   case 101:
-#line 825 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(3) - (3)].action);
 		  bufferConcat((yyval.action), (yyvsp[(1) - (3)].action));
 		  bufferWriteU8((yyval.action), SWFACTION_LESSTHAN); }
     break;
 
   case 102:
-#line 830 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(3) - (3)].action);
 		  bufferConcat((yyval.action), (yyvsp[(1) - (3)].action));
 		  bufferWriteU8((yyval.action), SWFACTION_LESSTHAN);
@@ -2987,58 +2887,49 @@ yyreduce:
     break;
 
   case 103:
-#line 836 "./swf4compiler.y"
     { bufferConcat((yyvsp[(1) - (3)].action), (yyvsp[(3) - (3)].action));
 		  bufferWriteU8((yyvsp[(1) - (3)].action), SWFACTION_LESSTHAN);
 		  bufferWriteU8((yyvsp[(1) - (3)].action), SWFACTION_LOGICALNOT); }
     break;
 
   case 104:
-#line 841 "./swf4compiler.y"
     { bufferConcat((yyvsp[(1) - (3)].action), (yyvsp[(3) - (3)].action));
 		  bufferWriteU8((yyvsp[(1) - (3)].action), SWFACTION_STRINGEQ);
 		  bufferWriteU8((yyvsp[(1) - (3)].action), SWFACTION_LOGICALNOT); }
     break;
 
   case 105:
-#line 846 "./swf4compiler.y"
     { bufferConcat((yyvsp[(1) - (3)].action), (yyvsp[(3) - (3)].action));
 		  bufferWriteU8((yyvsp[(1) - (3)].action), SWFACTION_STRINGEQ); }
     break;
 
   case 106:
-#line 850 "./swf4compiler.y"
     { bufferConcat((yyvsp[(1) - (3)].action), (yyvsp[(3) - (3)].action));
 		  bufferWriteU8((yyvsp[(1) - (3)].action), SWFACTION_STRINGCOMPARE); }
     break;
 
   case 107:
-#line 854 "./swf4compiler.y"
     { bufferConcat((yyvsp[(1) - (3)].action), (yyvsp[(3) - (3)].action));
 		  bufferWriteU8((yyvsp[(1) - (3)].action), SWFACTION_EQUAL); }
     break;
 
   case 108:
-#line 858 "./swf4compiler.y"
     { bufferConcat((yyvsp[(1) - (3)].action), (yyvsp[(3) - (3)].action));
 		  bufferWriteU8((yyvsp[(1) - (3)].action), SWFACTION_EQUAL);
 		  bufferWriteU8((yyvsp[(1) - (3)].action), SWFACTION_LOGICALNOT); }
     break;
 
   case 109:
-#line 863 "./swf4compiler.y"
     { bufferConcat((yyvsp[(1) - (3)].action), (yyvsp[(3) - (3)].action));
 		  bufferWriteU8((yyvsp[(1) - (3)].action), SWFACTION_LOGICALAND); }
     break;
 
   case 110:
-#line 867 "./swf4compiler.y"
     { bufferConcat((yyvsp[(1) - (3)].action), (yyvsp[(3) - (3)].action));
 		  bufferWriteU8((yyvsp[(1) - (3)].action), SWFACTION_LOGICALOR); }
     break;
 
   case 111:
-#line 871 "./swf4compiler.y"
     { bufferWriteU8((yyvsp[(1) - (5)].action), SWFACTION_IF);
 		  bufferWriteS16((yyvsp[(1) - (5)].action), 2);
 		  bufferWriteS16((yyvsp[(1) - (5)].action), bufferLength((yyvsp[(5) - (5)].action))+5);
@@ -3050,73 +2941,60 @@ yyreduce:
     break;
 
   case 113:
-#line 885 "./swf4compiler.y"
     { (yyval.str) = (yyvsp[(1) - (3)].str);
 		  (yyval.str) = stringConcat((yyval.str), strdup(":"));
 		  (yyval.str) = stringConcat((yyval.str), (yyvsp[(3) - (3)].str)); }
     break;
 
   case 114:
-#line 892 "./swf4compiler.y"
     { (yyval.str) = strdup(""); }
     break;
 
   case 115:
-#line 895 "./swf4compiler.y"
     { (yyval.str) = strdup(""); }
     break;
 
   case 116:
-#line 898 "./swf4compiler.y"
     { (yyval.str) = strdup("/"); }
     break;
 
   case 117:
-#line 901 "./swf4compiler.y"
     { (yyval.str) = strdup(".."); }
     break;
 
   case 118:
-#line 904 "./swf4compiler.y"
     { (yyval.str) = (yyvsp[(1) - (1)].str); }
     break;
 
   case 119:
-#line 907 "./swf4compiler.y"
     { (yyval.str) = (yyvsp[(1) - (1)].str); }
     break;
 
   case 120:
-#line 912 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), (yyvsp[(1) - (1)].str), strlen((yyvsp[(1) - (1)].str))+1);
 		  free((yyvsp[(1) - (1)].str)); }
     break;
 
   case 121:
-#line 917 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), (yyvsp[(1) - (1)].str), strlen((yyvsp[(1) - (1)].str))+1);
 		  free((yyvsp[(1) - (1)].str)); }
     break;
 
   case 122:
-#line 921 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(2) - (3)].action); }
     break;
 
   case 124:
-#line 928 "./swf4compiler.y"
     { asmBuffer = newBuffer(); }
     break;
 
   case 125:
-#line 930 "./swf4compiler.y"
     { (yyval.action) = asmBuffer; }
     break;
 
   case 127:
-#line 935 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(2) - (2)].action);
 		  bufferWriteBuffer((yyval.action), (yyvsp[(2) - (2)].action));
 		  bufferWriteU8((yyval.action), SWFACTION_GETVARIABLE);
@@ -3126,7 +3004,6 @@ yyreduce:
     break;
 
   case 128:
-#line 943 "./swf4compiler.y"
     { (yyval.action) = (yyvsp[(2) - (2)].action);
 		  bufferWriteBuffer((yyval.action), (yyvsp[(2) - (2)].action));
 		  bufferWriteU8((yyval.action), SWFACTION_GETVARIABLE);
@@ -3136,7 +3013,6 @@ yyreduce:
     break;
 
   case 129:
-#line 951 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), (yyvsp[(2) - (4)].str), strlen((yyvsp[(2) - (4)].str))+1);
 		  bufferWriteProperty((yyval.action), (yyvsp[(4) - (4)].str));
@@ -3151,7 +3027,6 @@ yyreduce:
     break;
 
   case 130:
-#line 964 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), (yyvsp[(2) - (4)].str), strlen((yyvsp[(2) - (4)].str))+1);
 		  bufferWriteProperty((yyval.action), (yyvsp[(4) - (4)].str));
@@ -3166,13 +3041,11 @@ yyreduce:
     break;
 
   case 131:
-#line 977 "./swf4compiler.y"
     { bufferConcat((yyvsp[(1) - (3)].action), (yyvsp[(3) - (3)].action));
 		  bufferWriteU8((yyvsp[(1) - (3)].action), SWFACTION_SETVARIABLE); }
     break;
 
   case 132:
-#line 981 "./swf4compiler.y"
     { bufferWriteBuffer((yyvsp[(1) - (3)].action), (yyvsp[(1) - (3)].action));
 		  bufferWriteU8((yyvsp[(1) - (3)].action), SWFACTION_GETVARIABLE);
 		  bufferConcat((yyvsp[(1) - (3)].action), (yyvsp[(3) - (3)].action));
@@ -3181,7 +3054,6 @@ yyreduce:
     break;
 
   case 133:
-#line 988 "./swf4compiler.y"
     { bufferWriteBuffer((yyvsp[(1) - (3)].action), (yyvsp[(1) - (3)].action));
 		  bufferWriteU8((yyvsp[(1) - (3)].action), SWFACTION_GETVARIABLE);
 		  bufferConcat((yyvsp[(1) - (3)].action), (yyvsp[(3) - (3)].action));
@@ -3190,7 +3062,6 @@ yyreduce:
     break;
 
   case 134:
-#line 995 "./swf4compiler.y"
     { bufferWriteBuffer((yyvsp[(1) - (3)].action), (yyvsp[(1) - (3)].action));
 		  bufferWriteU8((yyvsp[(1) - (3)].action), SWFACTION_GETVARIABLE);
 		  bufferConcat((yyvsp[(1) - (3)].action), (yyvsp[(3) - (3)].action));
@@ -3199,7 +3070,6 @@ yyreduce:
     break;
 
   case 135:
-#line 1002 "./swf4compiler.y"
     { bufferWriteBuffer((yyvsp[(1) - (3)].action), (yyvsp[(1) - (3)].action));
 		  bufferWriteU8((yyvsp[(1) - (3)].action), SWFACTION_GETVARIABLE);
 		  bufferConcat((yyvsp[(1) - (3)].action), (yyvsp[(3) - (3)].action));
@@ -3208,7 +3078,6 @@ yyreduce:
     break;
 
   case 136:
-#line 1009 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), (yyvsp[(1) - (5)].str), strlen((yyvsp[(1) - (5)].str))+1);
 		  bufferWriteProperty((yyval.action), (yyvsp[(3) - (5)].str));
@@ -3219,7 +3088,6 @@ yyreduce:
     break;
 
   case 137:
-#line 1018 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), (yyvsp[(1) - (5)].str), strlen((yyvsp[(1) - (5)].str))+1);
 		  bufferWriteProperty((yyval.action), (yyvsp[(3) - (5)].str));
@@ -3234,7 +3102,6 @@ yyreduce:
     break;
 
   case 138:
-#line 1031 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), (yyvsp[(1) - (5)].str), strlen((yyvsp[(1) - (5)].str))+1);
 		  bufferWriteProperty((yyval.action), (yyvsp[(3) - (5)].str));
@@ -3249,7 +3116,6 @@ yyreduce:
     break;
 
   case 139:
-#line 1044 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), (yyvsp[(1) - (5)].str), strlen((yyvsp[(1) - (5)].str))+1);
 		  bufferWriteProperty((yyval.action), (yyvsp[(3) - (5)].str));
@@ -3264,7 +3130,6 @@ yyreduce:
     break;
 
   case 140:
-#line 1057 "./swf4compiler.y"
     { (yyval.action) = newBuffer();
 		  bufferWriteString((yyval.action), (yyvsp[(1) - (5)].str), strlen((yyvsp[(1) - (5)].str))+1);
 		  bufferWriteProperty((yyval.action), (yyvsp[(3) - (5)].str));
@@ -3279,216 +3144,174 @@ yyreduce:
     break;
 
   case 142:
-#line 1075 "./swf4compiler.y"
     { (yyval.len) = bufferWriteU8(asmBuffer, PUSH_STRING);
 				  (yyval.len) += bufferWriteHardString(asmBuffer, (yyvsp[(1) - (1)].str), strlen((yyvsp[(1) - (1)].str)) + 1); }
     break;
 
   case 143:
-#line 1079 "./swf4compiler.y"
     { (yyval.len) = (yyvsp[(1) - (1)].len); }
     break;
 
   case 144:
-#line 1080 "./swf4compiler.y"
     { (yyval.len) = (yyvsp[(1) - (3)].len) + (yyvsp[(3) - (3)].len); }
     break;
 
   case 146:
-#line 1085 "./swf4compiler.y"
     { (yyval.len) = (yyvsp[(1) - (2)].len) + (yyvsp[(2) - (2)].len); }
     break;
 
   case 147:
-#line 1089 "./swf4compiler.y"
     { (yyval.len) = bufferWritePushOp(asmBuffer);
 				  (yyval.len) += bufferWriteS16(asmBuffer, 0); }
     break;
 
   case 148:
-#line 1091 "./swf4compiler.y"
     { (yyval.len) = (yyvsp[(2) - (3)].len) + (yyvsp[(3) - (3)].len);
 			
 				  bufferPatchLength(asmBuffer, (yyvsp[(3) - (3)].len)); }
     break;
 
   case 149:
-#line 1095 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_ADD); }
     break;
 
   case 150:
-#line 1096 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_SUBTRACT); }
     break;
 
   case 151:
-#line 1097 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_MULTIPLY); }
     break;
 
   case 152:
-#line 1098 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_DIVIDE); }
     break;
 
   case 153:
-#line 1099 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_EQUAL); }
     break;
 
   case 154:
-#line 1100 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_LESSTHAN); }
     break;
 
   case 155:
-#line 1101 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_LOGICALAND); }
     break;
 
   case 156:
-#line 1102 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_LOGICALOR); }
     break;
 
   case 157:
-#line 1103 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_LOGICALNOT); }
     break;
 
   case 158:
-#line 1104 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_STRINGCONCAT); }
     break;
 
   case 159:
-#line 1105 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_STRINGEQ); }
     break;
 
   case 160:
-#line 1106 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_STRINGLENGTH); }
     break;
 
   case 161:
-#line 1107 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_SUBSTRING); }
     break;
 
   case 162:
-#line 1108 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_MBSUBSTRING); }
     break;
 
   case 163:
-#line 1109 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_MBLENGTH); }
     break;
 
   case 164:
-#line 1110 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_STRINGCOMPARE); }
     break;
 
   case 165:
-#line 1111 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_POP); }
     break;
 
   case 166:
-#line 1112 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_CHR); }
     break;
 
   case 167:
-#line 1113 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_ORD); }
     break;
 
   case 168:
-#line 1114 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_INT); }
     break;
 
   case 169:
-#line 1115 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_MBCHR); }
     break;
 
   case 170:
-#line 1116 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_MBORD); }
     break;
 
   case 171:
-#line 1117 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_CALLFRAME); }
     break;
 
   case 172:
-#line 1118 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_GETVARIABLE); }
     break;
 
   case 173:
-#line 1119 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_SETVARIABLE); }
     break;
 
   case 174:
-#line 1120 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_GETPROPERTY); }
     break;
 
   case 175:
-#line 1121 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_SETPROPERTY); }
     break;
 
   case 176:
-#line 1122 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_REMOVECLIP); }
     break;
 
   case 177:
-#line 1123 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_SETTARGET2); }
     break;
 
   case 178:
-#line 1124 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_STARTDRAG); }
     break;
 
   case 179:
-#line 1125 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_ENDDRAG); }
     break;
 
   case 180:
-#line 1126 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_DUPLICATECLIP); }
     break;
 
   case 181:
-#line 1127 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_GETTIME); }
     break;
 
   case 182:
-#line 1128 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_RANDOMNUMBER); }
     break;
 
   case 183:
-#line 1129 "./swf4compiler.y"
     { (yyval.len) = bufferWriteOp(asmBuffer, SWFACTION_TRACE); }
     break;
 
   case 184:
-#line 1131 "./swf4compiler.y"
     { (yyval.len) = ( 
 					bufferWriteOp(asmBuffer, SWFACTION_IF)
 					+ bufferWriteS16(asmBuffer, 2)
@@ -3496,7 +3319,6 @@ yyreduce:
     break;
 
   case 185:
-#line 1135 "./swf4compiler.y"
     { (yyval.len) =  ( 
 					bufferWriteOp(asmBuffer, SWFACTION_JUMP)
 					+ bufferWriteS16(asmBuffer, 2)
@@ -3504,14 +3326,12 @@ yyreduce:
     break;
 
   case 186:
-#line 1139 "./swf4compiler.y"
     { (yyval.len) =  (bufferWriteOp(asmBuffer, SWFACTION_GETURL2)
 					+ bufferWriteS16(asmBuffer, 1) 
 					+ bufferWriteU8(asmBuffer, atoi((yyvsp[(2) - (2)].str)))); }
     break;
 
   case 187:
-#line 1142 "./swf4compiler.y"
     { (yyval.len) =  (bufferWriteOp(asmBuffer, SWFACTION_GOTOFRAME2) 
 					+ bufferWriteS16(asmBuffer, 1)
 					+ bufferWriteU8(asmBuffer, atoi((yyvsp[(2) - (2)].str)))); 
@@ -3519,15 +3339,11 @@ yyreduce:
     break;
 
   case 188:
-#line 1146 "./swf4compiler.y"
     { (yyval.len) = (bufferWriteOp(asmBuffer, SWFACTION_WAITFORFRAME2) 
 					+ bufferWriteS16(asmBuffer, 1)
 					+ bufferWriteU8(asmBuffer, atoi((yyvsp[(2) - (2)].str)))); }
     break;
 
-
-/* Line 1267 of yacc.c.  */
-#line 3531 "swf4compiler.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -3739,8 +3555,4 @@ yyreturn:
   /* Make sure YYID is used.  */
   return YYID (yyresult);
 }
-
-
-#line 1152 "./swf4compiler.y"
-
 

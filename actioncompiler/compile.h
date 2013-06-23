@@ -10,7 +10,7 @@
 #ifndef SWF_COMPILE_H_INCLUDED
 #define SWF_COMPILE_H_INCLUDED
 
-#include "ming.h"
+#include <ming.h>
 
 extern int swfVersion;
 

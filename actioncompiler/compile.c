@@ -26,10 +26,10 @@
 #include <ctype.h>
 #include <string.h>
 
-#include "libming.h"
+#include <libming.h>
 #include "compile.h"
-#include "actiontypes.h"
-#include "blocks/error.h"
+#include <actiontypes.h>
+#include <blocks/error.h>
 
 /* Define this to have some debugging output when outputting DEFINEFUNCTION2 */
 #undef MING_DEBUG_FUNCTION2

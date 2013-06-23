@@ -24,12 +24,12 @@
 #include <time.h>
 #include <stdio.h>
 
-#include "libming.h"
-#include "blocks/output.h"
-#include "blocks/action.h"
-#include "blocks/error.h"
+#include <libming.h>
+#include <blocks/output.h>
+#include <blocks/action.h>
+#include <blocks/error.h>
 #include "compile.h"
-#include "actiontypes.h"
+#include <actiontypes.h>
 
 
 SWFAction compileSWFActionCode(const char *script)

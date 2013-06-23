@@ -22,8 +22,8 @@
 #include <string.h>
 #include "assembler.h"
 #include "compile.h"
-#include "actiontypes.h"
-#include "libming.h"
+#include <actiontypes.h>
+#include <libming.h>
 
 
 int len;

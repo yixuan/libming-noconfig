@@ -10,7 +10,7 @@
 #ifndef SWF_ASSEMBLER_H_INCLUDED
 #define SWF_ASSEMBLER_H_INCLUDED
 
-#include "ming.h"
+#include <ming.h>
 #include "compile.h"
 
 extern Buffer asmBuffer;
