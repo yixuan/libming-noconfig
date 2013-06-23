@@ -37,7 +37,7 @@ struct SWFLineStyle_s
 	byte a;
 
 	/* LINESTYLE2 extensions */
-	// 16 bit flags
+	/* 16 bit flags */
 	int flags;
 	float miterLimit;
 	SWFFillStyle fill;
@@ -176,8 +176,8 @@ SWFLineStyle newSWFLineStyle2_filled(unsigned short width, SWFFillStyle fill,
 byte SWFLineStyle_equals(SWFLineStyle line, unsigned short width,
 			 byte r, byte g, byte b, byte a, int flags)
 {
-//	if(line->width == 0 && width == 0)
-//		return TRUE;
+/*	if(line->width == 0 && width == 0)	*/
+/*		return TRUE;	*/
 
 	if(line->width == width &&
 		 line->r == r &&

@@ -385,7 +385,7 @@ int
 SWFOutput_numSBits(int num)
 {
 	if ( num < 0 )
-		// XXX - one more than necessary if num = -2^n:
+		/* XXX - one more than necessary if num = -2^n: */
 		return SWFOutput_numBits(-num)+1;
 	else
 		return SWFOutput_numBits(num)+1;
@@ -510,7 +510,7 @@ SWFOutput_writeFloat16(SWFOutput out, float f)
 	exp += FLOAT16_BIAS;
 	exp &= 0x1f;
 	
-	// reduce mantissa to 11-bit
+	/* reduce mantissa to 11-bit */
 	mat >>= 12;
 
 	i = sig << FLOAT16_SIGN_SHIFT | exp << FLOAT16_EXP_SHIFT | (mat & 0x7ff);
@@ -523,7 +523,7 @@ SWFOutput_writeFloat16(SWFOutput out, float f)
 void 
 SWFOutput_writeEncUInt32(SWFOutput out, unsigned int i)
 {
-	if(i == 0) // special case 
+	if(i == 0) /* special case */
 	{
 		SWFOutput_writeUInt8(out, 0);
 		return;

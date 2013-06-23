@@ -54,12 +54,12 @@ struct SWFFontCharacter_s
 	/* add all font charactes. usefull for textfield */
 	byte dump;
 
-	// list of text records that reference this font
+	/* list of text records that reference this font */
 	struct textList* textList;
 	struct textList* currentList;
 
-	// list of chars used in text objects that reference this font-
-	// idx into this table is stored in text records
+	/* list of chars used in text objects that reference this font- */
+	/* idx into this table is stored in text records */
 	int nGlyphs;
 	unsigned short* codeTable;
 
@@ -155,7 +155,7 @@ completeSWFFontCharacter(SWFBlock block)
 		else 
 			SWFOutput_writeUInt16(inst->out, offset);
 	}
-	// codeTableOffset
+	/* codeTableOffset */
 	offset = SWFOutput_getLength(buffer) + tablen;
 	if(inst->flags & SWF_FONT_WIDEOFFSETS)
 		SWFOutput_writeUInt32(inst->out, offset);
@@ -238,7 +238,7 @@ destroySWFFont(SWFFont font)
 	if ( font->name != NULL )
 		free(font->name);
 
-	if ( font->kernTable.k != NULL )	// union of pointers ...
+	if ( font->kernTable.k != NULL )	/* union of pointers ... */
 		free(font->kernTable.k);
 
 	if ( font->glyphToCode != NULL )
@@ -305,7 +305,7 @@ newSWFFont()
 	return font;
 }
 
-// file magic: fonts:0 string  \000\001\000\000\000    TrueType font data
+/* file magic: fonts:0 string  \000\001\000\000\000    TrueType font data */
 static inline int true_type_check(char *header)
 {
 	if(header[0] == 0 && 
@@ -441,7 +441,7 @@ newSWFFontCharacter(SWFFont font)
 
 	CHARACTERID(inst) = ++SWF_gNumCharacters;
 	inst->font = font;
-	inst->flags = font->flags; // (unsigned char)(font->flags & /*(~SWF_FONT_HASLAYOUT) &*/ (~SWF_FONT_WIDEOFFSETS));
+	inst->flags = font->flags; /* (unsigned char)(font->flags & /*(~SWF_FONT_HASLAYOUT) &*/ (~SWF_FONT_WIDEOFFSETS)); */
 
 	inst->nGlyphs = 0;
 	inst->codeTable = NULL;
@@ -533,7 +533,7 @@ findCodeValue(unsigned short c, unsigned short* list, int start, int end)
 void
 SWFFontCharacter_addCharToTable(SWFFontCharacter font, unsigned short c)
 {
-	// insert the char into font's codeTable if it isn't already there
+	/* insert the char into font's codeTable if it isn't already there */
 
 	int p;
 
@@ -551,7 +551,7 @@ SWFFontCharacter_addCharToTable(SWFFontCharacter font, unsigned short c)
 			CODETABLE_INCREMENT*sizeof(unsigned short));
 	}
 
-	// keep list sorted
+	/* keep list sorted */
 
 	if ( p < font->nGlyphs )
 	{
@@ -608,19 +608,19 @@ void
 SWFFontCharacter_exportCharacterRange(SWFFontCharacter font,
 						 unsigned short start, unsigned short end)
 {
-	// insert the char into font's codeTable if it isn't already there
+	/* insert the char into font's codeTable if it isn't already there */
 
-	//int p = findCodeValue(start, font->codeTable, 0, font->nGlyphs);
-	//int q = findCodeValue(end, font->codeTable, 0, font->nGlyphs);
+	/*int p = findCodeValue(start, font->codeTable, 0, font->nGlyphs);*/
+	/*int q = findCodeValue(end, font->codeTable, 0, font->nGlyphs);*/
 	
-	// XXX
+	/* XXX */
 }
 
 
 int
 SWFFontCharacter_findGlyphCode(SWFFontCharacter font, unsigned short c)
 {
-	// return the index in font->codeTable for the given character
+	/* return the index in font->codeTable for the given character */
 
 	int p = findCodeValue(c, font->codeTable, 0, font->nGlyphs);
 
@@ -649,7 +649,7 @@ SWFFontCharacter_resolveTextCodes(SWFFontCharacter font)
 	unsigned short* string;
 	int len, i;
 
-	// find out which characters from this font are being used
+	/* find out which characters from this font are being used */
 
 	while ( text != NULL )
 	{
@@ -661,7 +661,7 @@ SWFFontCharacter_resolveTextCodes(SWFFontCharacter font)
 		text = text->next;
 	}
 
-	// check availability of a font glyph for each fontchar codetable entry
+	/* check availability of a font glyph for each fontchar codetable entry */
 
 	for ( i=0; i<font->nGlyphs; ++i )
 	{
@@ -727,12 +727,12 @@ SWFFont_getScaledWideStringWidth(SWFFont font,const unsigned short* string, int 
 		glyph = SWFFont_findGlyphCode(font, string[i]);
 
 		if ( glyph == -1 )
-			continue; // XXX - ???
+			continue; /* XXX - ??? */
 
 		if ( font->advances )
 			width += font->advances[glyph];
 
-		// looking in kernTable
+		/* looking in kernTable */
 
 		if ( i < len-1 ) {
 			width += SWFFont_getCharacterKern(font, string[i], string[i+1]);
@@ -816,8 +816,8 @@ SWFFont_getGlyphBounds(SWFFont font, unsigned short glyphcode)
 	if ( glyphcode >= font->nGlyphs )
 		SWF_error("SWFFont_getGlyphBounds: glyphcode >= nGlyphs");
 
-	// return &font->bounds[glyphcode];
-	return SWFCharacter_getBounds(CHARACTER(font->shapes[glyphcode])); // &font->bounds[glyphcode];
+	/* return &font->bounds[glyphcode]; */
+	return SWFCharacter_getBounds(CHARACTER(font->shapes[glyphcode])); /* &font->bounds[glyphcode]; */
 }
 
 
@@ -841,7 +841,7 @@ SWFFont_getCharacterKern(SWFFont font, unsigned short code1, unsigned short code
 {
 	int j = font->kernCount;
 
-	// XXX - kernTable should be sorted to make this faster
+	/* XXX - kernTable should be sorted to make this faster */
 
 	if(font->flags & SWF_FONT_WIDECODES) {
 		if( !font->kernTable.w ) {

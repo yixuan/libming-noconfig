@@ -469,7 +469,7 @@ getStreamFlag_mp3File(SWFSoundStream stream, float frameRate, float skip)
 		return -1;
 	stream->source.mp3.start = start;
 	stream->sampleRate = SWFSound_getSampleRate(flags); 
-	stream->flags = flags; // XXX: fixme
+	stream->flags = flags; /* XXX: fixme */
 	stream->samplesPerFrame = (int)floor(stream->sampleRate / frameRate);
 	static const int maxSPF = 65535; 
 	if ( stream->samplesPerFrame > maxSPF ) {
@@ -514,7 +514,7 @@ getStreamFlag_flv(SWFSoundStream stream, float frameRate, float skip)
 	flags = tag.hdr.audio.samplingRate | tag.hdr.audio.sampleSize;
 	flags |= tag.hdr.audio.channel | tag.hdr.audio.format;
 	
-	stream->flags = flags; // XXX: fixme
+	stream->flags = flags; /* XXX: fixme */
 	skip_msec = round(skip * 1000);
 	if(FLVStream_setStreamOffset(stream->source.flv.stream, skip_msec) < 0)
 		return -1;
@@ -547,7 +547,7 @@ SWFSoundStream_getStreamHead(SWFSoundStream stream, float frameRate, float skip)
 	SWFOutput_writeUInt8(out, flags & 0x0f); 
 	SWFOutput_writeUInt8(out, flags);
 	SWFOutput_writeUInt16(out, stream->samplesPerFrame);
-	if(((flags & 0xf0) >> 4) == 2)	// MP3 only
+	if(((flags & 0xf0) >> 4) == 2)	/* MP3 only */
 	{
 		SWFOutput_writeUInt16(out, stream->initialDelay);
 		stream->delay = stream->initialDelay;
@@ -611,7 +611,7 @@ writeSWFSoundWithSoundStreamToMethod(SWFSoundStream stream,
 	int source = stream->streamSource;
 	struct SWFSoundStreamBlock_s streamblock;
 
-	// need to get the sample count && and rewind
+	/* need to get the sample count && and rewind */
 	SWFSoundStream_getLength(stream, &streamblock);
 	SWFSoundStream_rewind(stream);
 

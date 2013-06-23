@@ -54,7 +54,7 @@ void writeSWFSoundInstanceToMethod(SWFBlock block,
 	byte flags;
 	int i;
 
-	// block may be null if we're calling from button.c:
+	/* block may be null if we're calling from button.c: */
 
 	if ( block == NULL )
 	{
@@ -102,7 +102,7 @@ int completeSWFSoundInstance(SWFBlock block)
 	SWFSoundInstance sound;
 	byte flags;
 
-	// block may be null if we're calling from button.c:
+	/* block may be null if we're calling from button.c: */
 
 	if ( block == NULL )
 		return 3;

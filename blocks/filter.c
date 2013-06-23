@@ -404,28 +404,28 @@ destroySWFFilter(SWFFilter filter)
 	switch(filter->id)
 	{
 		case SWFFILTER_TYPE_DROPSHADOW:
-			// destroyDropShadowFilter(&filter->filter.dropShadow);
+			/* destroyDropShadowFilter(&filter->filter.dropShadow); */
 			break;
 		case SWFFILTER_TYPE_BLUR:
-			// destroyBlurFilter(&filter->filter.blur);
+			/* destroyBlurFilter(&filter->filter.blur); */
 			break;
 		case SWFFILTER_TYPE_GLOW:
-			// destroyGlowFilter(&filter->filter.glow);
+			/* destroyGlowFilter(&filter->filter.glow); */
 			break;
 		case SWFFILTER_TYPE_BEVEL:
-			//destroyBevelFilter(&filter->filter.bevel);
+			/*destroyBevelFilter(&filter->filter.bevel);*/
 			break;
 		case SWFFILTER_TYPE_GRADIENTGLOW:
-			// destroyGradientGlowFilter(&filter->filter.gradientGlow);
+			/* destroyGradientGlowFilter(&filter->filter.gradientGlow); */
 			break;
 		case SWFFILTER_TYPE_CONVOLUTION:
-			// destroyConvolutionFilter(&filter->filter.convolution);
+			/* destroyConvolutionFilter(&filter->filter.convolution); */
 			break;
 		case SWFFILTER_TYPE_COLORMATRIX:
-			// destroyColorMatrixFilter(&filter->filter.colorMatrix);
+			/* destroyColorMatrixFilter(&filter->filter.colorMatrix); */
 			break;
 		case SWFFILTER_TYPE_GRADIENTBEVEL:
-			// destroyGradientBevelFilter(&filter->filter.gradientBevel);
+			/* destroyGradientBevelFilter(&filter->filter.gradientBevel); */
 			break;
 		default:
 			SWF_error("destroySWFFilter: invalid filter\n");

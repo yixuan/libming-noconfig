@@ -57,7 +57,7 @@ destroySWFCharacter(SWFCharacter character)
 	if ( character->bounds != NULL )
 		destroySWFRect(character->bounds);
 
-	// destroySWFBlock((SWFBlock)character);
+	/* destroySWFBlock((SWFBlock)character); */
 
 	free(character);
 }

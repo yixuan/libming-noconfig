@@ -55,7 +55,7 @@ struct SWFTextRecord_s
 	struct SWFTextRecord_s *next;
 
 	byte flags;
-	// if it's not a browser font, is it a font or a fontchar?
+	/* if it's not a browser font, is it a font or a fontchar? */
 	BOOL isResolved;
 
 	union
@@ -64,17 +64,17 @@ struct SWFTextRecord_s
 		SWFFontCharacter fontchar;
 	} font;
 
-	// color
+	/* color */
 	byte r;
 	byte g;
 	byte b;
 	byte a;
 
-	// position
+	/* position */
 	int x;
 	int y;
 
-	// metrics
+	/* metrics */
 	int height;
 	int spacing;
 
@@ -646,7 +646,7 @@ SWFTextRecord_computeAdvances(SWFTextRecord textRecord)
 	SWFFontCharacter fontchar = textRecord->font.fontchar;
 	SWFFont font = SWFFontCharacter_getFont(fontchar);
 
-	if(!len) return;	// do not try to calculate 1st char of null string
+	if(!len) return;	/* do not try to calculate 1st char of null string */
 
 	/* compute advances (spacing) from spacing, advance and kern table */
 	if ( textRecord->advance == NULL )

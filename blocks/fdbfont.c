@@ -185,7 +185,7 @@ static inline int readFontLayout(SWFInput input, SWFFont font)
 	for (i = 0; i < font->nGlyphs; ++i )
 		font->advances[i] = SWFInput_getSInt16(input);
 
-	// temp hack
+	/* temp hack */
 	for (i = 0; i < font->nGlyphs; ++i )
 		readBounds(input, &__rect);
 
@@ -261,14 +261,14 @@ SWFFont loadSWFFontFromInput(SWFInput input)
 	if ( flags & SWF_FONT_WIDEOFFSETS )
 	{
 		for (i=0; i < nGlyphs; ++i)
-			SWFInput_getUInt32(input); // glyph offset
-		SWFInput_getUInt32(input); // code table offset
+			SWFInput_getUInt32(input); /* glyph offset */
+		SWFInput_getUInt32(input); /* code table offset */
 	}
 	else
 	{
 		for(i=0; i < nGlyphs; ++i)
-			SWFInput_getUInt16(input); // glyph offset
-		SWFInput_getUInt16(input); // code table offset
+			SWFInput_getUInt16(input); /* glyph offset */
+		SWFInput_getUInt16(input); /* code table offset */
 	}
 
 	font->shapes = (SWFShape *)malloc(nGlyphs * sizeof(SWFShape));
@@ -335,7 +335,7 @@ static void oprintf(struct out *op, const char *fmt, ...)
 		*op->ptr++ = buf[d];
 }
 
-// return a malloc'ed string describing the glyph shape
+/* return a malloc'ed string describing the glyph shape */
 char *
 SWFFont_getShape(SWFFont font, unsigned short c)
 {

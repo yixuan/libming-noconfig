@@ -124,7 +124,7 @@ newSWFBrowserFont(const char *name)
 SWFOutput
 SWFBrowserFont_getOutput(SWFBrowserFont font)
 {
-	if(font->out == NULL) // in case complete is called twice
+	if(font->out == NULL) /* in case complete is called twice */
 		finishBrowserFont(font);
 
 	return font->out;

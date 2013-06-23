@@ -100,7 +100,7 @@ struct SWFShape_s
 	BOOL isMorph;
 	BOOL isEnded;
 	int useVersion;
-	// SWF_DEFINESHAPE4 extensions
+	/* SWF_DEFINESHAPE4 extensions */
 	unsigned char flags;
 	SWFRect edgeBounds;
 #if TRACK_ALLOCS
@@ -140,7 +140,7 @@ destroySWFShape(SWFShape shape)
 	int i;
 	if(shape->fills != NULL)
 	{
-		// Fills have to be destroyed by users. 
+		/* Fills have to be destroyed by users. */
 		/*
 		for ( i=0; i<shape->nFills; ++i )
 			destroySWFFillStyle(shape->fills[i]);
@@ -290,7 +290,7 @@ newSWFShapeFromBitmap(SWFBitmap bitmap, int flag)
 
 	SWFShape_setRightFillStyle(shape, fill);
 
-	// XXX - scale shouldn't be hardcoded! (here, or in newSWFBitmapFillStyle)
+	/* XXX - scale shouldn't be hardcoded! (here, or in newSWFBitmapFillStyle) */
 	SWFShape_drawScaledLine(shape, width * 20, 0);
 	SWFShape_drawScaledLine(shape, 0, height * 20);
 	SWFShape_drawScaledLine(shape, -width * 20, 0);
@@ -552,7 +552,7 @@ newShapeRecord(SWFShape shape, shapeRecordType type)
 
 	shape->records[shape->nRecords].type = type;
 
-// this is intentional - at least one popular compiler cannot handle [shape->nRecords++]
+/* this is intentional - at least one popular compiler cannot handle [shape->nRecords++] */
 	shape->nRecords++;
 	return shape->records[shape->nRecords-1];
 }
@@ -750,7 +750,7 @@ SWFShape_drawScaledCurve(SWFShape shape,
 	if ( controldx == 0 && controldy == 0 && anchordx == 0 && anchordy == 0 )
 		return;
 	
-	// printf("curve %i,%i, %i, %i\n", controldx, controldy, anchordx,  anchordy);
+	/* printf("curve %i,%i, %i, %i\n", controldx, controldy, anchordx,  anchordy); */
 
 	record = newShapeRecord(shape, SHAPERECORD_CURVETO);
 
@@ -1057,7 +1057,7 @@ static int getFillIdx(SWFShape shape, SWFFillStyle fill)
 		if ( SWFFillStyle_equals(fill, shape->fills[i]) )
 			return (i+1);
 	}
-	return 0; // no fill
+	return 0; /* no fill */
 }
 
 static int addFillStyle(SWFShape shape, SWFFillStyle fill)
@@ -1162,7 +1162,7 @@ SWFShape_setLeftFillStyle(SWFShape shape, SWFFillStyle fill)
 	}
 
 	idx = getFillIdx(shape, fill);
-	if(idx == 0) // fill not present in array
+	if(idx == 0) /* fill not present in array */
 	{
 		SWFFillStyle_addDependency(fill, (SWFCharacter)shape);
 		if(addFillStyle(shape, fill) < 0)
@@ -1194,7 +1194,7 @@ SWFShape_setRightFillStyle(SWFShape shape, SWFFillStyle fill)
 	}
 
 	idx = getFillIdx(shape, fill);
-	if(idx == 0) // fill not present in array
+	if(idx == 0) /* fill not present in array */
 	{
 		SWFFillStyle_addDependency(fill, (SWFCharacter)shape);
 		if(addFillStyle(shape, fill) < 0)

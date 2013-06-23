@@ -104,7 +104,7 @@ SWFInput_readBits(SWFInput input, int number)
 	ret = input->buffer >> (input->bufbits-number);
 	input->bufbits -= number;
 	input->buffer &= (1<<input->bufbits)-1;
-//	printf("done: readBits(%i) numer < bufbits %i\n", number, ret);
+/*	printf("done: readBits(%i) numer < bufbits %i\n", number, ret);	*/
 	return ret;
 }
 
@@ -494,7 +494,7 @@ newSWFInput_bufferCopy(unsigned char *buffer, int length)
 /* SWFInput_stream */
 
 #define INPUTSTREAM_INCREMENT 32768
-#define MAX_INPUTSTREAM (32*1024*1024) // 32 mb
+#define MAX_INPUTSTREAM (32*1024*1024) /* 32 mb */
 
 struct SWFInputStreamData
 {

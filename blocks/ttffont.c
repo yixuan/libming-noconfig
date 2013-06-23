@@ -34,9 +34,9 @@
 #include FT_TRUETYPE_IDS_H
 #include FT_OUTLINE_H
 
-// Methods of FT_Outline_Funcs take a 'const FT_Vector*' in 2.2
-// and a non-const one in 2.1, so we use an FT_CONST macro to
-// support both
+/* Methods of FT_Outline_Funcs take a 'const FT_Vector*' in 2.2 */
+/* and a non-const one in 2.1, so we use an FT_CONST macro to */
+/* support both */
 #if FREETYPE_MAJOR == 2 && FREETYPE_MINOR < 2
 #define FT_CONST 
 #else
@@ -194,13 +194,13 @@ static void readGlyphs(SWFFont font, FT_Face face)
 	}
 	font->nGlyphs = glyphCount;
 
-	if(font->nGlyphs > 255) // XXX: very simple estimation right now
+	if(font->nGlyphs > 255) /* XXX: very simple estimation right now */
 		font->flags |=  SWF_FONT_WIDEOFFSETS;
 }
 
 static SWFFont loadFontFromFace(FT_Face face)
 {
-	// FT_CharMap charmap = NULL;
+	/* FT_CharMap charmap = NULL; */
 	SWFFont font;
 	double ratio_EM;
 
@@ -322,4 +322,4 @@ error_ft:
 	FT_Done_FreeType(library);
 	return NULL;
 }
-#endif // USE_FREETYPE
+#endif /* USE_FREETYPE */

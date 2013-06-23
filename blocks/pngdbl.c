@@ -7,7 +7,7 @@
 #include "ming_config.h"
 #include "error.h"
 
-#if !(USE_PNG) // {
+#if !(USE_PNG) /* { */
 
 SWFDBLBitmapData newSWFDBLBitmapData_fromPngInput(SWFInput input)
 {
@@ -21,7 +21,7 @@ SWFDBLBitmapData newSWFDBLBitmapData_fromPngFile(const char * fileName)
 	return NULL;
 }
 
-#else // def USE_PNG }{
+#else /* def USE_PNG }{ */
 
 #include "bitmap.h"
 #include "dbl.h"
@@ -46,8 +46,8 @@ struct pngdata
 	unsigned char *data;
 };
 
-// required - read from SWFInput
-// png_init_io seems to be the one to change
+/* required - read from SWFInput */
+/* png_init_io seems to be the one to change */
 
 static png_structp openPngFromFile(FILE *fp)
 {	unsigned char header[8];
@@ -290,10 +290,10 @@ static int readPNG(png_structp png_ptr, dblData result)
 		alignedcopy(png, data);
 	}
 
-// at this point, can free
+/* at this point, can free */
 	png_destroy_read_struct(&png_ptr, &info_ptr, &end_info);
 	free(row_pointers);
-//	fclose(fp);
+/*	fclose(fp);	*/
 
 	result->hasalpha = png.color_type == PNG_COLOR_TYPE_GRAY_ALPHA ||
 						png.color_type == PNG_COLOR_TYPE_RGB_ALPHA;
@@ -329,7 +329,7 @@ SWFDBLBitmapData newSWFDBLBitmapData_fromPngFile(const char *fileName)
 	fclose(fp);
 	if(!ok) return NULL;
 	ret = newSWFDBLBitmapData_fromData(&pngdata);
-	// ret->input = NULL;
+	/* ret->input = NULL; */
 	return ret;
 }
 
@@ -346,9 +346,9 @@ SWFDBLBitmapData newSWFDBLBitmapData_fromPngInput(SWFInput input)
 	ok = readPNG(png_ptr, &pngdata);
 	if(!ok) return NULL;
 	ret = newSWFDBLBitmapData_fromData(&pngdata);
-	// ret->input = NULL;
+	/* ret->input = NULL; */
 	return ret;
 }
 
-#endif  // C2MAN
-#endif // def USE_PNG }
+#endif  /* C2MAN */
+#endif /* def USE_PNG } */

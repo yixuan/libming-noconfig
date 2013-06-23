@@ -122,7 +122,7 @@ newSWFPrebuilt()
 	return data;
 }
 
-// functions to read swf
+/* functions to read swf */
 
 static int verbose = {0};
 
@@ -283,8 +283,8 @@ static struct swfile *openswf(SWFInput input)
 
 		z.next_in = (unsigned char *)malloc(z.avail_in = len - 8);
 		SWFInput_read(input, z.next_in, z.avail_in);
-		// caller will do, leave it here for double memory consumption
-		//destroySWFInput(input);
+		/* caller will do, leave it here for double memory consumption */
+		/*destroySWFInput(input);*/
 		zbuf = z.next_out = (unsigned char *)malloc(z.avail_out = res->fsize - 8);
 		inflateInit(&z);
 		inflate(&z, Z_FINISH);
@@ -296,13 +296,13 @@ static struct swfile *openswf(SWFInput input)
 #endif
 	}
 	res->input = input;
-	// setup to read that rect...
+	/* setup to read that rect... */
 	alignbits(res);
 	res->rectlen = 0;
 	res->readc = r_readc;
 	rect((BITS) res);
 	res->readc = freadc;
-	readint2((BITS) res);	// movie rate
+	readint2((BITS) res);	/* movie rate */
 	res->frames = readint2((BITS) res);
 	return res;
 }
@@ -373,7 +373,7 @@ static int change_id(TAG tp)
 	return val;
 }
 
-// processing functions for handle()
+/* processing functions for handle() */
 static void defineshape(TAG tp, int lev);
 static void definetext(TAG tp, int lev);
 static void placeobject(TAG tp, int lv);
@@ -395,7 +395,7 @@ static int drop_tag(TAG tp)
 	{
 		case SWF_FILEATTRIBUTES:
 		case SWF_METADATA:
-		case SWF_DEFINESCENEANDFRAMEDATA: // only allowed in main timeline -> merge ?
+		case SWF_DEFINESCENEANDFRAMEDATA: /* only allowed in main timeline -> merge ? */
 			return 1;
 		default:
 			return 0;
@@ -1293,7 +1293,7 @@ newSWFPrebuiltClip_fromInput(SWFInput input)
 	defines = deps->defines;
 	idoffset = SWF_gNumCharacters;
 	maxid = SWF_gNumCharacters;
-	// read the swf file here
+	/* read the swf file here */
 	tp = readtag_file(swf);
 		if(tp->type != SWF_SETBACKGROUNDCOLOR)
 			swfseek(swf, -(tp->hdrlen + tp->size));

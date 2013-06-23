@@ -63,7 +63,7 @@ struct SWFFont_s
 	/* this lets us call destroySWFBlock(font) */
 	struct SWFBlock_s block;
 
-	// 0 for SWF < 7
+	/* 0 for SWF < 7 */
 	byte langCode;
 
 	char *name;

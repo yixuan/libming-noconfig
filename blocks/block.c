@@ -143,7 +143,7 @@ writeSWFBlockToMethod(SWFBlock block, SWFByteOutputMethod method, void *data)
 void
 SWFBlockInit(SWFBlock block)
 {
-	block->type = SWF_END; // XXX - ???
+	block->type = SWF_END; /* XXX - ??? */
 	block->writeBlock = NULL;
 	block->complete = NULL;
 	block->dtor = NULL;

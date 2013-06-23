@@ -31,7 +31,7 @@
 #if USE_ZLIB
 #include "zlib.h"
 
-// workarround for zlib previous 1.2.x
+/* workarround for zlib previous 1.2.x */
 #ifndef compressBound
 #define compressBound(__slen) ((__slen) + ((__slen) >> 12) + ((__slen) >> 14) + 11)
 #endif
@@ -40,7 +40,7 @@
 
 void destroySWFBitmap(SWFBitmap bitmap)
 {
-	// this will acall bitmap->dtor;
+	/* this will acall bitmap->dtor; */
 	destroySWFBlock((SWFBlock) bitmap);
 }
 

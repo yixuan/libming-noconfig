@@ -44,9 +44,9 @@ struct SWFPlaceObject2Block_s
 
 	SWFOutput out;
 
-	// PlaceObject - version 
-	// default is 2
-	// 3 if with SWF_versiom >= 8 and V3 extensions were used
+	/* PlaceObject - version */
+	/* default is 2 */
+	/* 3 if with SWF_versiom >= 8 and V3 extensions were used */
 	int version;  
 
 	SWFCharacter character;
@@ -62,9 +62,9 @@ struct SWFPlaceObject2Block_s
 	int actionORFlags;
 	SWFAction *actions;
 	int *actionFlags;
-//	char *actionChars;
+/*	char *actionChars;	*/
 	
-	// V3 extension SWF_version >= 8
+	/* V3 extension SWF_version >= 8 */
 	char hasCacheFlag;
 	char hasBlendFlag;
 	char hasFilterFlag;
@@ -101,7 +101,7 @@ static void writeActions(SWFPlaceObject2Block place)
 			else
 				SWFOutput_writeUInt16(place->out, place->actionFlags[i]);
 			
-			// SWF6: extra char if(place->actionFlags[i] & 0x20000)
+			/* SWF6: extra char if(place->actionFlags[i] & 0x20000) */
 			if((block->swfVersion >= 6) && (place->actionFlags[i] & 0x20000)) {
 				SWFOutput_writeUInt32(place->out, length + 1);
 				SWFOutput_writeUInt8(place->out, 0);
@@ -193,9 +193,9 @@ destroySWFPlaceObject2Block(SWFPlaceObject2Block place)
 		free(place->actions);
 
 	if ( place->actionFlags != NULL )
-//	{	free(place->actionChars);
+/*	{	free(place->actionChars);	*/
 		free(place->actionFlags);
-//	}
+/*	}	*/
 
 	if( place->filterList != NULL )
 		destroySWFFilterList(place->filterList);		
@@ -270,7 +270,7 @@ newSWFPlaceObject2Block(int depth)
 	place->nActions = 0;
 	place->actionORFlags = 0;
 	place->actionFlags = NULL;
-//	place->actionChars = NULL;
+/*	place->actionChars = NULL;	*/
 	place->actions = NULL;
 
 	place->hasCacheFlag = 0;
@@ -379,12 +379,12 @@ SWFPlaceObject2Block_addAction(SWFPlaceObject2Block block,
 	block->actionFlags =
 		(int*)realloc(block->actionFlags, (block->nActions+1) * sizeof(int));
 
-//	block->actionChars =
-//		realloc(block->actionChars, (block->nActions+1));
+/*	block->actionChars =	*/
+/*		realloc(block->actionChars, (block->nActions+1));	*/
 
 	block->actions[block->nActions] = action;
 	block->actionFlags[block->nActions] = flags;
-//	block->actionChars[block->nActions] = actChar;
+/*	block->actionChars[block->nActions] = actChar;	*/
 	block->actionORFlags |= flags;
 
 	++block->nActions;

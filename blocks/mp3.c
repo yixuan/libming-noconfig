@@ -26,35 +26,35 @@
 #include "sound.h"
 
 
-// [version][idx]
+/* [version][idx] */
 static unsigned short mp3_samplingrate_tbl[4][4] =
 { 
-	// mpeg 2.5
+	/* mpeg 2.5 */
 	{ 11025, 12000, 8000, 0},
-	// reserved
+	/* reserved */
 	{ 0, 0, 0, 0},
-	// mpeg 2
+	/* mpeg 2 */
 	{ 22050, 24000, 16000, 0},
-	// mpeg 1
+	/* mpeg 1 */
 	{ 44100, 48000, 32000, 0}
 };
 
-// [version][layer][idx]
+/* [version][layer][idx] */
 static unsigned short mp3_bitrate_tbl[4][4][16] = 
 {
-	// mpeg 2.5
+	/* mpeg 2.5 */
 	{ 
-		// reserved
+		/* reserved */
 		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-		// layer 3
+		/* layer 3 */
 		{ 0, 8, 16, 24,	32, 40,	48, 56, 64, 80, 96, 112, 128, 144, 160, 0},
-		// layer 2
+		/* layer 2 */
 		{ 0, 8, 16, 24,	32, 40,	48, 56, 64, 80, 96, 112, 128, 144, 160, 0},
-		// layer 1
+		/* layer 1 */
 		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 	},
 	
-	// reserved
+	/* reserved */
 	{ 
 		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -62,27 +62,27 @@ static unsigned short mp3_bitrate_tbl[4][4][16] =
 		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 	},
 
-	// mpeg version 2
+	/* mpeg version 2 */
 	{
-		// reserved
+		/* reserved */
 		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-		// layer 3
+		/* layer 3 */
 		{ 0, 8, 16, 24,	32, 40,	48, 56, 64, 80, 96, 112, 128, 144, 160, 0},
-		// layer 2
+		/* layer 2 */
 		{ 0, 8, 16, 24,	32, 40,	48, 56, 64, 80, 96, 112, 128, 144, 160, 0},
-		// layer 1
+		/* layer 1 */
 		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
 	},
-	// mpeg version 1
+	/* mpeg version 1 */
 	{ 
-		// reserved
+		/* reserved */
 		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-		// layer 3	
+		/* layer 3	 */
 		{ 0, 32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320, 0},
-		// layer 2
+		/* layer 2 */
 		{ 0, 32, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320, 384, 0 },
-		// layer 1
+		/* layer 1 */
 		{ 0, 32, 64, 96, 128, 160, 192, 224, 256, 288, 320, 352, 382, 416, 448, 0}
 	}
 };
@@ -113,7 +113,7 @@ int readMP3Header(SWFInput input, struct mp3_header *mp3h)
 
 	mp3h->version = SWFInput_readBits(input, 2);
 	mp3h->layer = SWFInput_readBits(input, 2);
-	SWFInput_readBits(input, 1); // protect bit
+	SWFInput_readBits(input, 1); /* protect bit */
 	CHECK_STREAM(input);
 
 	br = SWFInput_readBits(input, 4);
@@ -121,12 +121,12 @@ int readMP3Header(SWFInput input, struct mp3_header *mp3h)
 	mp3h->bitrate = mp3_bitrate_tbl[mp3h->version][mp3h->layer][br];
 	mp3h->samplingRate = mp3_samplingrate_tbl[mp3h->version][sr];
 	mp3h->padding = SWFInput_readBits(input, 1);
-	SWFInput_readBits(input, 1); // private bit
+	SWFInput_readBits(input, 1); /* private bit */
 	CHECK_STREAM(input);
 	
 	mp3h->channelMode = SWFInput_readBits(input, 2);
-	SWFInput_readBits(input, 2); // extension
-	SWFInput_readBits(input, 3); // copyright, orig, emphasis
+	SWFInput_readBits(input, 2); /* extension */
+	SWFInput_readBits(input, 3); /* copyright, orig, emphasis */
 	CHECK_STREAM(input);
 	SWFInput_byteAlign(input);
 	if((frameSync & 0x7ff) != 0x7ff)

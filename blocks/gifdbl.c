@@ -5,7 +5,7 @@
 #include "libming.h"
 #include "error.h"
 
-#if !(USE_GIF) // {
+#if !(USE_GIF) /* { */
 
 SWFDBLBitmapData newSWFDBLBitmapData_fromGifInput(SWFInput input)
 {
@@ -19,7 +19,7 @@ SWFDBLBitmapData newSWFDBLBitmapData_fromGifFile(const char * fileName)
 	return NULL;
 }
 
-#else // def USE_GIF }{
+#else /* def USE_GIF }{ */
 
 #include "bitmap.h"
 #include "dbl.h"
@@ -54,7 +54,7 @@ int getTransparentColor(GifFileType * file)
 
 		if (ext->Function == GRAPHICS_EXT_FUNC_CODE) {
 			if (ext->Bytes[0] & 1){   /* there is a transparent color */
-				if (!ext->Bytes[3]) returnvalue=255; // exception
+				if (!ext->Bytes[3]) returnvalue=255; /* exception */
 				else returnvalue=ext->Bytes[3]&0xff;
 			}
 		}
@@ -73,7 +73,7 @@ readGif(GifFileType *file, dblData result)
 	unsigned long outsize;
 
 	if(DGifSlurp(file) != GIF_OK)
-	//	error("Error slurping file");
+	/*	error("Error slurping file");	*/
 		return 0;
 
 	/* data should now be available */
@@ -232,7 +232,7 @@ SWFDBLBitmapData newSWFDBLBitmapData_fromGifFile(const char *fileName)
 	if(!readGif(file, &gifdata))
 		return NULL;
 	ret = newSWFDBLBitmapData_fromData(&gifdata);
-	// ret->input = NULL;
+	/* ret->input = NULL; */
 	return ret;
 }
 
@@ -251,8 +251,8 @@ SWFDBLBitmapData newSWFDBLBitmapData_fromGifInput(SWFInput input)
 	if(!readGif(file, &gifdata))
 		return NULL;
 	ret = newSWFDBLBitmapData_fromData(&gifdata);
-	// ret->input = NULL;
+	/* ret->input = NULL; */
 	return ret;
 }
 
-#endif // def USE_GIF }
+#endif /* def USE_GIF } */

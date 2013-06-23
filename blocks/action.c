@@ -140,7 +140,7 @@ int SWFAction_compile(SWFAction action,
 	else 
 		parserError = 1;
 	
-	// if INPUT_FILE script was allocated by readActionFile()
+	/* if INPUT_FILE script was allocated by readActionFile() */
 	if(action->inputType == INPUT_FILE)
 		free(script);
 		
@@ -349,7 +349,7 @@ SWFInitAction newSWFInitAction_withId(SWFAction action, int id /* mc character i
 	BLOCK(init)->complete = completeSWFInitAction;
 	BLOCK(init)->dtor = (destroySWFBlockMethod) destroySWFInitAction;
 	BLOCK(init)->type = SWF_INITACTION;
-	init->clip = NULL;	// use external clip
+	init->clip = NULL;	/* use external clip */
 	init->spriteId = id;	
 	init->action = action;
 	return init;
@@ -384,7 +384,7 @@ SWFInitAction newSWFInitAction_MovieClip(SWFMovieClip clip, SWFAction action)
 	BLOCK(init)->dtor = (destroySWFBlockMethod) destroySWFInitAction;
 	BLOCK(init)->type = SWF_INITACTION;
 	init->spriteId = CHARACTERID(clip);
-	init->clip = NULL; // use external clip
+	init->clip = NULL; /* use external clip */
 	init->action = action;
 	return init;
 }

@@ -468,8 +468,8 @@ SWFButton_addSound(SWFButton button, SWFSound sound, byte flag)
 	{
 		button->sounds = newSWFButtonSound(button);
 
-//		SWFCharacter_addDependency((SWFCharacter)button->sounds,
-//															 (SWFCharacter)button);
+/*		SWFCharacter_addDependency((SWFCharacter)button->sounds,	*/
+/*															 (SWFCharacter)button);	*/
 	}
 
 	SWFCharacter_addDependency((SWFCharacter)button, (SWFCharacter)sound);

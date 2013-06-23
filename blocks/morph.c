@@ -76,7 +76,7 @@ completeSWFMorphBlock(SWFBlock block)
 	SWFOutput_writeRect(out, CHARACTER(shape2)->bounds);
 	SWFOutput_byteAlign(out);
 
-	// edge bounds
+	/* edge bounds */
 	if(shape_version == SWF_SHAPE4)
 	{
 		int flags;
