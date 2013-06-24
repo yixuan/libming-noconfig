@@ -23,7 +23,8 @@ int UTF8Length(const char *string)
 
 	for(i=0; i<l; ++i)
 	{
-		unsigned int byte0, byte1, byte2;
+		/* unsigned int byte0, byte1, byte2; */
+		unsigned int byte0;
 
 		byte0 = (unsigned int)string[i];
 
@@ -34,7 +35,7 @@ int UTF8Length(const char *string)
 				if (++i >= l)
 					break;
 
-				byte1 = (unsigned int)string[i];
+				/* byte1 = (unsigned int)string[i]; */
 				++str_len;
 			}
 			else if ((byte0 & 0xf0) == 0xe0)
@@ -42,12 +43,12 @@ int UTF8Length(const char *string)
 				if (++i >= l)
 					break;
 
-				byte1 = (unsigned int)string[i];
+				/* byte1 = (unsigned int)string[i]; */
 
 				if (++i >= l)
 					break;
 
-				byte2 = (unsigned int)string[i];
+				/* byte2 = (unsigned int)string[i]; */
 				++str_len;
 			}
 			else

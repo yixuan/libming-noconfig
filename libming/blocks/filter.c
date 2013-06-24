@@ -697,3 +697,17 @@ void destroySWFFilterList(SWFFilterList list)
 	free(list->filter);
 	free(list);
 }
+
+int SWFFilter_testBlockType(int type)
+{
+	switch(type)
+	{
+		case SWF_DEFINEBUTTON:
+		case SWF_DEFINEBUTTON2:
+		case SWF_DEFINESPRITE:
+		case SWF_DEFINETEXT:
+		case SWF_DEFINETEXT2:
+			return 1;
+		default: return 0;
+	}
+}

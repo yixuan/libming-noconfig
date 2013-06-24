@@ -950,8 +950,8 @@ static void shape(TAG tp, int lev)
 
 static void definemorphshape(TAG tp, int lev)
 {	unsigned short id, fcnt, lcnt;
-	unsigned long loff;
-	unsigned char *endp;
+	/* unsigned long loff; */
+	/* unsigned char *endp; */
 	int n;
 
 	id = change_id(tp);
@@ -965,8 +965,8 @@ static void definemorphshape(TAG tp, int lev)
 		rect((BITS) tp);
 		tp->readc(tp);
 	}
-	loff = readint4((BITS) tp);
-	endp = tp->datptr + loff;
+	/* loff = */readint4((BITS) tp);
+	/* endp = tp->datptr + loff; */
 	fcnt = tp->readc(tp);
 	if(fcnt == 0xff)
 		fcnt = readint2((BITS) tp);
@@ -1057,23 +1057,24 @@ static void definetext(TAG tp, int lev)
 }
 
 static void placeobject(TAG tp, int lv)
-{	int hasname, hasratio, hascxform, hasmatrix, haschar, hasmove, hasactions, hasmask;
+{	/* int hasname, hasratio, hascxform, hasmatrix, haschar, hasmove, hasactions, hasmask; */
+    int haschar;
 	short depth, charid;
-	int hasfilters, hasbitmapcaching, hasblendmode;
+	/* int hasfilters, hasbitmapcaching, hasblendmode; */
 	if (lv == 3) {
 		getbits((BITS)tp, 5);
-		hasbitmapcaching = getbits((BITS)tp, 1);
-		hasblendmode = getbits((BITS)tp, 1);
-		hasfilters = getbits((BITS)tp, 1);
+		/* hasbitmapcaching = */getbits((BITS)tp, 1);
+		/* hasblendmode = */getbits((BITS)tp, 1);
+		/* hasfilters = */getbits((BITS)tp, 1);
 	}
-	hasactions = getbits((BITS)tp, 1);
-	hasmask = getbits((BITS)tp, 1);
-	hasname = getbits((BITS)tp, 1);
-	hasratio = getbits((BITS)tp, 1);
-	hascxform = getbits((BITS)tp, 1);
-	hasmatrix = getbits((BITS)tp, 1);
+	/* hasactions = */getbits((BITS)tp, 1);
+	/* hasmask = */getbits((BITS)tp, 1);
+	/* hasname = */getbits((BITS)tp, 1);
+	/* hasratio = */getbits((BITS)tp, 1);
+	/* hascxform = */getbits((BITS)tp, 1);
+	/* hasmatrix = */getbits((BITS)tp, 1);
 	haschar = getbits((BITS)tp, 1);
-	hasmove = getbits((BITS)tp, 1);
+	/* hasmove = */getbits((BITS)tp, 1);
 	depth = readint2((BITS) tp);
 	if(haschar)
 	{	charid = change_id(tp);
@@ -1108,7 +1109,8 @@ static void definebutton(TAG tp)
 
 static void cxform(TAG tp, int alpha)
 {	int hasadd, hasmult, nbits;
-	int ra, ga, ba, aa, rm, gm, bm, am=0;
+	/* int ra, ga, ba, aa, rm, gm, bm, am=0; */
+	int ra, ga, ba, rm, gm, bm, am = 0;
 	hasadd = getbits((BITS) tp, 1);
 	hasmult = getbits((BITS) tp, 1);
 	nbits = getbits((BITS) tp, 4);
@@ -1125,7 +1127,7 @@ static void cxform(TAG tp, int alpha)
 	{	ra = getsbits((BITS) tp, nbits);
 		ga = getsbits((BITS) tp, nbits);
 		ba = getsbits((BITS) tp, nbits);
-		if(alpha) aa = getsbits((BITS) tp, nbits);
+		if(alpha) /* aa = */getsbits((BITS) tp, nbits);
 		if(verbose) printf("add %d %d %d", ra, ga, ba);
 		if(verbose) if(alpha) printf(" %d", am);
 	}
@@ -1164,23 +1166,25 @@ static void definebutton2(TAG tp)
 static void definetextfield(TAG tp)
 {
 	short textid, fontid=0;
-	int haslength, noedit, password, multiline, wordwrap, drawbox, noselect, html, usefont;
-	int hascolor, haslayout, hastext, hasfont;
+	/* int haslength, noedit, password, multiline, wordwrap, drawbox, noselect, html, usefont; */
+	int noedit, password, multiline, wordwrap, drawbox, noselect, html, usefont;
+	/* int hascolor, haslayout, hastext, hasfont; */
+	int hascolor, hasfont;
 	
 	textid = change_id(tp);
 	if(verbose) printf("textfield %d\n", textid);
 	rect((BITS) tp);
 	alignbits(tp);
-	hastext = getbits((BITS) tp, 1);
+	/* hastext = */getbits((BITS) tp, 1);
 	wordwrap = getbits((BITS) tp, 1);
 	multiline = getbits((BITS) tp, 1);
 	password = getbits((BITS) tp, 1);
 	noedit = getbits((BITS) tp, 1);
 	hascolor = getbits((BITS) tp, 1);
-	haslength = getbits((BITS) tp, 1);
+	/* haslength = */getbits((BITS) tp, 1);
 	hasfont = getbits((BITS) tp, 1);
 	getbits((BITS) tp, 2);
-	haslayout = getbits((BITS) tp, 1);
+	/* haslayout = */getbits((BITS) tp, 1);
 	noselect = getbits((BITS) tp, 1);
 	drawbox = getbits((BITS) tp, 1);
 	getbits((BITS) tp, 1);

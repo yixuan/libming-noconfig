@@ -131,6 +131,7 @@ typedef enum
 } SWFBlocktype;
 
 
+/* Defined but not used -- yixuan
 static int SWFBlocktype_swfVersion(int type)
 {
 	switch(type)
@@ -214,5 +215,6 @@ static int SWFBlocktype_swfVersion(int type)
 			return -1;
 	}
 }
+*/
 
 #endif /* SWF_BLOCKTYPES_H_INCLUDED */

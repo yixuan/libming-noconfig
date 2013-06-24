@@ -3,19 +3,7 @@
 
 #include "output.h"
 
-static int SWFFilter_testBlockType(int type)
-{
-	switch(type)
-	{
-		case SWF_DEFINEBUTTON:
-		case SWF_DEFINEBUTTON2:
-		case SWF_DEFINESPRITE:
-		case SWF_DEFINETEXT:
-		case SWF_DEFINETEXT2:
-			return 1;
-		default: return 0;
-	}
-}
+int SWFFilter_testBlockType(int type);
 
 void
 SWFOutput_writeSWFFilter(SWFOutput out, SWFFilter filter);
