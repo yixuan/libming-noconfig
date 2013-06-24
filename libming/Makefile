@@ -1,14 +1,14 @@
-ZLIBINC = ../../zlib
-ZLIBLIB = ../../zlib
+ZLIBINC = ../zlib
+ZLIBLIB = ../zlib
 ZLIB = $(ZLIBLIB)/libz.a
 
-LIBPNGINC = ../../libpng
-LIBPNGLIB = ../../libpng
+LIBPNGINC = ../libpng
+LIBPNGLIB = ../libpng
 LIBPNG = $(LIBPNGLIB)/libpng.a
 
-FTCONFINC = ../../freetype/config
-FTINC = ../../freetype/include
-FTLIB = ../../freetype
+FTCONFINC = ../freetype/config
+FTINC = ../freetype/include
+FTLIB = ../freetype
 FT = $(FTLIB)/libfreetype.a
 
 CP = cp -fp
@@ -59,7 +59,7 @@ blocks:
 	cd blocks && $(MAKE) all CC="$(CC)" CFLAGS="$(CFLAGS)" CPPFLAGS="$(CPPFLAGS)"
 
 .c.o:
-	$(CC) $(CFLAGS) $(CPPFLAGS) -I. -c $< -o $@
+	$(CC) $(CFLAGS) $(CPPFLAGS) -I$(ZLIBINC) -I. -c $< -o $@
 
 clean:
 	cd actioncompiler && $(MAKE) clean

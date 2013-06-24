@@ -3616,7 +3616,7 @@ loop:
 
 static void comment1()
 {
-   /* Handle comment of type 1 (ie '/*') */
+   /* Handle comment of type 1 (ie '/ *') */
 
    int c;
 
