@@ -75,7 +75,7 @@ SWFDisplayItem SWFMovie_add(SWFMovie movie, SWFBlock block)
 
 #ifdef SWFMovie_replace
 #undef SWFMovie_replace
-static inline int SWFMovie_replace(SWFMovie movie, SWFDisplayItem item, SWFBlock block)
+static int SWFMovie_replace(SWFMovie movie, SWFDisplayItem item, SWFBlock block)
 {
 	SWFMovieBlockType ublock;
 	ublock.block = block;

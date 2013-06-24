@@ -40,7 +40,7 @@
 
 SWFBlock newDefineSWFSoundBlock(SWFSound sound);
 
-static inline int SWFSound_getSampleRate(int flags)
+static int SWFSound_getSampleRate(int flags)
 {
 	switch ( flags & SWF_SOUND_RATE)
 	{

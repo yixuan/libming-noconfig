@@ -27,7 +27,7 @@
 #include "error.h"
 #include "flv.h"
 
-static inline int readAudioHdr(FLVStream *flv, FLVTag *tag)
+static int readAudioHdr(FLVStream *flv, FLVTag *tag)
 {
 	int ichar;
 	ichar = SWFInput_getChar(flv->input);
@@ -40,7 +40,7 @@ static inline int readAudioHdr(FLVStream *flv, FLVTag *tag)
 	return 0;
 }
 
-static inline int readVideoHdr(FLVStream *flv, FLVTag *tag)
+static int readVideoHdr(FLVStream *flv, FLVTag *tag)
 {
 	int ichar;
 	ichar = SWFInput_getChar(flv->input);

@@ -306,7 +306,7 @@ newSWFFont()
 }
 
 /* file magic: fonts:0 string  \000\001\000\000\000    TrueType font data */
-static inline int true_type_check(char *header)
+static int true_type_check(char *header)
 {
 	if(header[0] == 0 && 
 		header[1] == 1 && 
@@ -317,7 +317,7 @@ static inline int true_type_check(char *header)
 	return 0;
 }
 
-static inline int fdb_check(char *header)
+static int fdb_check(char *header)
 {
 	if(header[0] == 'f' && 
 		header[1] == 'd' &&
@@ -327,7 +327,7 @@ static inline int fdb_check(char *header)
 	return 0;
 }
 
-static inline int ttc_check(char *header)
+static int ttc_check(char *header)
 {
 	if(header[0] == 't' && 
 		header[1] == 't' && 

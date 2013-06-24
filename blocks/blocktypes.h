@@ -131,7 +131,7 @@ typedef enum
 } SWFBlocktype;
 
 
-static inline int SWFBlocktype_swfVersion(int type)
+static int SWFBlocktype_swfVersion(int type)
 {
 	switch(type)
 	{	

@@ -64,7 +64,7 @@ readKernInfo16(SWFInput input, struct kernInfo16 *kern)
 }
 
 
-static inline void checkShapeHeader(SWFInput input,
+static void checkShapeHeader(SWFInput input,
                                     int *numFillBits,
                                     int *numLineBits)
 {
@@ -76,7 +76,7 @@ static inline void checkShapeHeader(SWFInput input,
 		SWF_error("FdbFont read glyph: bad file format (was expecting line bits = 0)\n");
 }
 
-static inline void checkShapeStyle(SWFInput input, char style,
+static void checkShapeStyle(SWFInput input, char style,
                              int numFillBits, int numLineBits)
 {
 	if ( style & 1 )
@@ -170,7 +170,7 @@ static SWFShape readGlyphShape(SWFInput input)
 	return shape;
 }
 
-static inline int readFontLayout(SWFInput input, SWFFont font)
+static int readFontLayout(SWFInput input, SWFFont font)
 {
 	int i;
 	struct SWFRect_s __rect;
@@ -215,7 +215,7 @@ static inline int readFontLayout(SWFInput input, SWFFont font)
 	return 0;
 }
 
-static inline int checkFdbHeader(SWFInput input)
+static int checkFdbHeader(SWFInput input)
 {
 	char f, d, b, z;
 	f = SWFInput_getChar(input);

@@ -211,7 +211,7 @@ unsigned short SWFLineStyle_getWidth(SWFLineStyle line)
 }
 
 
-static inline void writeLineStyle1(SWFOutput out, SWFLineStyle line, int shapeType)
+static void writeLineStyle1(SWFOutput out, SWFLineStyle line, int shapeType)
 {
 	SWFOutput_writeUInt16(out, line->width);
 	SWFOutput_writeUInt8(out, line->r);
@@ -222,7 +222,7 @@ static inline void writeLineStyle1(SWFOutput out, SWFLineStyle line, int shapeTy
 		SWFOutput_writeUInt8(out, line->a);
 }
 
-static inline void writeLineStyle2(SWFOutput out, SWFLineStyle line, SWFBlocktype shapeType, SWFRect bounds)
+static void writeLineStyle2(SWFOutput out, SWFLineStyle line, SWFBlocktype shapeType, SWFRect bounds)
 {
 	SWFOutput_writeUInt16(out, line->width);
 	SWFOutput_writeUInt8(out, (line->flags >> 8));

@@ -784,7 +784,7 @@ SWFShape_drawScaledCurve(SWFShape shape,
 
 #define STYLE_INCREMENT 4
 
-static inline void growLineArray(SWFShape shape)
+static void growLineArray(SWFShape shape)
 {
 	int size;
 

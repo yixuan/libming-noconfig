@@ -3,7 +3,7 @@
 
 #include "output.h"
 
-static inline int SWFFilter_testBlockType(int type)
+static int SWFFilter_testBlockType(int type)
 {
 	switch(type)
 	{

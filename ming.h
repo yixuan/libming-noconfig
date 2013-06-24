@@ -38,9 +38,11 @@
 extern "C" {
 #endif
 
+
 #ifdef _MSC_VER
 #define inline __inline
 #endif
+
 
 #include <stdio.h>
 
@@ -1037,7 +1039,7 @@ SWFDisplayItem SWFMovie_add_internal(SWFMovie movie, SWFMovieBlockType ublock);
 #define SWFMovie_add(__movie, __block) \
 	SWFMovie_add_internal((__movie), __to_movie_block((__block)))
 #else
-static inline SWFDisplayItem SWFMovie_add(SWFMovie movie, SWFBlock block)
+static SWFDisplayItem SWFMovie_add(SWFMovie movie, SWFBlock block)
 {
 	SWFMovieBlockType ublock;
 	ublock.block = block;
@@ -1050,7 +1052,7 @@ int SWFMovie_replace_internal(SWFMovie movie, SWFDisplayItem item, SWFMovieBlock
 #define SWFMovie_replace(__movie, __item, __block) \
 	SWFMovie_replace_internal((__movie), (__item), __to_movie_block((__block)))
 #else
-static inline int SWFMovie_replace(SWFMovie movie, SWFDisplayItem item, SWFBlock block)
+static int SWFMovie_replace(SWFMovie movie, SWFDisplayItem item, SWFBlock block)
 {
 	SWFMovieBlockType ublock;
 	ublock.block = block;
