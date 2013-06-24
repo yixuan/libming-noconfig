@@ -72,6 +72,13 @@ typedef unsigned char BOOL;
   #define rint(d) (floor((d)+0.5))
 #endif
 
+
+char* __my__strdup (const char *s);
+#ifndef strdup
+  #define strdup __my__strdup
+#endif
+
+
 #ifndef WIN32
   #include <unistd.h>
 #endif
