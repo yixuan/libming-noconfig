@@ -17,6 +17,7 @@ LDRELEASE = -s
 LDFLAGS = $(LDRELEASE)
 
 OBJS = base/ftsystem.o base/ftdebug.o base/ftinit.o base/ftbase.o \
+	base/ftbitmap.o base/ftglyph.o \
 	truetype/truetype.o sfnt/sfnt.o autofit/autofit.o smooth/smooth.o \
 	psnames/psmodule.o
 
