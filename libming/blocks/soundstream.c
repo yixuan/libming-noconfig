@@ -218,6 +218,7 @@ fillBlock_flv_mp3(SWFSoundStream stream, SWFSoundStreamBlock block)
 	int tagOffset = stream->source.flv.tagOffset;
 	int delay, length, frameSize, ret;
 	SWFInput input;
+	static const int maxSC = 65535;
 
 	block->delay = stream->delay;
 	delay = stream->delay + stream->samplesPerFrame;
@@ -269,7 +270,6 @@ fillBlock_flv_mp3(SWFSoundStream stream, SWFSoundStreamBlock block)
 			delay -= frameSize;
 		}
 	}
-	static const int maxSC = 65535; 
 	if ( block->numSamples > maxSC ) {
 		SWF_warn("fillBlock_flv_mp3: number of samples in block (%d) exceed max allowed value of %d\n", block->numSamples, maxSC);
 	}
@@ -354,6 +354,7 @@ static void
 fillStreamBlock_mp3(SWFSoundStream stream, SWFSoundStreamBlock block)
 {
 	int delay, wanted;
+	static const int maxSC = 65535;
 
 	/* see how many frames we can put in this block,
 	 see how big they are */
@@ -362,7 +363,7 @@ fillStreamBlock_mp3(SWFSoundStream stream, SWFSoundStreamBlock block)
 	wanted = delay;
 	block->length = getMP3Samples(stream->source.mp3.input, stream->flags, &delay);
 	block->numSamples = delay;
-	static const int maxSC = 65535; 
+	
 	if ( block->numSamples > maxSC ) {
 		SWF_warn("fillStreamBlock_mp3: number of samples in block (%d) exceed max allowed value of %d\n", block->numSamples, maxSC);
 	}
@@ -463,6 +464,7 @@ getStreamFlag_mp3File(SWFSoundStream stream, float frameRate, float skip)
 	SWFInput input = stream->source.mp3.input;
 	int start;
 	byte flags;
+	static const int maxSPF = 65535;
 	
 	start = getMP3Flags(input, &flags);
 	if(start < 0)
@@ -471,7 +473,7 @@ getStreamFlag_mp3File(SWFSoundStream stream, float frameRate, float skip)
 	stream->sampleRate = SWFSound_getSampleRate(flags); 
 	stream->flags = flags; /* XXX: fixme */
 	stream->samplesPerFrame = (int)floor(stream->sampleRate / frameRate);
-	static const int maxSPF = 65535; 
+	
 	if ( stream->samplesPerFrame > maxSPF ) {
 		SWF_warn("getStreamFlag_mp3File: computed number of samples per frame (%d) exceed max allowed value of %d\n", stream->samplesPerFrame, maxSPF);
 	}

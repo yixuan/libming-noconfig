@@ -17,7 +17,7 @@ RM = rm -f
 OBJS = action.o binary.o bitmap.o block.o browserfont.o \
 	button.o character.o cxform.o dbl.o error.o \
 	fdbfont.o fileattrs.o fillstyle.o filter.o flv.o \
-	font.o fontinfo.o fromswf.o gifdbl.o gradient.o \
+	font.o fromswf.o gifdbl.o gradient.o \
 	imports.o input.o jpeg.o linestyle.o matrix.o \
 	metadata.o method.o morph.o mp3.o output.o \
 	outputblock.o placeobject.o pngdbl.o protect.o rect.o \

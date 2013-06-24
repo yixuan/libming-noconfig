@@ -329,7 +329,7 @@ void writeSWFVideoStreamToMethod(SWFBlock block, SWFByteOutputMethod method, voi
 		method(0x0, data);
 		method(0x0, data);
 	}
-};
+}
 
 
 int completeSWFVideoStream(SWFBlock block) {
