@@ -441,7 +441,7 @@ newSWFFontCharacter(SWFFont font)
 
 	CHARACTERID(inst) = ++SWF_gNumCharacters;
 	inst->font = font;
-	inst->flags = font->flags; /* (unsigned char)(font->flags & /*(~SWF_FONT_HASLAYOUT) &*/ (~SWF_FONT_WIDEOFFSETS)); */
+	inst->flags = font->flags; /* (unsigned char)(font->flags & (~SWF_FONT_HASLAYOUT) & (~SWF_FONT_WIDEOFFSETS)); */
 
 	inst->nGlyphs = 0;
 	inst->codeTable = NULL;
