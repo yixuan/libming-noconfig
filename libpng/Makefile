@@ -2,6 +2,8 @@ ZLIBINC = ../zlib
 ZLIBLIB = ../zlib
 ZLIB = $(ZLIBLIB)/libz.a
 
+STATICLIB = libpng.a
+
 CP = cp -fp
 RM = rm -f
 
@@ -11,27 +13,22 @@ AR_RC = $(AR) rcs
 LDRELEASE = -s
 LDFLAGS = $(LDRELEASE)
 
-O=.o
-A=.a
+OBJS =  png.o pngerror.o pngget.o pngmem.o pngpread.o \
+	pngread.o pngrio.o pngrtran.o pngrutil.o pngset.o \
+	pngtrans.o pngwio.o pngwrite.o pngwtran.o pngwutil.o
 
-OBJS =  png$(O) pngerror$(O) pngget$(O) pngmem$(O) pngpread$(O) \
-	pngread$(O) pngrio$(O) pngrtran$(O) pngrutil$(O) pngset$(O) \
-	pngtrans$(O) pngwio$(O) pngwrite$(O) pngwtran$(O) pngwutil$(O)
+.PHONY: all clean
 
-
-all: libpng$(A)
+all: $(STATICLIB)
 
 .c.o:
 	$(CC) $(CFLAGS) -I$(ZLIBINC) $(CPPFLAGS) -c $< -o $@
 
-libpng$(A): $(OBJS)
+$(STATICLIB): $(OBJS)
 	@$(RM) $@
 	$(AR_RC) $@ $(OBJS)
 
-
-.PHONY: install clean
-
 clean:
-	-$(RM) libpng$(A)
-	-$(RM) *$(O) 
+	$(RM) $(STATICLIB)
+	$(RM) *.o 
 
